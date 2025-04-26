@@ -56,22 +56,16 @@
 	],
 	"events": [
 	{
-		"id": 5,
-		"nom": "Clone[341][172]",
-		"x": 15,
-		"y": 10
-	},
-	{
 		"id": 16,
 		"nom": "Clone[021][019]",
 		"x": 9,
 		"y": 8
 	},
 	{
-		"id": 22,
-		"nom": "Clone[341][059]",
-		"x": 16,
-		"y": 2
+		"id": 5,
+		"nom": "Clone[341][172]",
+		"x": 15,
+		"y": 10
 	},
 	{
 		"id": 11,
@@ -719,10 +713,10 @@
 		]
 	},
 	{
-		"id": 6,
-		"nom": "Clone[341][171]",
-		"x": 4,
-		"y": 8
+		"id": 22,
+		"nom": "Clone[341][059]",
+		"x": 16,
+		"y": 2
 	},
 	{
 		"id": 17,
@@ -731,29 +725,60 @@
 		"y": 10
 	},
 	{
-		"id": 12,
-		"nom": "EV012",
-		"x": 0,
-		"y": 3,
+		"id": 6,
+		"nom": "Clone[341][171]",
+		"x": 4,
+		"y": 8
+	},
+	{
+		"id": 23,
+		"nom": "Pancarte",
+		"x": 15,
+		"y": 2,
 		"pages": [
 		{
 			"conditions": [
 			{
-				"nom": "ArriveeAuContact"
+				"nom": "Parler"
 			}
 			],
 			"commandes": [
 			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 629,
-				"xDebutHeros": 19,
-				"yDebutHeros": 3
+				"nom": "ConditionDirection",
+				"idEventConcerne": 0,
+				"direction": 3,
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Here's a return bell! \\nThere are several in this dungeon. \\nIf you ring it, you'll be transported \\nto another return bell!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Voici une cloche de retour !\\nIl y en a plusieurs dans ce donjon.\\nSi vous la sonnez, vous serez transporté \\nvers une autre cloche de retour !"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
 			}
 			],
 			"vitesse": "moderee",
 			"frequence": "basse",
-			"animeEnMouvement": true,
+			"animeEnMouvement": false,
 			"animeALArret": false,
 			"directionFixe": false,
 			"traversable": false,
@@ -788,66 +813,35 @@
 		]
 	},
 	{
-		"id": 23,
-		"nom": "Pancarte",
-		"x": 15,
-		"y": 2,
+		"id": 12,
+		"nom": "EV012",
+		"x": 0,
+		"y": 3,
 		"pages": [
 		{
 			"conditions": [
 			{
-				"nom": "Parler"
+				"nom": "ArriveeAuContact"
 			}
 			],
 			"commandes": [
 			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 0,
-				"direction": 3,
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) Here's a Return Bell! \\nThere are several in this dungeon. \\nIf you ring it, you'll be transported \\nto another Return Bell!"
-			},
-			{
-				"nom": "Message",
-				"texte": "Voici une cloche de retour !\\nIl y en a plusieurs dans ce donjon.\\nSi vous la sonnez, vous serez transporté \\nvers une autre cloche de retour !"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 629,
+				"xDebutHeros": 19,
+				"yDebutHeros": 3
 			}
 			],
 			"vitesse": "moderee",
 			"frequence": "basse",
-			"animeEnMouvement": false,
+			"animeEnMouvement": true,
 			"animeALArret": false,
 			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 7,
-		"nom": "Clone[341][171]",
-		"x": 15,
-		"y": 8
 	},
 	{
 		"id": 18,
@@ -862,6 +856,217 @@
 			}
 			],
 			"commandes": [
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 7,
+		"nom": "Clone[341][171]",
+		"x": 15,
+		"y": 8
+	},
+	{
+		"id": 2,
+		"nom": "statue",
+		"x": 18,
+		"y": 12,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "mammouth statue character",
+			"directionInitiale": 1,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 13,
+		"nom": "teleporteur general",
+		"x": 0,
+		"y": 7,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 2,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"operationAFaire2": "coordonnee x"
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 3,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"operationAFaire2": "coordonnee y"
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 2,
+				"inegalite": "==",
+				"valeurQuIlEstCenseAvoir": 0,
+				"comparerAUneAutreVariable": false,
+				"numero": 0
+			},
+			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 0,
+				"direction": 1,
+				"numero": 1
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 3
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 66,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 629,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 67,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 20,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 68,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"operationAFaire2": "coordonnee y"
+			},
+			{
+				"nom": "ChangerDeMap",
+				"variable": true,
+				"numeroNouvelleMap": 66,
+				"xDebutHeros": 67,
+				"yDebutHeros": 68
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 1
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 3,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 14,
+				"comparerAUneAutreVariable": false,
+				"numero": 2
+			},
+			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 0,
+				"direction": 0,
+				"numero": 3
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 3
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 66,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 628,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 67,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"operationAFaire2": "coordonnee x"
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 68,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ChangerDeMap",
+				"variable": true,
+				"numeroNouvelleMap": 66,
+				"xDebutHeros": 67,
+				"yDebutHeros": 68
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 3
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 3
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 2
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 2
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 3
+			}
 			],
 			"vitesse": "moderee",
 			"frequence": "basse",
@@ -1060,209 +1265,10 @@
 		]
 	},
 	{
-		"id": 13,
-		"nom": "teleporteur general",
-		"x": 0,
-		"y": 7,
-		"pages": [
-		{
-			"conditions": [
-			],
-			"commandes": [
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 2,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"operationAFaire2": "coordonnee x"
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 3,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"operationAFaire2": "coordonnee y"
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 2,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 0
-			},
-			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 0,
-				"direction": 1,
-				"numero": 1
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 3
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 66,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 629,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 67,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 20,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 68,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"operationAFaire2": "coordonnee y"
-			},
-			{
-				"nom": "ChangerDeMap",
-				"variable": true,
-				"numeroNouvelleMap": 66,
-				"xDebutHeros": 67,
-				"yDebutHeros": 68
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 3,
-				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 14,
-				"comparerAUneAutreVariable": false,
-				"numero": 2
-			},
-			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 0,
-				"direction": 0,
-				"numero": 3
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 3
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 66,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 628,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 67,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"operationAFaire2": "coordonnee x"
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 68,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ChangerDeMap",
-				"variable": true,
-				"numeroNouvelleMap": 66,
-				"xDebutHeros": 67,
-				"yDebutHeros": 68
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 3
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 3
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 2
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 2
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 3
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 2,
-		"nom": "statue",
-		"x": 18,
-		"y": 12,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "mammouth statue character",
-			"directionInitiale": 1,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
+		"id": 19,
+		"nom": "Clone[021][019]",
+		"x": 11,
+		"y": 3
 	},
 	{
 		"id": 8,
@@ -1271,10 +1277,42 @@
 		"y": 10
 	},
 	{
-		"id": 19,
+		"id": 14,
 		"nom": "Clone[021][019]",
-		"x": 11,
-		"y": 3
+		"x": 9,
+		"y": 12
+	},
+	{
+		"id": 3,
+		"nom": "teleporteur mur",
+		"x": 20,
+		"y": 11,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 631,
+				"xDebutHeros": 8,
+				"yDebutHeros": 11
+			}
+			],
+			"image": 7,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": true
+		}
+		]
 	},
 	{
 		"id": 25,
@@ -1351,50 +1389,6 @@
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 3,
-		"nom": "teleporteur mur",
-		"x": 20,
-		"y": 11,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 631,
-				"xDebutHeros": 8,
-				"yDebutHeros": 11
-			}
-			],
-			"image": 7,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": true
-		}
-		]
-	},
-	{
-		"id": 14,
-		"nom": "Clone[021][019]",
-		"x": 9,
-		"y": 12
-	},
-	{
-		"id": 9,
-		"nom": "Clone[341][171]",
-		"x": 4,
-		"y": 12
 	},
 	{
 		"id": 20,
@@ -1574,75 +1568,16 @@
 		]
 	},
 	{
-		"id": 26,
-		"nom": "neige",
-		"x": 2,
-		"y": 14,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": 0,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": true,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "Variable",
-				"numeroVariable": 194,
-				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 7
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": true
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": true,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "InterrupteurLocal",
-				"numeroEvent": 26,
-				"numeroInterrupteurLocal": 0,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "SupprimerEvent"
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
+		"id": 9,
+		"nom": "Clone[341][171]",
+		"x": 4,
+		"y": 12
+	},
+	{
+		"id": 15,
+		"nom": "Clone[021][019]",
+		"x": 13,
+		"y": 9
 	},
 	{
 		"id": 4,
@@ -2290,10 +2225,81 @@
 		]
 	},
 	{
-		"id": 15,
-		"nom": "Clone[021][019]",
-		"x": 13,
-		"y": 9
+		"id": 26,
+		"nom": "neige",
+		"x": 2,
+		"y": 14,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": 0,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": true,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Variable",
+				"numeroVariable": 194,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 7
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": true
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": true,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 26,
+				"numeroInterrupteurLocal": 0,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": true,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 10,
+		"nom": "Clone[341][171]",
+		"x": 15,
+		"y": 12
 	},
 	{
 		"id": 21,
@@ -2319,12 +2325,6 @@
 			"auDessusDeTout": true
 		}
 		]
-	},
-	{
-		"id": 10,
-		"nom": "Clone[341][171]",
-		"x": 15,
-		"y": 12
 	}
 	]
 }

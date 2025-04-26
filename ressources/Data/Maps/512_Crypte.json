@@ -116,31 +116,6 @@
 	],
 	"events": [
 	{
-		"id": 5,
-		"nom": "faux mur 4",
-		"x": 13,
-		"y": 18,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": 457,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
 		"id": 16,
 		"nom": "Torche murale (4)",
 		"x": 7,
@@ -165,6 +140,31 @@
 			"frequence": "la plus haute",
 			"animeEnMouvement": false,
 			"animeALArret": true,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 5,
+		"nom": "faux mur 4",
+		"x": 13,
+		"y": 18,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": 457,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
 			"directionFixe": true,
 			"traversable": false,
 			"auDessusDeTout": false
@@ -221,6 +221,37 @@
 			"frequence": "basse",
 			"animeEnMouvement": false,
 			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 12,
+		"nom": "Torche murale (4)",
+		"x": 11,
+		"y": 4,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			},
+			{
+				"nom": "Variable",
+				"numeroVariable": 167,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 2
+			}
+			],
+			"commandes": [
+			],
+			"image": "torche murale character",
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": true,
 			"directionFixe": true,
 			"traversable": false,
 			"auDessusDeTout": false
@@ -818,37 +849,6 @@
 		]
 	},
 	{
-		"id": 12,
-		"nom": "Torche murale (4)",
-		"x": 11,
-		"y": 4,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			},
-			{
-				"nom": "Variable",
-				"numeroVariable": 167,
-				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 2
-			}
-			],
-			"commandes": [
-			],
-			"image": "torche murale character",
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
 		"id": 7,
 		"nom": "faux mur 6",
 		"x": 13,
@@ -874,6 +874,12 @@
 		]
 	},
 	{
+		"id": 13,
+		"nom": "Clone[341][155]",
+		"x": 15,
+		"y": 20
+	},
+	{
 		"id": 2,
 		"nom": "faux mur 1",
 		"x": 13,
@@ -897,12 +903,6 @@
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 13,
-		"nom": "Clone[341][155]",
-		"x": 15,
-		"y": 20
 	},
 	{
 		"id": 8,
@@ -1067,6 +1067,12 @@
 		]
 	},
 	{
+		"id": 14,
+		"nom": "Clone[341][006]",
+		"x": 11,
+		"y": 15
+	},
+	{
 		"id": 3,
 		"nom": "faux mur 2",
 		"x": 13,
@@ -1090,12 +1096,6 @@
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 14,
-		"nom": "Clone[341][006]",
-		"x": 11,
-		"y": 15
 	},
 	{
 		"id": 9,
@@ -1123,6 +1123,31 @@
 			"animeEnMouvement": true,
 			"animeALArret": false,
 			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 4,
+		"nom": "faux mur 3",
+		"x": 13,
+		"y": 17,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": 449,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
 			"traversable": false,
 			"auDessusDeTout": false
 		}
@@ -1309,31 +1334,6 @@
 		]
 	},
 	{
-		"id": 4,
-		"nom": "faux mur 3",
-		"x": 13,
-		"y": 17,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": 449,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
 		"id": 10,
 		"nom": "Cristal de baleine",
 		"x": 13,
@@ -1483,16 +1483,8 @@
 				]
 			},
 			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 0
-			},
-			{
 				"nom": "Commentaire",
-				"texte": "(en) You win a crystal of the whale!"
+				"texte": "(en) You get a crystal of the whale!"
 			},
 			{
 				"nom": "Message",
@@ -1505,30 +1497,6 @@
 			{
 				"nom": "Message",
 				"texte": "C'est un superbe morceau de sel magique \\ncristallisé."
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) You get a Crystal of the Whale!"
-			},
-			{
-				"nom": "Message",
-				"texte": "You get a Crystal of the Whale !"
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) This is a magic piece of crystallized salt."
-			},
-			{
-				"nom": "Message",
-				"texte": "This is a magic piece of crystallized salt."
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
 			},
 			{
 				"nom": "Attendre",

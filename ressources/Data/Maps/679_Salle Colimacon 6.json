@@ -171,6 +171,78 @@
 	],
 	"events": [
 	{
+		"id": 16,
+		"nom": "Stèle",
+		"x": 17,
+		"y": 15,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 0,
+				"direction": 3,
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \"This room was where \\c[2]Taiyo the scholar\\c[0] \\nretired to meditate.\""
+			},
+			{
+				"nom": "Message",
+				"texte": "\"Cette salle était là où \\c[2]Taiyô l'érudite\\c[1] se\\nretirait pour méditer.\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \"Such intense energy is concentrated here \\nthat it seems to attract fireflies.\""
+			},
+			{
+				"nom": "Message",
+				"texte": "\"Une énergie si intense y est concentrée\\nqu'elle semble attirer les lucioles.\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en)                         Memoirs of the \\c[2]traveling poet\\c[0]"
+			},
+			{
+				"nom": "Message",
+				"texte": "                        Mémoires du \\c[2]Poète voyageur"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 5,
 		"nom": "Luciole",
 		"x": 25,
@@ -558,70 +630,29 @@
 		]
 	},
 	{
-		"id": 16,
-		"nom": "Stèle",
-		"x": 17,
-		"y": 15,
+		"id": 22,
+		"nom": "EV022",
+		"x": 24,
+		"y": 13,
 		"pages": [
 		{
 			"conditions": [
 			{
-				"nom": "Parler"
+				"nom": "ArriveeAuContact"
 			}
 			],
 			"commandes": [
 			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 0,
-				"direction": 3,
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) \"This room was where \\c[2]Taiyo the scholar\\c[0] \\nretired to meditate.\""
-			},
-			{
-				"nom": "Message",
-				"texte": "\"Cette salle était là où \\c[2]Taiyô l'érudite\\c[1] se\\nretirait pour méditer.\""
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) \"Such intense energy is concentrated here \\nthat it seems to attract fireflies.\""
-			},
-			{
-				"nom": "Message",
-				"texte": "\"Une énergie si intense y est concentrée\\nqu'elle semble attirer les lucioles.\""
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en)                         Memoirs of the \\c[2]traveling poet\\c[0]"
-			},
-			{
-				"nom": "Message",
-				"texte": "                        Mémoires du \\c[2]Poète voyageur"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 665,
+				"xDebutHeros": 4,
+				"yDebutHeros": 12
 			}
 			],
 			"vitesse": "moderee",
 			"frequence": "basse",
-			"animeEnMouvement": false,
+			"animeEnMouvement": true,
 			"animeALArret": false,
 			"directionFixe": false,
 			"traversable": false,
@@ -1017,31 +1048,25 @@
 		]
 	},
 	{
-		"id": 22,
-		"nom": "EV022",
-		"x": 24,
-		"y": 13,
+		"id": 17,
+		"nom": "blocage",
+		"x": 25,
+		"y": 20,
 		"pages": [
 		{
 			"conditions": [
 			{
-				"nom": "ArriveeAuContact"
+				"nom": "Parler"
 			}
 			],
 			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 665,
-				"xDebutHeros": 4,
-				"yDebutHeros": 12
-			}
 			],
+			"image": 10,
 			"vitesse": "moderee",
 			"frequence": "basse",
-			"animeEnMouvement": true,
+			"animeEnMouvement": false,
 			"animeALArret": false,
-			"directionFixe": false,
+			"directionFixe": true,
 			"traversable": false,
 			"auDessusDeTout": false
 		}
@@ -1435,167 +1460,6 @@
 		]
 	},
 	{
-		"id": 17,
-		"nom": "blocage",
-		"x": 25,
-		"y": 20,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": 10,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 23,
-		"nom": "porte tabula",
-		"x": 25,
-		"y": 31,
-		"pages": [
-		{
-			"conditions": [
-			],
-			"commandes": [
-			{
-				"nom": "ConditionScript",
-				"script": "$game_map.events[@event_id].y < $game_player.y",
-				"numero": 0
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "RendreAuDessusDeTout",
-					"auDessusDeTout": false
-				}
-				]
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "RendreAuDessusDeTout",
-					"auDessusDeTout": true
-				}
-				]
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 3
-			}
-			],
-			"image": 58,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": true
-		}
-		]
-	},
-	{
-		"id": 12,
-		"nom": "EV012",
-		"x": 29,
-		"y": 34,
-		"pages": [
-		{
-			"conditions": [
-			],
-			"commandes": [
-			{
-				"nom": "ModifierBrouillard",
-				"opacite": 75,
-				"modeDeFusion": "normal",
-				"defilementX": 0,
-				"defilementY": 0,
-				"zoom": 100,
-				"nuance": 0,
-				"nomImage": "essai lumiere tourbillon geant"
-			},
-			{
-				"nom": "ModifierTonDeLEcran",
-				"rouge": 142,
-				"vert": 132,
-				"bleu": 127,
-				"gris": 0,
-				"dureeTransition": 0
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 2,
-				"valeur": false
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 3,
-				"valeur": false
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 4,
-				"valeur": false
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 5,
-				"valeur": false
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 25,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "SupprimerEvent"
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
 		"id": 1,
 		"nom": "Luciole",
 		"x": 31,
@@ -1807,9 +1671,82 @@
 		]
 	},
 	{
-		"id": 7,
+		"id": 12,
+		"nom": "EV012",
+		"x": 29,
+		"y": 34,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "ModifierBrouillard",
+				"opacite": 75,
+				"modeDeFusion": "normal",
+				"defilementX": 0,
+				"defilementY": 0,
+				"zoom": 100,
+				"nuance": 0,
+				"nomImage": "essai lumiere tourbillon geant"
+			},
+			{
+				"nom": "ModifierTonDeLEcran",
+				"rouge": 142,
+				"vert": 132,
+				"bleu": 127,
+				"gris": 0,
+				"dureeTransition": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 2,
+				"valeur": false
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 3,
+				"valeur": false
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 4,
+				"valeur": false
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 5,
+				"valeur": false
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 25,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 23,
 		"nom": "porte tabula",
-		"x": 24,
+		"x": 25,
 		"y": 31,
 		"pages": [
 		{
@@ -1917,9 +1854,9 @@
 		]
 	},
 	{
-		"id": 24,
+		"id": 7,
 		"nom": "porte tabula",
-		"x": 26,
+		"x": 24,
 		"y": 31,
 		"pages": [
 		{
@@ -1976,37 +1913,6 @@
 			"directionFixe": true,
 			"traversable": false,
 			"auDessusDeTout": true
-		}
-		]
-	},
-	{
-		"id": 13,
-		"nom": "EV013",
-		"x": 25,
-		"y": 30,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 678,
-				"xDebutHeros": 16,
-				"yDebutHeros": 13
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
 		}
 		]
 	},
@@ -2310,6 +2216,158 @@
 		]
 	},
 	{
+		"id": 13,
+		"nom": "EV013",
+		"x": 25,
+		"y": 30,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 678,
+				"xDebutHeros": 16,
+				"yDebutHeros": 13
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 24,
+		"nom": "porte tabula",
+		"x": 26,
+		"y": 31,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "ConditionScript",
+				"script": "$game_map.events[@event_id].y < $game_player.y",
+				"numero": 0
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RendreAuDessusDeTout",
+					"auDessusDeTout": false
+				}
+				]
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RendreAuDessusDeTout",
+					"auDessusDeTout": true
+				}
+				]
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 3
+			}
+			],
+			"image": 58,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": true
+		}
+		]
+	},
+	{
+		"id": 19,
+		"nom": "viking SHADOW[30] (-4)",
+		"x": 29,
+		"y": 26,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "Viking1.wav",
+				"volume": 0.80,
+				"tempo": 1.00
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"viking rouge\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) It's okay, \\c[2]chief\\c[0], you can come down!"
+			},
+			{
+				"nom": "Message",
+				"texte": "C'est bon, \\c[2]chef\\c[0], vous pouvez descendre !"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"image": "viking petit character",
+			"directionInitiale": 1,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 8,
 		"nom": "Luciole",
 		"x": 21,
@@ -2451,153 +2509,6 @@
 			"animeEnMouvement": true,
 			"animeALArret": true,
 			"directionFixe": false,
-			"traversable": true,
-			"auDessusDeTout": true
-		}
-		]
-	},
-	{
-		"id": 19,
-		"nom": "viking SHADOW[30] (-4)",
-		"x": 29,
-		"y": 26,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "Viking1.wav",
-				"volume": 0.80,
-				"tempo": 1.00
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_temp.faceset = \"viking rouge\""
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) It's okay, \\c[2]chief\\c[0], you can come down!"
-			},
-			{
-				"nom": "Message",
-				"texte": "C'est bon, \\c[2]chef\\c[0], vous pouvez descendre !"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
-			],
-			"image": "viking petit character",
-			"directionInitiale": 1,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 25,
-		"nom": "porte tabula",
-		"x": 26,
-		"y": 30,
-		"pages": [
-		{
-			"conditions": [
-			],
-			"commandes": [
-			{
-				"nom": "ConditionScript",
-				"script": "$game_map.events[@event_id].y < $game_player.y",
-				"numero": 0
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "RendreAuDessusDeTout",
-					"auDessusDeTout": false
-				}
-				]
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "RendreAuDessusDeTout",
-					"auDessusDeTout": true
-				}
-				]
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 3
-			}
-			],
-			"image": 58,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": true
-		}
-		]
-	},
-	{
-		"id": 14,
-		"nom": "tabula SHADOW[40] (-8)",
-		"x": 25,
-		"y": 18,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "tabula tombe",
-			"opacite": 0,
-			"vitesse": "normale",
-			"frequence": "haute",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": true,
 			"traversable": true,
 			"auDessusDeTout": true
 		}
@@ -2815,6 +2726,153 @@
 		]
 	},
 	{
+		"id": 14,
+		"nom": "tabula SHADOW[40] (-8)",
+		"x": 25,
+		"y": 18,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "tabula tombe",
+			"opacite": 0,
+			"vitesse": "normale",
+			"frequence": "haute",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": true
+		}
+		]
+	},
+	{
+		"id": 25,
+		"nom": "porte tabula",
+		"x": 26,
+		"y": 30,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "ConditionScript",
+				"script": "$game_map.events[@event_id].y < $game_player.y",
+				"numero": 0
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RendreAuDessusDeTout",
+					"auDessusDeTout": false
+				}
+				]
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RendreAuDessusDeTout",
+					"auDessusDeTout": true
+				}
+				]
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 3
+			}
+			],
+			"image": 58,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": true
+		}
+		]
+	},
+	{
+		"id": 20,
+		"nom": "viking SHADOW[30] (-4)",
+		"x": 21,
+		"y": 26,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "Viking1 femme.ogg",
+				"volume": 0.80,
+				"tempo": 1.00
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"viking rouge femme\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) We must find the holy tartiflette\\nbefore the \\c[2]yellow Vikings\\c[0]!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Il faut qu'on trouve la sainte tartiflette avant \\nles \\c[2]Vikings jaunes\\c[0] !"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"image": "viking femme petit character",
+			"directionInitiale": 2,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 9,
 		"nom": "Luciole",
 		"x": 28,
@@ -2962,122 +3020,300 @@
 		]
 	},
 	{
-		"id": 20,
-		"nom": "viking SHADOW[30] (-4)",
-		"x": 21,
-		"y": 26,
+		"id": 4,
+		"nom": "Luciole",
+		"x": 25,
+		"y": 33,
 		"pages": [
 		{
 			"conditions": [
-			{
-				"nom": "Parler"
-			}
 			],
 			"commandes": [
 			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "Viking1 femme.ogg",
-				"volume": 0.80,
-				"tempo": 1.00
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_temp.faceset = \"viking rouge femme\""
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) We must find the holy tartiflette\\nbefore the \\c[2]yellow Vikings\\c[0] !"
-			},
-			{
-				"nom": "Message",
-				"texte": "Il faut qu'on trouve la sainte tartiflette avant \\nles \\c[2]Vikings jaunes\\c[0] !"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 131
 			}
 			],
-			"image": "viking femme petit character",
-			"directionInitiale": 2,
+			"deplacement": {
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": true,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Avancer",
+					"direction": 2,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 2,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 2,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "PasEnDiagonale",
+					"directionVerticale": 3,
+					"directionHorizontale": 2,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "PasEnDiagonale",
+					"directionVerticale": 3,
+					"directionHorizontale": 2,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "PasEnDiagonale",
+					"directionVerticale": 3,
+					"directionHorizontale": 2,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "PasEnDiagonale",
+					"directionVerticale": 3,
+					"directionHorizontale": 2,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "PasEnDiagonale",
+					"directionVerticale": 3,
+					"directionHorizontale": 2,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "PasEnDiagonale",
+					"directionVerticale": 3,
+					"directionHorizontale": 2,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 3,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 3,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 3,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 3,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 3,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 3,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "PasEnDiagonale",
+					"directionVerticale": 3,
+					"directionHorizontale": 1,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "PasEnDiagonale",
+					"directionVerticale": 3,
+					"directionHorizontale": 1,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "PasEnDiagonale",
+					"directionVerticale": 3,
+					"directionHorizontale": 1,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "PasEnDiagonale",
+					"directionVerticale": 3,
+					"directionHorizontale": 1,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "PasEnDiagonale",
+					"directionVerticale": 3,
+					"directionHorizontale": 1,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "PasEnDiagonale",
+					"directionVerticale": 3,
+					"directionHorizontale": 1,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 1,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 1,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 1,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 1,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 1,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 1,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "PasEnDiagonale",
+					"directionVerticale": 0,
+					"directionHorizontale": 1,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "PasEnDiagonale",
+					"directionVerticale": 0,
+					"directionHorizontale": 1,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "PasEnDiagonale",
+					"directionVerticale": 0,
+					"directionHorizontale": 1,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "PasEnDiagonale",
+					"directionVerticale": 0,
+					"directionHorizontale": 1,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "PasEnDiagonale",
+					"directionVerticale": 0,
+					"directionHorizontale": 1,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "PasEnDiagonale",
+					"directionVerticale": 0,
+					"directionHorizontale": 1,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 0,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 0,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 0,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 0,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 0,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 0,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "PasEnDiagonale",
+					"directionVerticale": 0,
+					"directionHorizontale": 2,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "PasEnDiagonale",
+					"directionVerticale": 0,
+					"directionHorizontale": 2,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "PasEnDiagonale",
+					"directionVerticale": 0,
+					"directionHorizontale": 2,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "PasEnDiagonale",
+					"directionVerticale": 0,
+					"directionHorizontale": 2,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "PasEnDiagonale",
+					"directionVerticale": 0,
+					"directionHorizontale": 2,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "PasEnDiagonale",
+					"directionVerticale": 0,
+					"directionHorizontale": 2,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 2,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 2,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 2,
+					"nombreDeCarreaux": 1
+				}
+				]
+			},
+			"image": "luciole character",
+			"opacite": 200,
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": true,
-			"animeALArret": false,
+			"animeALArret": true,
 			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 26,
-		"nom": "porte tabula",
-		"x": 24,
-		"y": 30,
-		"pages": [
-		{
-			"conditions": [
-			],
-			"commandes": [
-			{
-				"nom": "ConditionScript",
-				"script": "$game_map.events[@event_id].y < $game_player.y",
-				"numero": 0
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "RendreAuDessusDeTout",
-					"auDessusDeTout": false
-				}
-				]
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "RendreAuDessusDeTout",
-					"auDessusDeTout": true
-				}
-				]
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 3
-			}
-			],
-			"image": 58,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
+			"traversable": true,
 			"auDessusDeTout": true
 		}
 		]
@@ -3380,7 +3616,7 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) ON THE WAY TO THE SHRINE!"
+				"texte": "(en) ON THE WAY TO THE SANCTUARY!"
 			},
 			{
 				"nom": "Message",
@@ -3388,7 +3624,7 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en)IT'S THIS WAY, ISN'T IT ?"
+				"texte": "(en)IT'S THIS WAY, ISN'T IT?"
 			},
 			{
 				"nom": "Message",
@@ -3850,301 +4086,131 @@
 		]
 	},
 	{
-		"id": 4,
-		"nom": "Luciole",
-		"x": 25,
-		"y": 33,
+		"id": 26,
+		"nom": "porte tabula",
+		"x": 24,
+		"y": 30,
 		"pages": [
 		{
 			"conditions": [
 			],
 			"commandes": [
 			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 131
-			}
-			],
-			"deplacement": {
+				"nom": "ConditionScript",
+				"script": "$game_map.events[@event_id].y < $game_player.y",
+				"numero": 0
+			},
+			{
 				"nom": "Deplacement",
 				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": true,
+				"repeterLeDeplacement": false,
 				"attendreLaFinDuDeplacement": false,
 				"mouvements": [
 				{
-					"nom": "Avancer",
-					"direction": 2,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "Avancer",
-					"direction": 2,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "Avancer",
-					"direction": 2,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "PasEnDiagonale",
-					"directionVerticale": 3,
-					"directionHorizontale": 2,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "PasEnDiagonale",
-					"directionVerticale": 3,
-					"directionHorizontale": 2,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "PasEnDiagonale",
-					"directionVerticale": 3,
-					"directionHorizontale": 2,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "PasEnDiagonale",
-					"directionVerticale": 3,
-					"directionHorizontale": 2,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "PasEnDiagonale",
-					"directionVerticale": 3,
-					"directionHorizontale": 2,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "PasEnDiagonale",
-					"directionVerticale": 3,
-					"directionHorizontale": 2,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "Avancer",
-					"direction": 3,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "Avancer",
-					"direction": 3,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "Avancer",
-					"direction": 3,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "Avancer",
-					"direction": 3,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "Avancer",
-					"direction": 3,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "Avancer",
-					"direction": 3,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "PasEnDiagonale",
-					"directionVerticale": 3,
-					"directionHorizontale": 1,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "PasEnDiagonale",
-					"directionVerticale": 3,
-					"directionHorizontale": 1,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "PasEnDiagonale",
-					"directionVerticale": 3,
-					"directionHorizontale": 1,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "PasEnDiagonale",
-					"directionVerticale": 3,
-					"directionHorizontale": 1,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "PasEnDiagonale",
-					"directionVerticale": 3,
-					"directionHorizontale": 1,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "PasEnDiagonale",
-					"directionVerticale": 3,
-					"directionHorizontale": 1,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "Avancer",
-					"direction": 1,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "Avancer",
-					"direction": 1,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "Avancer",
-					"direction": 1,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "Avancer",
-					"direction": 1,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "Avancer",
-					"direction": 1,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "Avancer",
-					"direction": 1,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "PasEnDiagonale",
-					"directionVerticale": 0,
-					"directionHorizontale": 1,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "PasEnDiagonale",
-					"directionVerticale": 0,
-					"directionHorizontale": 1,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "PasEnDiagonale",
-					"directionVerticale": 0,
-					"directionHorizontale": 1,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "PasEnDiagonale",
-					"directionVerticale": 0,
-					"directionHorizontale": 1,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "PasEnDiagonale",
-					"directionVerticale": 0,
-					"directionHorizontale": 1,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "PasEnDiagonale",
-					"directionVerticale": 0,
-					"directionHorizontale": 1,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "Avancer",
-					"direction": 0,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "Avancer",
-					"direction": 0,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "Avancer",
-					"direction": 0,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "Avancer",
-					"direction": 0,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "Avancer",
-					"direction": 0,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "Avancer",
-					"direction": 0,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "PasEnDiagonale",
-					"directionVerticale": 0,
-					"directionHorizontale": 2,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "PasEnDiagonale",
-					"directionVerticale": 0,
-					"directionHorizontale": 2,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "PasEnDiagonale",
-					"directionVerticale": 0,
-					"directionHorizontale": 2,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "PasEnDiagonale",
-					"directionVerticale": 0,
-					"directionHorizontale": 2,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "PasEnDiagonale",
-					"directionVerticale": 0,
-					"directionHorizontale": 2,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "PasEnDiagonale",
-					"directionVerticale": 0,
-					"directionHorizontale": 2,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "Avancer",
-					"direction": 2,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "Avancer",
-					"direction": 2,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "Avancer",
-					"direction": 2,
-					"nombreDeCarreaux": 1
+					"nom": "RendreAuDessusDeTout",
+					"auDessusDeTout": false
 				}
 				]
 			},
-			"image": "luciole character",
-			"opacite": 200,
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RendreAuDessusDeTout",
+					"auDessusDeTout": true
+				}
+				]
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 3
+			}
+			],
+			"image": 58,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": true
+		}
+		]
+	},
+	{
+		"id": 21,
+		"nom": "viking SHADOW[30] (-4)",
+		"x": 29,
+		"y": 25,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "Viking1.wav",
+				"volume": 0.80,
+				"tempo": 1.00
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"viking rouge\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) What if the prophecy was true?"
+			},
+			{
+				"nom": "Message",
+				"texte": "Et si la prophétie disait vrai ?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Maybe we'll get out of the whale soon!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Peut-être qu'on va bientôt sortir de la baleine !"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"image": "viking petit character",
+			"directionInitiale": 1,
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": true,
-			"animeALArret": true,
+			"animeALArret": false,
 			"directionFixe": false,
-			"traversable": true,
-			"auDessusDeTout": true
+			"traversable": false,
+			"auDessusDeTout": false
 		}
 		]
 	},
@@ -4444,72 +4510,6 @@
 			"directionFixe": false,
 			"traversable": true,
 			"auDessusDeTout": true
-		}
-		]
-	},
-	{
-		"id": 21,
-		"nom": "viking SHADOW[30] (-4)",
-		"x": 29,
-		"y": 25,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "Viking1.wav",
-				"volume": 0.80,
-				"tempo": 1.00
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_temp.faceset = \"viking rouge\""
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) And if the prophecy was true ?"
-			},
-			{
-				"nom": "Message",
-				"texte": "Et si la prophétie disait vrai ?"
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) Maybe we'll get out of the whale soon!"
-			},
-			{
-				"nom": "Message",
-				"texte": "Peut-être qu'on va bientôt sortir de la baleine !"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
-			],
-			"image": "viking petit character",
-			"directionInitiale": 1,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
 		}
 		]
 	}

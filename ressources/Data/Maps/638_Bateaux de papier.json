@@ -75,6 +75,154 @@
 	],
 	"events": [
 	{
+		"id": 16,
+		"nom": "toc bois",
+		"x": 15,
+		"y": 9,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 9,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 1,
+				"comparerAUneAutreVariable": false,
+				"numero": 0
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "toc bois1.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 9,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 9,
+				"inegalite": "<=",
+				"valeurQuIlEstCenseAvoir": 0,
+				"comparerAUneAutreVariable": false,
+				"numero": 1
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "toc bois2.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 9,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 1,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 5,
+		"nom": "toc bois",
+		"x": 4,
+		"y": 9,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 9,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 1,
+				"comparerAUneAutreVariable": false,
+				"numero": 0
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "toc bois1.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 9,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 9,
+				"inegalite": "<=",
+				"valeurQuIlEstCenseAvoir": 0,
+				"comparerAUneAutreVariable": false,
+				"numero": 1
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "toc bois2.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 9,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 1,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 27,
 		"nom": "bateau",
 		"x": 14,
@@ -456,179 +604,6 @@
 		]
 	},
 	{
-		"id": 5,
-		"nom": "toc bois",
-		"x": 4,
-		"y": 9,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 9,
-				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 1,
-				"comparerAUneAutreVariable": false,
-				"numero": 0
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "toc bois1.wav",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 9,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 9,
-				"inegalite": "<=",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 1
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "toc bois2.wav",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 9,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 1,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 16,
-		"nom": "toc bois",
-		"x": 15,
-		"y": 9,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 9,
-				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 1,
-				"comparerAUneAutreVariable": false,
-				"numero": 0
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "toc bois1.wav",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 9,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 9,
-				"inegalite": "<=",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 1
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "toc bois2.wav",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 9,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 1,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 33,
-		"nom": "heros (14)",
-		"x": 10,
-		"y": 7,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "Jiyounasu character",
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": true
-		}
-		]
-	},
-	{
 		"id": 11,
 		"nom": "toc bois",
 		"x": 10,
@@ -693,6 +668,181 @@
 			}
 			],
 			"image": 186,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": true
+		}
+		]
+	},
+	{
+		"id": 33,
+		"nom": "heros (14)",
+		"x": 10,
+		"y": 7,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "Jiyounasu character",
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": true
+		}
+		]
+	},
+	{
+		"id": 17,
+		"nom": "toc bois",
+		"x": 16,
+		"y": 9,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 9,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 1,
+				"comparerAUneAutreVariable": false,
+				"numero": 0
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "toc bois1.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 9,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 9,
+				"inegalite": "<=",
+				"valeurQuIlEstCenseAvoir": 0,
+				"comparerAUneAutreVariable": false,
+				"numero": 1
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "toc bois2.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 9,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 1,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			}
+			],
+			"image": 304,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": true
+		}
+		]
+	},
+	{
+		"id": 6,
+		"nom": "toc bois",
+		"x": 5,
+		"y": 9,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 9,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 1,
+				"comparerAUneAutreVariable": false,
+				"numero": 0
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "toc bois1.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 9,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 9,
+				"inegalite": "<=",
+				"valeurQuIlEstCenseAvoir": 0,
+				"comparerAUneAutreVariable": false,
+				"numero": 1
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "toc bois2.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 9,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 1,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			}
+			],
+			"image": 69,
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": false,
@@ -1063,181 +1213,6 @@
 		]
 	},
 	{
-		"id": 6,
-		"nom": "toc bois",
-		"x": 5,
-		"y": 9,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 9,
-				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 1,
-				"comparerAUneAutreVariable": false,
-				"numero": 0
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "toc bois1.wav",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 9,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 9,
-				"inegalite": "<=",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 1
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "toc bois2.wav",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 9,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 1,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			}
-			],
-			"image": 69,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": true
-		}
-		]
-	},
-	{
-		"id": 17,
-		"nom": "toc bois",
-		"x": 16,
-		"y": 9,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 9,
-				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 1,
-				"comparerAUneAutreVariable": false,
-				"numero": 0
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "toc bois1.wav",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 9,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 9,
-				"inegalite": "<=",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 1
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "toc bois2.wav",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 9,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 1,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			}
-			],
-			"image": 304,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": true
-		}
-		]
-	},
-	{
-		"id": 1,
-		"nom": "feu",
-		"x": 3,
-		"y": 6,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "flamme character",
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": true
-		}
-		]
-	},
-	{
 		"id": 12,
 		"nom": "toc bois",
 		"x": 11,
@@ -1309,6 +1284,180 @@
 			"directionFixe": true,
 			"traversable": true,
 			"auDessusDeTout": true
+		}
+		]
+	},
+	{
+		"id": 1,
+		"nom": "feu",
+		"x": 3,
+		"y": 6,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "flamme character",
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": true,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": true
+		}
+		]
+	},
+	{
+		"id": 18,
+		"nom": "toc bois",
+		"x": 17,
+		"y": 9,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 9,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 1,
+				"comparerAUneAutreVariable": false,
+				"numero": 0
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "toc bois1.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 9,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 9,
+				"inegalite": "<=",
+				"valeurQuIlEstCenseAvoir": 0,
+				"comparerAUneAutreVariable": false,
+				"numero": 1
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "toc bois2.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 9,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 1,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			}
+			],
+			"image": 305,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": true
+		}
+		]
+	},
+	{
+		"id": 7,
+		"nom": "toc bois",
+		"x": 6,
+		"y": 9,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 9,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 1,
+				"comparerAUneAutreVariable": false,
+				"numero": 0
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "toc bois1.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 9,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 9,
+				"inegalite": "<=",
+				"valeurQuIlEstCenseAvoir": 0,
+				"comparerAUneAutreVariable": false,
+				"numero": 1
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "toc bois2.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 9,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 1,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
 		}
 		]
 	},
@@ -1671,9 +1820,9 @@
 		]
 	},
 	{
-		"id": 7,
+		"id": 13,
 		"nom": "toc bois",
-		"x": 6,
+		"x": 12,
 		"y": 9,
 		"pages": [
 		{
@@ -1734,85 +1883,37 @@
 				"numero": 1
 			}
 			],
+			"image": 188,
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": false,
 			"animeALArret": false,
 			"directionFixe": true,
 			"traversable": true,
-			"auDessusDeTout": false
+			"auDessusDeTout": true
 		}
 		]
 	},
 	{
-		"id": 18,
-		"nom": "toc bois",
-		"x": 17,
-		"y": 9,
+		"id": 2,
+		"nom": "feu",
+		"x": 14,
+		"y": 4,
 		"pages": [
 		{
 			"conditions": [
 			{
-				"nom": "ArriveeAuContact"
+				"nom": "Parler"
 			}
 			],
 			"commandes": [
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 9,
-				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 1,
-				"comparerAUneAutreVariable": false,
-				"numero": 0
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "toc bois1.wav",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 9,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 9,
-				"inegalite": "<=",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 1
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "toc bois2.wav",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 9,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 1,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			}
 			],
-			"image": 305,
-			"vitesse": "moderee",
-			"frequence": "basse",
+			"image": "flamme character",
+			"opacite": 220,
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
 			"animeEnMouvement": false,
-			"animeALArret": false,
+			"animeALArret": true,
 			"directionFixe": true,
 			"traversable": true,
 			"auDessusDeTout": true
@@ -2201,10 +2302,10 @@
 		]
 	},
 	{
-		"id": 2,
-		"nom": "feu",
-		"x": 14,
-		"y": 4,
+		"id": 19,
+		"nom": "poesie (14)",
+		"x": 9,
+		"y": 7,
 		"pages": [
 		{
 			"conditions": [
@@ -2214,22 +2315,21 @@
 			],
 			"commandes": [
 			],
-			"image": "flamme character",
-			"opacite": 220,
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
+			"image": "poesie yukata assise character",
+			"vitesse": "moderee",
+			"frequence": "basse",
 			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
 			"auDessusDeTout": true
 		}
 		]
 	},
 	{
-		"id": 13,
+		"id": 8,
 		"nom": "toc bois",
-		"x": 12,
+		"x": 7,
 		"y": 9,
 		"pages": [
 		{
@@ -2290,14 +2390,13 @@
 				"numero": 1
 			}
 			],
-			"image": 188,
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": false,
 			"animeALArret": false,
 			"directionFixe": true,
 			"traversable": true,
-			"auDessusDeTout": true
+			"auDessusDeTout": false
 		}
 		]
 	},
@@ -2661,9 +2760,9 @@
 		]
 	},
 	{
-		"id": 8,
+		"id": 14,
 		"nom": "toc bois",
-		"x": 7,
+		"x": 13,
 		"y": 9,
 		"pages": [
 		{
@@ -2735,27 +2834,76 @@
 		]
 	},
 	{
-		"id": 19,
-		"nom": "poesie (14)",
-		"x": 9,
-		"y": 7,
+		"id": 3,
+		"nom": "toc bois",
+		"x": 2,
+		"y": 9,
 		"pages": [
 		{
 			"conditions": [
 			{
-				"nom": "Parler"
+				"nom": "ArriveeAuContact"
 			}
 			],
 			"commandes": [
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 9,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 1,
+				"comparerAUneAutreVariable": false,
+				"numero": 0
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "toc bois1.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 9,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 9,
+				"inegalite": "<=",
+				"valeurQuIlEstCenseAvoir": 0,
+				"comparerAUneAutreVariable": false,
+				"numero": 1
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "toc bois2.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 9,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 1,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			}
 			],
-			"image": "poesie yukata assise character",
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": false,
 			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": true
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
 		}
 		]
 	},
@@ -3161,9 +3309,9 @@
 		]
 	},
 	{
-		"id": 3,
+		"id": 9,
 		"nom": "toc bois",
-		"x": 2,
+		"x": 8,
 		"y": 9,
 		"pages": [
 		{
@@ -3224,445 +3372,14 @@
 				"numero": 1
 			}
 			],
+			"image": 184,
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": false,
 			"animeALArret": false,
 			"directionFixe": true,
 			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 14,
-		"nom": "toc bois",
-		"x": 13,
-		"y": 9,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 9,
-				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 1,
-				"comparerAUneAutreVariable": false,
-				"numero": 0
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "toc bois1.wav",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 9,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 9,
-				"inegalite": "<=",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 1
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "toc bois2.wav",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 9,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 1,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 31,
-		"nom": "bateau",
-		"x": 17,
-		"y": 0,
-		"pages": [
-		{
-			"conditions": [
-			],
-			"commandes": [
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierOpacite",
-					"opacite": 0
-				}
-				]
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "attendre aléatoirement pour créer un décalage"
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 8,
-				"operationAFaire": "modulo",
-				"valeurADonner": 1,
-				"valeurADonner2": 3,
-				"operationAFaire2": "nombre aleatoire"
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 8,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 1,
-				"comparerAUneAutreVariable": false,
-				"numero": 0
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 551
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 8,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 2,
-				"comparerAUneAutreVariable": false,
-				"numero": 1
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 21
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 231
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "la bateau vogue vers le bas"
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierOpacite",
-					"opacite": 50
-				},
-				{
-					"nom": "Avancer",
-					"direction": 0,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "ModifierOpacite",
-					"opacite": 100
-				},
-				{
-					"nom": "Avancer",
-					"direction": 0,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "ModifierOpacite",
-					"opacite": 125
-				},
-				{
-					"nom": "Avancer",
-					"direction": 0,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "ModifierOpacite",
-					"opacite": 150
-				},
-				{
-					"nom": "Avancer",
-					"direction": 0,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "ModifierOpacite",
-					"opacite": 175
-				},
-				{
-					"nom": "Avancer",
-					"direction": 0,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "ModifierOpacite",
-					"opacite": 200
-				},
-				{
-					"nom": "Avancer",
-					"direction": 0,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "ModifierOpacite",
-					"opacite": 220
-				},
-				{
-					"nom": "Avancer",
-					"direction": 0,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "ModifierOpacite",
-					"opacite": 240
-				},
-				{
-					"nom": "Avancer",
-					"direction": 0,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "ModifierOpacite",
-					"opacite": 255
-				},
-				{
-					"nom": "Avancer",
-					"direction": 0,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "ModifierOpacite",
-					"opacite": 0
-				},
-				{
-					"nom": "Avancer",
-					"direction": 0,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "ModifierOpacite",
-					"opacite": 255
-				},
-				{
-					"nom": "Avancer",
-					"direction": 0,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "ModifierOpacite",
-					"opacite": 240
-				},
-				{
-					"nom": "Avancer",
-					"direction": 0,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "ModifierOpacite",
-					"opacite": 220
-				},
-				{
-					"nom": "Avancer",
-					"direction": 0,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "ModifierOpacite",
-					"opacite": 200
-				},
-				{
-					"nom": "Avancer",
-					"direction": 0,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "ModifierOpacite",
-					"opacite": 175
-				},
-				{
-					"nom": "Avancer",
-					"direction": 0,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "ModifierOpacite",
-					"opacite": 150
-				},
-				{
-					"nom": "Avancer",
-					"direction": 0,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "ModifierOpacite",
-					"opacite": 125
-				},
-				{
-					"nom": "Avancer",
-					"direction": 0,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "ModifierOpacite",
-					"opacite": 0
-				}
-				]
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "wait_for_event(@event_id)"
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "remettre le bateau sur un point de départ"
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 11,
-				"operationAFaire": "modulo",
-				"valeurADonner": 3,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 11,
-				"operationAFaire": "ajouter",
-				"valeurADonner": 1,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 11,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 1,
-				"comparerAUneAutreVariable": false,
-				"numero": 2
-			},
-			{
-				"nom": "TeleporterEvent",
-				"variable": false,
-				"nouveauX": 10,
-				"nouveauY": 0,
-				"direction": 0
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 2
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 11,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 2,
-				"comparerAUneAutreVariable": false,
-				"numero": 3
-			},
-			{
-				"nom": "TeleporterEvent",
-				"variable": false,
-				"nouveauX": 16,
-				"nouveauY": 0,
-				"direction": 0
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 3
-			},
-			{
-				"nom": "TeleporterEvent",
-				"variable": false,
-				"nouveauX": 17,
-				"nouveauY": 0,
-				"direction": 0
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 3
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 2
-			}
-			],
-			"image": "bateaux de papier character",
-			"directionInitiale": 2,
-			"vitesse": "tres lente",
-			"frequence": "la plus basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			},
-			{
-				"nom": "Interrupteur",
-				"numeroInterrupteur": 6,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			],
-			"image": "bateaux de papier character",
-			"directionInitiale": 1,
-			"vitesse": "tres lente",
-			"frequence": "la plus basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
+			"auDessusDeTout": true
 		}
 		]
 	},
@@ -4298,7 +4015,7 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) That is to say, before the Viking people \\nwere swallowed by \\c[2]Kujira\\c[0] !"
+				"texte": "(en) That is to say, before the Viking people \\nwere swallowed by \\c[2]Kujira\\c[0]!"
 			},
 			{
 				"nom": "Message",
@@ -4322,7 +4039,7 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) Either they took the corpse of \\c[2]Grötkrötsen\\c[0] \\nto sea, but in which goal ?"
+				"texte": "(en) Either they took the corpse of \\c[2]Grötkrötsen\\c[0] \\nto sea, but for what purpose?"
 			},
 			{
 				"nom": "Message",
@@ -4340,7 +4057,7 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) To serve as bait for the fishes ?"
+				"texte": "(en) To serve as bait for the fish?"
 			},
 			{
 				"nom": "Message",
@@ -4510,9 +4227,367 @@
 		]
 	},
 	{
-		"id": 9,
+		"id": 31,
+		"nom": "bateau",
+		"x": 17,
+		"y": 0,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 0
+				}
+				]
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "attendre aléatoirement pour créer un décalage"
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 8,
+				"operationAFaire": "modulo",
+				"valeurADonner": 1,
+				"valeurADonner2": 3,
+				"operationAFaire2": "nombre aleatoire"
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 8,
+				"inegalite": "==",
+				"valeurQuIlEstCenseAvoir": 1,
+				"comparerAUneAutreVariable": false,
+				"numero": 0
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 551
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 8,
+				"inegalite": "==",
+				"valeurQuIlEstCenseAvoir": 2,
+				"comparerAUneAutreVariable": false,
+				"numero": 1
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 21
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 1
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 231
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "la bateau vogue vers le bas"
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 50
+				},
+				{
+					"nom": "Avancer",
+					"direction": 0,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 100
+				},
+				{
+					"nom": "Avancer",
+					"direction": 0,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 125
+				},
+				{
+					"nom": "Avancer",
+					"direction": 0,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 150
+				},
+				{
+					"nom": "Avancer",
+					"direction": 0,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 175
+				},
+				{
+					"nom": "Avancer",
+					"direction": 0,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 200
+				},
+				{
+					"nom": "Avancer",
+					"direction": 0,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 220
+				},
+				{
+					"nom": "Avancer",
+					"direction": 0,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 240
+				},
+				{
+					"nom": "Avancer",
+					"direction": 0,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 255
+				},
+				{
+					"nom": "Avancer",
+					"direction": 0,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 0
+				},
+				{
+					"nom": "Avancer",
+					"direction": 0,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 255
+				},
+				{
+					"nom": "Avancer",
+					"direction": 0,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 240
+				},
+				{
+					"nom": "Avancer",
+					"direction": 0,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 220
+				},
+				{
+					"nom": "Avancer",
+					"direction": 0,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 200
+				},
+				{
+					"nom": "Avancer",
+					"direction": 0,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 175
+				},
+				{
+					"nom": "Avancer",
+					"direction": 0,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 150
+				},
+				{
+					"nom": "Avancer",
+					"direction": 0,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 125
+				},
+				{
+					"nom": "Avancer",
+					"direction": 0,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 0
+				}
+				]
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(@event_id)"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "remettre le bateau sur un point de départ"
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 11,
+				"operationAFaire": "modulo",
+				"valeurADonner": 3,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 11,
+				"operationAFaire": "ajouter",
+				"valeurADonner": 1,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 11,
+				"inegalite": "==",
+				"valeurQuIlEstCenseAvoir": 1,
+				"comparerAUneAutreVariable": false,
+				"numero": 2
+			},
+			{
+				"nom": "TeleporterEvent",
+				"variable": false,
+				"nouveauX": 10,
+				"nouveauY": 0,
+				"direction": 0
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 2
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 11,
+				"inegalite": "==",
+				"valeurQuIlEstCenseAvoir": 2,
+				"comparerAUneAutreVariable": false,
+				"numero": 3
+			},
+			{
+				"nom": "TeleporterEvent",
+				"variable": false,
+				"nouveauX": 16,
+				"nouveauY": 0,
+				"direction": 0
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 3
+			},
+			{
+				"nom": "TeleporterEvent",
+				"variable": false,
+				"nouveauX": 17,
+				"nouveauY": 0,
+				"direction": 0
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 3
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 2
+			}
+			],
+			"image": "bateaux de papier character",
+			"directionInitiale": 2,
+			"vitesse": "tres lente",
+			"frequence": "la plus basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			},
+			{
+				"nom": "Interrupteur",
+				"numeroInterrupteur": 6,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			],
+			"image": "bateaux de papier character",
+			"directionInitiale": 1,
+			"vitesse": "tres lente",
+			"frequence": "la plus basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 15,
 		"nom": "toc bois",
-		"x": 8,
+		"x": 14,
 		"y": 9,
 		"pages": [
 		{
@@ -4573,7 +4648,82 @@
 				"numero": 1
 			}
 			],
-			"image": 184,
+			"image": 190,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 4,
+		"nom": "toc bois",
+		"x": 3,
+		"y": 9,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 9,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 1,
+				"comparerAUneAutreVariable": false,
+				"numero": 0
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "toc bois1.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 9,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 9,
+				"inegalite": "<=",
+				"valeurQuIlEstCenseAvoir": 0,
+				"comparerAUneAutreVariable": false,
+				"numero": 1
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "toc bois2.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 9,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 1,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			}
+			],
+			"image": 67,
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": false,
@@ -4961,70 +5111,20 @@
 		]
 	},
 	{
-		"id": 4,
-		"nom": "toc bois",
-		"x": 3,
-		"y": 9,
+		"id": 21,
+		"nom": "cache heros",
+		"x": 10,
+		"y": 8,
 		"pages": [
 		{
 			"conditions": [
 			{
-				"nom": "ArriveeAuContact"
+				"nom": "Parler"
 			}
 			],
 			"commandes": [
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 9,
-				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 1,
-				"comparerAUneAutreVariable": false,
-				"numero": 0
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "toc bois1.wav",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 9,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 9,
-				"inegalite": "<=",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 1
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "toc bois2.wav",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 9,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 1,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			}
 			],
-			"image": 67,
+			"image": 178,
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": false,
@@ -5036,9 +5136,9 @@
 		]
 	},
 	{
-		"id": 15,
+		"id": 10,
 		"nom": "toc bois",
-		"x": 14,
+		"x": 9,
 		"y": 9,
 		"pages": [
 		{
@@ -5099,14 +5199,14 @@
 				"numero": 1
 			}
 			],
-			"image": 190,
+			"image": 185,
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": false,
 			"animeALArret": false,
 			"directionFixe": true,
 			"traversable": true,
-			"auDessusDeTout": false
+			"auDessusDeTout": true
 		}
 		]
 	},
@@ -5464,106 +5564,6 @@
 			"directionFixe": true,
 			"traversable": true,
 			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 10,
-		"nom": "toc bois",
-		"x": 9,
-		"y": 9,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 9,
-				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 1,
-				"comparerAUneAutreVariable": false,
-				"numero": 0
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "toc bois1.wav",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 9,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 9,
-				"inegalite": "<=",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 1
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "toc bois2.wav",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 9,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 1,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			}
-			],
-			"image": 185,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": true
-		}
-		]
-	},
-	{
-		"id": 21,
-		"nom": "cache heros",
-		"x": 10,
-		"y": 8,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": 178,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": true
 		}
 		]
 	}

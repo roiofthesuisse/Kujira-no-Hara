@@ -117,10 +117,45 @@
 	],
 	"events": [
 	{
-		"id": 27,
-		"nom": "Clone[582][99]",
-		"x": 9,
-		"y": 9
+		"id": 5,
+		"nom": "Clone[341][028]",
+		"x": 13,
+		"y": 13
+	},
+	{
+		"id": 16,
+		"nom": "EV016",
+		"x": 12,
+		"y": 31,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "EffacerImage",
+				"numero": 9
+			},
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 11,
+				"xDebutHeros": 18,
+				"yDebutHeros": 1
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 38,
@@ -237,51 +272,16 @@
 		]
 	},
 	{
-		"id": 16,
-		"nom": "EV016",
-		"x": 12,
-		"y": 31,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "EffacerImage",
-				"numero": 9
-			},
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 11,
-				"xDebutHeros": 18,
-				"yDebutHeros": 1
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 5,
-		"nom": "Clone[341][028]",
-		"x": 13,
-		"y": 13
-	},
-	{
-		"id": 33,
-		"nom": "Clone[582][103]",
-		"x": 13,
+		"id": 27,
+		"nom": "Clone[582][99]",
+		"x": 9,
 		"y": 9
+	},
+	{
+		"id": 11,
+		"nom": "Clone[341][028]",
+		"x": 6,
+		"y": 10
 	},
 	{
 		"id": 22,
@@ -329,16 +329,40 @@
 		]
 	},
 	{
-		"id": 11,
-		"nom": "Clone[341][028]",
-		"x": 6,
-		"y": 10
+		"id": 33,
+		"nom": "Clone[582][103]",
+		"x": 13,
+		"y": 9
 	},
 	{
-		"id": 28,
-		"nom": "Clone[582][99]",
-		"x": 13,
-		"y": 19
+		"id": 39,
+		"nom": "Blocage anti-évènement",
+		"x": 14,
+		"y": 15,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 6,
+		"nom": "Clone[341][028]",
+		"x": 14,
+		"y": 12
 	},
 	{
 		"id": 17,
@@ -376,100 +400,10 @@
 		]
 	},
 	{
-		"id": 6,
-		"nom": "Clone[341][028]",
-		"x": 14,
-		"y": 12
-	},
-	{
-		"id": 39,
-		"nom": "Blocage anti-évènement",
-		"x": 14,
-		"y": 15,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 1,
-		"nom": "Clone[341][028]",
-		"x": 19,
-		"y": 16
-	},
-	{
-		"id": 34,
-		"nom": "EV034",
-		"x": 19,
-		"y": 21,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": 53,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": true
-		}
-		]
-	},
-	{
-		"id": 23,
-		"nom": "EV023",
-		"x": 19,
-		"y": 22,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "EffacerImage",
-				"numero": 9
-			},
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 24,
-				"xDebutHeros": 12,
-				"yDebutHeros": 21
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
+		"id": 28,
+		"nom": "Clone[582][99]",
+		"x": 13,
+		"y": 19
 	},
 	{
 		"id": 12,
@@ -661,11 +595,11 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) You find a magnificent Pottage key!"
+				"texte": "(en) You find a magnificent pottage key!"
 			},
 			{
 				"nom": "Message",
-				"texte": "Vous trouvez une magnifique Clé à Potage !"
+				"texte": "Vous trouvez une magnifique clé à potage !"
 			},
 			{
 				"nom": "Commentaire",
@@ -828,10 +762,45 @@
 		]
 	},
 	{
-		"id": 40,
-		"nom": "au dessus de la grotte",
+		"id": 23,
+		"nom": "EV023",
 		"x": 19,
-		"y": 14,
+		"y": 22,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "EffacerImage",
+				"numero": 9
+			},
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 24,
+				"xDebutHeros": 12,
+				"yDebutHeros": 21
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 34,
+		"nom": "EV034",
+		"x": 19,
+		"y": 21,
 		"pages": [
 		{
 			"conditions": [
@@ -841,22 +810,28 @@
 			],
 			"commandes": [
 			],
-			"image": 10,
+			"image": 53,
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": false,
 			"animeALArret": false,
 			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
+			"traversable": false,
+			"auDessusDeTout": true
 		}
 		]
 	},
 	{
-		"id": 29,
-		"nom": "Clone[341][036]",
-		"x": 10,
-		"y": 5
+		"id": 1,
+		"nom": "Clone[341][028]",
+		"x": 19,
+		"y": 16
+	},
+	{
+		"id": 7,
+		"nom": "Clone[341][028]",
+		"x": 15,
+		"y": 8
 	},
 	{
 		"id": 18,
@@ -894,51 +869,41 @@
 		]
 	},
 	{
-		"id": 7,
-		"nom": "Clone[341][028]",
-		"x": 15,
-		"y": 8
+		"id": 29,
+		"nom": "Clone[341][036]",
+		"x": 10,
+		"y": 5
 	},
 	{
-		"id": 35,
-		"nom": "EV035",
-		"x": 0,
-		"y": 11,
+		"id": 40,
+		"nom": "au dessus de la grotte",
+		"x": 19,
+		"y": 14,
 		"pages": [
 		{
 			"conditions": [
 			{
-				"nom": "ArriveeAuContact"
+				"nom": "Parler"
 			}
 			],
 			"commandes": [
-			{
-				"nom": "EffacerImage",
-				"numero": 9
-			},
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 367,
-				"xDebutHeros": 18,
-				"yDebutHeros": 8
-			}
 			],
+			"image": 10,
 			"vitesse": "moderee",
 			"frequence": "basse",
-			"animeEnMouvement": true,
+			"animeEnMouvement": false,
 			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
+			"directionFixe": true,
+			"traversable": true,
 			"auDessusDeTout": false
 		}
 		]
 	},
 	{
-		"id": 13,
-		"nom": "Clone[341][008]",
-		"x": 5,
-		"y": 3
+		"id": 2,
+		"nom": "Clone[341][028]",
+		"x": 12,
+		"y": 16
 	},
 	{
 		"id": 24,
@@ -978,45 +943,75 @@
 		]
 	},
 	{
-		"id": 2,
-		"nom": "Clone[341][028]",
-		"x": 12,
-		"y": 16
+		"id": 13,
+		"nom": "Clone[341][008]",
+		"x": 5,
+		"y": 3
 	},
 	{
-		"id": 41,
-		"nom": "effacer algue",
-		"x": 20,
-		"y": 16,
+		"id": 35,
+		"nom": "EV035",
+		"x": 0,
+		"y": 11,
 		"pages": [
 		{
 			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
 			],
 			"commandes": [
 			{
-				"nom": "ConditionScript",
-				"script": "($game_player.x-$game_map.events[@event_id].x).abs + ($game_player.y-$game_map.events[@event_id].y).abs <= 3",
-				"numero": 0
+				"nom": "EffacerImage",
+				"numero": 9
 			},
 			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 1,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "AppelerUnScript",
-					"script": "erase"
-				}
-				]
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 367,
+				"xDebutHeros": 18,
+				"yDebutHeros": 8
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 8,
+		"nom": "Clone[341][028]",
+		"x": 4,
+		"y": 13
+	},
+	{
+		"id": 19,
+		"nom": "EV019",
+		"x": 15,
+		"y": 0,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "EffacerImage",
+				"numero": 9
 			},
 			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "SupprimerEvent"
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 2,
+				"xDebutHeros": 15,
+				"yDebutHeros": 26
 			}
 			],
 			"vitesse": "moderee",
@@ -1089,10 +1084,86 @@
 		]
 	},
 	{
-		"id": 19,
-		"nom": "EV019",
-		"x": 15,
-		"y": 0,
+		"id": 41,
+		"nom": "effacer algue",
+		"x": 20,
+		"y": 16,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "ConditionScript",
+				"script": "($game_player.x-$game_map.events[@event_id].x).abs + ($game_player.y-$game_map.events[@event_id].y).abs <= 3",
+				"numero": 0
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 1,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "AppelerUnScript",
+					"script": "erase"
+				}
+				]
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 3,
+		"nom": "Clone[341][061]",
+		"x": 16,
+		"y": 12
+	},
+	{
+		"id": 25,
+		"nom": "Blocage anti-évènement",
+		"x": 5,
+		"y": 19,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 14,
+		"nom": "EV014",
+		"x": 10,
+		"y": 31,
 		"pages": [
 		{
 			"conditions": [
@@ -1108,9 +1179,9 @@
 			{
 				"nom": "ChangerDeMap",
 				"variable": false,
-				"numeroNouvelleMap": 2,
-				"xDebutHeros": 15,
-				"yDebutHeros": 26
+				"numeroNouvelleMap": 11,
+				"xDebutHeros": 16,
+				"yDebutHeros": 1
 			}
 			],
 			"vitesse": "moderee",
@@ -1122,12 +1193,6 @@
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 8,
-		"nom": "Clone[341][028]",
-		"x": 4,
-		"y": 13
 	},
 	{
 		"id": 36,
@@ -1236,75 +1301,10 @@
 		]
 	},
 	{
-		"id": 14,
-		"nom": "EV014",
-		"x": 10,
-		"y": 31,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "EffacerImage",
-				"numero": 9
-			},
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 11,
-				"xDebutHeros": 16,
-				"yDebutHeros": 1
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 25,
-		"nom": "Blocage anti-évènement",
-		"x": 5,
-		"y": 19,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 3,
+		"id": 9,
 		"nom": "Clone[341][061]",
-		"x": 16,
-		"y": 12
-	},
-	{
-		"id": 20,
-		"nom": "Clone[021][002]",
-		"x": 4,
-		"y": 20
+		"x": 7,
+		"y": 6
 	},
 	{
 		"id": 31,
@@ -1313,75 +1313,10 @@
 		"y": 8
 	},
 	{
-		"id": 9,
-		"nom": "Clone[341][061]",
-		"x": 7,
-		"y": 6
-	},
-	{
-		"id": 15,
-		"nom": "EV015",
-		"x": 11,
-		"y": 31,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "EffacerImage",
-				"numero": 9
-			},
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 11,
-				"xDebutHeros": 17,
-				"yDebutHeros": 1
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 26,
-		"nom": "Blocage anti-évènement",
-		"x": 17,
-		"y": 25,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 4,
-		"nom": "Clone[341][061]",
-		"x": 18,
-		"y": 17
+		"id": 20,
+		"nom": "Clone[021][002]",
+		"x": 4,
+		"y": 20
 	},
 	{
 		"id": 37,
@@ -1475,6 +1410,83 @@
 		]
 	},
 	{
+		"id": 4,
+		"nom": "Clone[341][061]",
+		"x": 18,
+		"y": 17
+	},
+	{
+		"id": 26,
+		"nom": "Blocage anti-évènement",
+		"x": 17,
+		"y": 25,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 15,
+		"nom": "EV015",
+		"x": 11,
+		"y": 31,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "EffacerImage",
+				"numero": 9
+			},
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 11,
+				"xDebutHeros": 17,
+				"yDebutHeros": 1
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 32,
+		"nom": "Clone[582][101]",
+		"x": 13,
+		"y": 8
+	},
+	{
+		"id": 10,
+		"nom": "Clone[341][061]",
+		"x": 6,
+		"y": 7
+	},
+	{
 		"id": 21,
 		"nom": "Colibri SHADOW[24]",
 		"x": 12,
@@ -1510,7 +1522,7 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) You are the new guy, aren't you ?"
+				"texte": "(en) You are the new guy, aren't you?"
 			},
 			{
 				"nom": "Message",
@@ -1518,7 +1530,7 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) Everybody here has been swallowed by \\n\\c[02]Kujira the whale\\c[01] !"
+				"texte": "(en) Everybody here has been swallowed by \\n\\c[02]Kujira the whale\\c[01]!"
 			},
 			{
 				"nom": "Message",
@@ -1588,18 +1600,6 @@
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 10,
-		"nom": "Clone[341][061]",
-		"x": 6,
-		"y": 7
-	},
-	{
-		"id": 32,
-		"nom": "Clone[582][101]",
-		"x": 13,
-		"y": 8
 	}
 	]
 }

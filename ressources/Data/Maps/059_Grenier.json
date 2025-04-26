@@ -56,47 +56,6 @@
 	],
 	"events": [
 	{
-		"id": 22,
-		"nom": "EV022",
-		"x": 12,
-		"y": 5,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "AppelerUnScript",
-				"script": "wait_for_event(0)"
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "RendreAuDessusDeTout",
-					"auDessusDeTout": true
-				}
-				]
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
 		"id": 11,
 		"nom": "EV011",
 		"x": 12,
@@ -123,6 +82,47 @@
 				{
 					"nom": "RendreAuDessusDeTout",
 					"auDessusDeTout": false
+				}
+				]
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": true,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 22,
+		"nom": "EV022",
+		"x": 12,
+		"y": 5,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(0)"
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RendreAuDessusDeTout",
+					"auDessusDeTout": true
 				}
 				]
 			}
@@ -288,7 +288,7 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) You get a Crystal of the Whale!"
+				"texte": "(en) You get a crystal of the whale!"
 			},
 			{
 				"nom": "Message",

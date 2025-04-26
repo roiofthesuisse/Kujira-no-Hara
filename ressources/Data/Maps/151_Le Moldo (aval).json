@@ -201,10 +201,22 @@
 	],
 	"events": [
 	{
-		"id": 5,
-		"nom": "cascade",
-		"x": 10,
-		"y": 37,
+		"id": 49,
+		"nom": "Clone[582][93]",
+		"x": 11,
+		"y": 31
+	},
+	{
+		"id": 16,
+		"nom": "Clone[021][018]",
+		"x": 11,
+		"y": 43
+	},
+	{
+		"id": 38,
+		"nom": "EV038",
+		"x": 11,
+		"y": 30,
 		"pages": [
 		{
 			"conditions": [
@@ -214,14 +226,14 @@
 			],
 			"commandes": [
 			],
-			"image": "cascade character",
-			"opacite": 225,
-			"vitesse": "rapide",
-			"frequence": "tres haute",
+			"image": "porte radis character",
+			"directionInitiale": 1,
+			"vitesse": "moderee",
+			"frequence": "basse",
 			"animeEnMouvement": false,
 			"animeALArret": true,
 			"directionFixe": true,
-			"traversable": true,
+			"traversable": false,
 			"auDessusDeTout": false
 		}
 		]
@@ -251,10 +263,10 @@
 		]
 	},
 	{
-		"id": 38,
-		"nom": "EV038",
-		"x": 11,
-		"y": 30,
+		"id": 5,
+		"nom": "cascade",
+		"x": 10,
+		"y": 37,
 		"pages": [
 		{
 			"conditions": [
@@ -264,41 +276,23 @@
 			],
 			"commandes": [
 			],
-			"image": "porte radis character",
-			"directionInitiale": 1,
-			"vitesse": "moderee",
-			"frequence": "basse",
+			"image": "cascade character",
+			"opacite": 225,
+			"vitesse": "rapide",
+			"frequence": "tres haute",
 			"animeEnMouvement": false,
 			"animeALArret": true,
 			"directionFixe": true,
-			"traversable": false,
+			"traversable": true,
 			"auDessusDeTout": false
 		}
 		]
 	},
 	{
-		"id": 16,
-		"nom": "Clone[021][018]",
-		"x": 11,
-		"y": 43
-	},
-	{
-		"id": 49,
-		"nom": "Clone[582][93]",
-		"x": 11,
-		"y": 31
-	},
-	{
-		"id": 44,
-		"nom": "Clone[341][045]",
-		"x": 19,
-		"y": 29
-	},
-	{
-		"id": 11,
+		"id": 33,
 		"nom": "Blocage anti-évènement",
-		"x": 17,
-		"y": 41,
+		"x": 11,
+		"y": 38,
 		"pages": [
 		{
 			"conditions": [
@@ -350,10 +344,10 @@
 		]
 	},
 	{
-		"id": 33,
+		"id": 11,
 		"nom": "Blocage anti-évènement",
-		"x": 11,
-		"y": 38,
+		"x": 17,
+		"y": 41,
 		"pages": [
 		{
 			"conditions": [
@@ -374,50 +368,31 @@
 		]
 	},
 	{
-		"id": 17,
-		"nom": "Clone[021][007]",
-		"x": 26,
-		"y": 35
+		"id": 44,
+		"nom": "Clone[341][045]",
+		"x": 19,
+		"y": 29
 	},
 	{
-		"id": 6,
-		"nom": "cascade",
-		"x": 32,
-		"y": 25,
+		"id": 50,
+		"nom": "EV050",
+		"x": 19,
+		"y": 59,
 		"pages": [
 		{
 			"conditions": [
 			{
-				"nom": "Parler"
+				"nom": "ArriveeAuContact"
 			}
 			],
 			"commandes": [
-			],
-			"image": "cascade character",
-			"opacite": 225,
-			"vitesse": "rapide",
-			"frequence": "tres haute",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 28,
-		"nom": "Blocage anti-évènement",
-		"x": 33,
-		"y": 26,
-		"pages": [
-		{
-			"conditions": [
 			{
-				"nom": "Parler"
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 563,
+				"xDebutHeros": 28,
+				"yDebutHeros": 1
 			}
-			],
-			"commandes": [
 			],
 			"vitesse": "moderee",
 			"frequence": "basse",
@@ -454,10 +429,102 @@
 		]
 	},
 	{
-		"id": 50,
-		"nom": "EV050",
-		"x": 19,
-		"y": 59,
+		"id": 28,
+		"nom": "Blocage anti-évènement",
+		"x": 33,
+		"y": 26,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 6,
+		"nom": "cascade",
+		"x": 32,
+		"y": 25,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "cascade character",
+			"opacite": 225,
+			"vitesse": "rapide",
+			"frequence": "tres haute",
+			"animeEnMouvement": false,
+			"animeALArret": true,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 17,
+		"nom": "Clone[021][007]",
+		"x": 26,
+		"y": 35
+	},
+	{
+		"id": 45,
+		"nom": "Clone[341][006]",
+		"x": 32,
+		"y": 10
+	},
+	{
+		"id": 12,
+		"nom": "Clone[021][018]",
+		"x": 25,
+		"y": 16
+	},
+	{
+		"id": 34,
+		"nom": "Blocage anti-évènement",
+		"x": 12,
+		"y": 37,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 23,
+		"nom": "EV023",
+		"x": 17,
+		"y": 0,
 		"pages": [
 		{
 			"conditions": [
@@ -469,9 +536,9 @@
 			{
 				"nom": "ChangerDeMap",
 				"variable": false,
-				"numeroNouvelleMap": 563,
-				"xDebutHeros": 28,
-				"yDebutHeros": 1
+				"numeroNouvelleMap": 146,
+				"xDebutHeros": 17,
+				"yDebutHeros": 58
 			}
 			],
 			"vitesse": "moderee",
@@ -511,10 +578,10 @@
 		]
 	},
 	{
-		"id": 23,
-		"nom": "EV023",
-		"x": 17,
-		"y": 0,
+		"id": 51,
+		"nom": "EV051",
+		"x": 18,
+		"y": 59,
 		"pages": [
 		{
 			"conditions": [
@@ -526,9 +593,9 @@
 			{
 				"nom": "ChangerDeMap",
 				"variable": false,
-				"numeroNouvelleMap": 146,
-				"xDebutHeros": 17,
-				"yDebutHeros": 58
+				"numeroNouvelleMap": 563,
+				"xDebutHeros": 27,
+				"yDebutHeros": 1
 			}
 			],
 			"vitesse": "moderee",
@@ -542,10 +609,10 @@
 		]
 	},
 	{
-		"id": 34,
+		"id": 29,
 		"nom": "Blocage anti-évènement",
-		"x": 12,
-		"y": 37,
+		"x": 31,
+		"y": 25,
 		"pages": [
 		{
 			"conditions": [
@@ -566,16 +633,34 @@
 		]
 	},
 	{
-		"id": 12,
-		"nom": "Clone[021][018]",
-		"x": 25,
-		"y": 16
+		"id": 7,
+		"nom": "Blocage anti-évènement",
+		"x": 28,
+		"y": 13,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
-		"id": 45,
-		"nom": "Clone[341][006]",
-		"x": 32,
-		"y": 10
+		"id": 18,
+		"nom": "Clone[021][007]",
+		"x": 15,
+		"y": 33
 	},
 	{
 		"id": 40,
@@ -766,16 +851,22 @@
 		]
 	},
 	{
-		"id": 18,
-		"nom": "Clone[021][007]",
-		"x": 15,
-		"y": 33
+		"id": 46,
+		"nom": "Clone[341][008]",
+		"x": 33,
+		"y": 10
 	},
 	{
-		"id": 7,
+		"id": 13,
+		"nom": "Clone[021][018]",
+		"x": 32,
+		"y": 21
+	},
+	{
+		"id": 35,
 		"nom": "Blocage anti-évènement",
-		"x": 28,
-		"y": 13,
+		"x": 19,
+		"y": 5,
 		"pages": [
 		{
 			"conditions": [
@@ -796,33 +887,9 @@
 		]
 	},
 	{
-		"id": 29,
-		"nom": "Blocage anti-évènement",
-		"x": 31,
-		"y": 25,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 51,
-		"nom": "EV051",
-		"x": 18,
+		"id": 24,
+		"nom": "EV024",
+		"x": 20,
 		"y": 59,
 		"pages": [
 		{
@@ -836,7 +903,7 @@
 				"nom": "ChangerDeMap",
 				"variable": false,
 				"numeroNouvelleMap": 563,
-				"xDebutHeros": 27,
+				"xDebutHeros": 29,
 				"yDebutHeros": 1
 			}
 			],
@@ -877,41 +944,10 @@
 		]
 	},
 	{
-		"id": 24,
-		"nom": "EV024",
-		"x": 20,
-		"y": 59,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 563,
-				"xDebutHeros": 29,
-				"yDebutHeros": 1
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 35,
+		"id": 30,
 		"nom": "Blocage anti-évènement",
-		"x": 19,
-		"y": 5,
+		"x": 8,
+		"y": 38,
 		"pages": [
 		{
 			"conditions": [
@@ -932,22 +968,10 @@
 		]
 	},
 	{
-		"id": 13,
-		"nom": "Clone[021][018]",
-		"x": 32,
-		"y": 21
-	},
-	{
-		"id": 46,
-		"nom": "Clone[341][008]",
-		"x": 33,
-		"y": 10
-	},
-	{
-		"id": 19,
-		"nom": "Viking SHADOW[30] (-4)",
-		"x": 27,
-		"y": 25,
+		"id": 8,
+		"nom": "Blocage anti-évènement",
+		"x": 26,
+		"y": 20,
 		"pages": [
 		{
 			"conditions": [
@@ -956,43 +980,9 @@
 			}
 			],
 			"commandes": [
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "Viking2.wav",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_temp.faceset = \"viking rouge\""
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) By Shor! Why are there japanese stuff everywhere\\nin this whale?"
-			},
-			{
-				"nom": "Message",
-				"texte": "Par Shor ! Pourquoi il y a des trucs japonais \\npartout dans Kujira ?"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
 			],
-			"image": "viking petit character",
-			"directionInitiale": 1,
-			"vitesse": "lente",
-			"frequence": "tres basse",
+			"vitesse": "moderee",
+			"frequence": "basse",
 			"animeEnMouvement": true,
 			"animeALArret": false,
 			"directionFixe": false,
@@ -1033,10 +1023,10 @@
 		]
 	},
 	{
-		"id": 8,
-		"nom": "Blocage anti-évènement",
-		"x": 26,
-		"y": 20,
+		"id": 19,
+		"nom": "Viking SHADOW[30] (-4)",
+		"x": 27,
+		"y": 25,
 		"pages": [
 		{
 			"conditions": [
@@ -1045,6 +1035,71 @@
 			}
 			],
 			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "Viking2.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"viking rouge\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) By Shor! Why is there Japanese stuff everywhere\\nin this whale?"
+			},
+			{
+				"nom": "Message",
+				"texte": "Par Shor ! Pourquoi il y a des trucs japonais \\npartout dans Kujira ?"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"image": "viking petit character",
+			"directionInitiale": 1,
+			"vitesse": "lente",
+			"frequence": "tres basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 47,
+		"nom": "EV047",
+		"x": 34,
+		"y": 9,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 663,
+				"xDebutHeros": 10,
+				"yDebutHeros": 25
+			}
 			],
 			"vitesse": "moderee",
 			"frequence": "basse",
@@ -1057,10 +1112,16 @@
 		]
 	},
 	{
-		"id": 30,
-		"nom": "Blocage anti-évènement",
-		"x": 8,
-		"y": 38,
+		"id": 14,
+		"nom": "Clone[021][018]",
+		"x": 10,
+		"y": 34
+	},
+	{
+		"id": 3,
+		"nom": "cascade",
+		"x": 9,
+		"y": 37,
 		"pages": [
 		{
 			"conditions": [
@@ -1069,6 +1130,39 @@
 			}
 			],
 			"commandes": [
+			],
+			"image": "cascade character",
+			"opacite": 250,
+			"vitesse": "rapide",
+			"frequence": "tres haute",
+			"animeEnMouvement": false,
+			"animeALArret": true,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 36,
+		"nom": "EV036",
+		"x": 22,
+		"y": 37,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 202,
+				"xDebutHeros": 21,
+				"yDebutHeros": 21
+			}
 			],
 			"vitesse": "moderee",
 			"frequence": "basse",
@@ -1300,25 +1394,18 @@
 		]
 	},
 	{
-		"id": 36,
-		"nom": "EV036",
-		"x": 22,
-		"y": 37,
+		"id": 31,
+		"nom": "Blocage anti-évènement",
+		"x": 9,
+		"y": 38,
 		"pages": [
 		{
 			"conditions": [
 			{
-				"nom": "ArriveeAuContact"
+				"nom": "Parler"
 			}
 			],
 			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 202,
-				"xDebutHeros": 21,
-				"yDebutHeros": 21
-			}
 			],
 			"vitesse": "moderee",
 			"frequence": "basse",
@@ -1331,10 +1418,10 @@
 		]
 	},
 	{
-		"id": 3,
-		"nom": "cascade",
-		"x": 9,
-		"y": 37,
+		"id": 9,
+		"nom": "Blocage anti-évènement",
+		"x": 25,
+		"y": 26,
 		"pages": [
 		{
 			"conditions": [
@@ -1344,29 +1431,21 @@
 			],
 			"commandes": [
 			],
-			"image": "cascade character",
-			"opacite": 250,
-			"vitesse": "rapide",
-			"frequence": "tres haute",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": true,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
 			"auDessusDeTout": false
 		}
 		]
 	},
 	{
-		"id": 14,
-		"nom": "Clone[021][018]",
-		"x": 10,
-		"y": 34
-	},
-	{
-		"id": 47,
-		"nom": "EV047",
-		"x": 34,
-		"y": 9,
+		"id": 20,
+		"nom": "EV020",
+		"x": 26,
+		"y": 4,
 		"pages": [
 		{
 			"conditions": [
@@ -1378,9 +1457,9 @@
 			{
 				"nom": "ChangerDeMap",
 				"variable": false,
-				"numeroNouvelleMap": 663,
-				"xDebutHeros": 10,
-				"yDebutHeros": 25
+				"numeroNouvelleMap": 169,
+				"xDebutHeros": 6,
+				"yDebutHeros": 7
 			}
 			],
 			"vitesse": "moderee",
@@ -1423,7 +1502,7 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) I think that most of the tunnels in Kujira\\nwere dug by the \\c[2]Japanese\\c[1]\\nin order to make whale sushis."
+				"texte": "(en) I think that most of the tunnels in Kujira\\nwere dug by the \\c[2]Japanese\\c[1]\\nin order to make whale sushi."
 			},
 			{
 				"nom": "Message",
@@ -1504,41 +1583,10 @@
 		]
 	},
 	{
-		"id": 20,
-		"nom": "EV020",
+		"id": 48,
+		"nom": "EV048",
 		"x": 26,
-		"y": 4,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 169,
-				"xDebutHeros": 6,
-				"yDebutHeros": 7
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 9,
-		"nom": "Blocage anti-évènement",
-		"x": 25,
-		"y": 26,
+		"y": 3,
 		"pages": [
 		{
 			"conditions": [
@@ -1548,21 +1596,28 @@
 			],
 			"commandes": [
 			],
+			"image": 801,
 			"vitesse": "moderee",
 			"frequence": "basse",
-			"animeEnMouvement": true,
+			"animeEnMouvement": false,
 			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": true
 		}
 		]
 	},
 	{
-		"id": 31,
-		"nom": "Blocage anti-évènement",
-		"x": 9,
-		"y": 38,
+		"id": 15,
+		"nom": "Clone[021][018]",
+		"x": 7,
+		"y": 29
+	},
+	{
+		"id": 4,
+		"nom": "cascade",
+		"x": 11,
+		"y": 37,
 		"pages": [
 		{
 			"conditions": [
@@ -1572,21 +1627,17 @@
 			],
 			"commandes": [
 			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
+			"image": "cascade character",
+			"opacite": 250,
+			"vitesse": "rapide",
+			"frequence": "tres haute",
+			"animeEnMouvement": false,
+			"animeALArret": true,
+			"directionFixe": true,
+			"traversable": true,
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 26,
-		"nom": "Clone[582][44]",
-		"x": 14,
-		"y": 30
 	},
 	{
 		"id": 37,
@@ -1620,73 +1671,16 @@
 		]
 	},
 	{
-		"id": 4,
-		"nom": "cascade",
-		"x": 11,
-		"y": 37,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "cascade character",
-			"opacite": 250,
-			"vitesse": "rapide",
-			"frequence": "tres haute",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
+		"id": 26,
+		"nom": "Clone[582][44]",
+		"x": 14,
+		"y": 30
 	},
 	{
-		"id": 15,
-		"nom": "Clone[021][018]",
-		"x": 7,
-		"y": 29
-	},
-	{
-		"id": 48,
-		"nom": "EV048",
-		"x": 26,
-		"y": 3,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": 801,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": true
-		}
-		]
-	},
-	{
-		"id": 43,
-		"nom": "Clone[341][045]",
-		"x": 17,
-		"y": 39
-	},
-	{
-		"id": 21,
+		"id": 32,
 		"nom": "Blocage anti-évènement",
-		"x": 17,
-		"y": 40,
+		"x": 10,
+		"y": 38,
 		"pages": [
 		{
 			"conditions": [
@@ -1731,10 +1725,10 @@
 		]
 	},
 	{
-		"id": 32,
+		"id": 21,
 		"nom": "Blocage anti-évènement",
-		"x": 10,
-		"y": 38,
+		"x": 17,
+		"y": 40,
 		"pages": [
 		{
 			"conditions": [
@@ -1753,6 +1747,12 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 43,
+		"nom": "Clone[341][045]",
+		"x": 17,
+		"y": 39
 	}
 	]
 }

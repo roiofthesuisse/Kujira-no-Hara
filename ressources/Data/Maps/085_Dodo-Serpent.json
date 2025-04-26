@@ -87,12 +87,6 @@
 	],
 	"events": [
 	{
-		"id": 16,
-		"nom": "Clone[341][001]",
-		"x": 27,
-		"y": 9
-	},
-	{
 		"id": 5,
 		"nom": "Blocage",
 		"x": 8,
@@ -141,64 +135,10 @@
 		]
 	},
 	{
-		"id": 11,
-		"nom": "EV011",
-		"x": 7,
-		"y": 3,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 32,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 55
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "RendreAuDessusDeTout",
-					"auDessusDeTout": false
-				},
-				{
-					"nom": "RendreAuDessusDeTout",
-					"auDessusDeTout": false
-				}
-				]
-			},
-			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 55
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
+		"id": 16,
+		"nom": "Clone[341][001]",
+		"x": 27,
+		"y": 9
 	},
 	{
 		"id": 22,
@@ -232,10 +172,10 @@
 		]
 	},
 	{
-		"id": 6,
-		"nom": "EV006",
-		"x": 10,
-		"y": 7,
+		"id": 11,
+		"nom": "EV011",
+		"x": 7,
+		"y": 3,
 		"pages": [
 		{
 			"conditions": [
@@ -327,6 +267,274 @@
 			"animeEnMouvement": true,
 			"animeALArret": false,
 			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 6,
+		"nom": "EV006",
+		"x": 10,
+		"y": 7,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 32,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 55
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RendreAuDessusDeTout",
+					"auDessusDeTout": false
+				},
+				{
+					"nom": "RendreAuDessusDeTout",
+					"auDessusDeTout": false
+				}
+				]
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 55
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 1,
+		"nom": "Tête",
+		"x": 7,
+		"y": 8,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 2,
+				"direction": 2,
+				"numero": 0
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RendreDirectionFixe",
+					"directionFixe": false
+				},
+				{
+					"nom": "RendreDirectionFixe",
+					"directionFixe": false
+				},
+				{
+					"nom": "RendreTraversable",
+					"traversable": true
+				},
+				{
+					"nom": "RendreTraversable",
+					"traversable": true
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "dodo-serpent character",
+					"direction": 3,
+					"animation": 0,
+					"teinte": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 1
+				},
+				{
+					"nom": "RendreTraversable",
+					"traversable": true
+				},
+				{
+					"nom": "RendreDirectionFixe",
+					"directionFixe": true
+				},
+				{
+					"nom": "RegarderDansUneDirection",
+					"direction": 3
+				},
+				{
+					"nom": "RendreDirectionFixe",
+					"directionFixe": true
+				},
+				{
+					"nom": "RendreDirectionFixe",
+					"directionFixe": true
+				},
+				{
+					"nom": "RendreAnimeALArret",
+					"animeALArret": true
+				},
+				{
+					"nom": "RendreAnimeALArret",
+					"animeALArret": true
+				}
+				]
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RendreDirectionFixe",
+					"directionFixe": false
+				},
+				{
+					"nom": "RendreDirectionFixe",
+					"directionFixe": false
+				},
+				{
+					"nom": "RendreTraversable",
+					"traversable": false
+				},
+				{
+					"nom": "RendreTraversable",
+					"traversable": false
+				},
+				{
+					"nom": "RegarderDansUneDirection",
+					"direction": 0
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "dodo-serpent character",
+					"direction": 0,
+					"animation": 0,
+					"teinte": 0
+				},
+				{
+					"nom": "RendreDirectionFixe",
+					"directionFixe": true
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 1
+				},
+				{
+					"nom": "RegarderDansUneDirection",
+					"direction": 0
+				},
+				{
+					"nom": "RendreDirectionFixe",
+					"directionFixe": true
+				},
+				{
+					"nom": "RendreTraversable",
+					"traversable": false
+				},
+				{
+					"nom": "RendreTraversable",
+					"traversable": false
+				}
+				]
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			}
+			],
+			"image": "dodo-serpent character",
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": true,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 12,
+		"nom": "Passerelle",
+		"x": 7,
+		"y": 5,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": 23,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": true
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			},
+			{
+				"nom": "Variable",
+				"numeroVariable": 32,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 1
+			}
+			],
+			"commandes": [
+			],
+			"image": 23,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
 			"traversable": false,
 			"auDessusDeTout": false
 		}
@@ -531,7 +739,7 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "\\WAVE Top Chrono !"
+				"texte": "\\WAVE Top chrono !"
 			},
 			{
 				"nom": "DemarrerChronometre",
@@ -635,208 +843,41 @@
 		]
 	},
 	{
-		"id": 12,
-		"nom": "Passerelle",
-		"x": 7,
-		"y": 5,
+		"id": 18,
+		"nom": "EV018",
+		"x": 59,
+		"y": 10,
 		"pages": [
 		{
 			"conditions": [
 			{
-				"nom": "Parler"
+				"nom": "ArriveeAuContact"
 			}
 			],
 			"commandes": [
+			{
+				"nom": "ArreterChronometre"
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 81,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 612,
+				"xDebutHeros": 1,
+				"yDebutHeros": 36
+			}
 			],
-			"image": 23,
 			"vitesse": "moderee",
 			"frequence": "basse",
-			"animeEnMouvement": false,
+			"animeEnMouvement": true,
 			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": true
-		},
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			},
-			{
-				"nom": "Variable",
-				"numeroVariable": 32,
-				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 1
-			}
-			],
-			"commandes": [
-			],
-			"image": 23,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 1,
-		"nom": "Tête",
-		"x": 7,
-		"y": 8,
-		"pages": [
-		{
-			"conditions": [
-			],
-			"commandes": [
-			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 2,
-				"direction": 2,
-				"numero": 0
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "RendreDirectionFixe",
-					"directionFixe": false
-				},
-				{
-					"nom": "RendreDirectionFixe",
-					"directionFixe": false
-				},
-				{
-					"nom": "RendreTraversable",
-					"traversable": true
-				},
-				{
-					"nom": "RendreTraversable",
-					"traversable": true
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "dodo-serpent character",
-					"direction": 3,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 1
-				},
-				{
-					"nom": "RendreTraversable",
-					"traversable": true
-				},
-				{
-					"nom": "RendreDirectionFixe",
-					"directionFixe": true
-				},
-				{
-					"nom": "RegarderDansUneDirection",
-					"direction": 3
-				},
-				{
-					"nom": "RendreDirectionFixe",
-					"directionFixe": true
-				},
-				{
-					"nom": "RendreDirectionFixe",
-					"directionFixe": true
-				},
-				{
-					"nom": "RendreAnimeALArret",
-					"animeALArret": true
-				},
-				{
-					"nom": "RendreAnimeALArret",
-					"animeALArret": true
-				}
-				]
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "RendreDirectionFixe",
-					"directionFixe": false
-				},
-				{
-					"nom": "RendreDirectionFixe",
-					"directionFixe": false
-				},
-				{
-					"nom": "RendreTraversable",
-					"traversable": false
-				},
-				{
-					"nom": "RendreTraversable",
-					"traversable": false
-				},
-				{
-					"nom": "RegarderDansUneDirection",
-					"direction": 0
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "dodo-serpent character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "RendreDirectionFixe",
-					"directionFixe": true
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 1
-				},
-				{
-					"nom": "RegarderDansUneDirection",
-					"direction": 0
-				},
-				{
-					"nom": "RendreDirectionFixe",
-					"directionFixe": true
-				},
-				{
-					"nom": "RendreTraversable",
-					"traversable": false
-				},
-				{
-					"nom": "RendreTraversable",
-					"traversable": false
-				}
-				]
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			}
-			],
-			"image": "dodo-serpent character",
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
+			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
 		}
@@ -903,10 +944,10 @@
 		]
 	},
 	{
-		"id": 18,
-		"nom": "EV018",
-		"x": 59,
-		"y": 10,
+		"id": 24,
+		"nom": "EV024",
+		"x": 28,
+		"y": 15,
 		"pages": [
 		{
 			"conditions": [
@@ -916,21 +957,11 @@
 			],
 			"commandes": [
 			{
-				"nom": "ArreterChronometre"
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 81,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"operationAFaire2": "valeur brute"
-			},
-			{
 				"nom": "ChangerDeMap",
 				"variable": false,
-				"numeroNouvelleMap": 612,
-				"xDebutHeros": 1,
-				"yDebutHeros": 36
+				"numeroNouvelleMap": 418,
+				"xDebutHeros": 27,
+				"yDebutHeros": 13
 			}
 			],
 			"vitesse": "moderee",
@@ -942,12 +973,6 @@
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 13,
-		"nom": "Clone[341][008]",
-		"x": 5,
-		"y": 6
 	},
 	{
 		"id": 2,
@@ -1318,10 +1343,16 @@
 		]
 	},
 	{
-		"id": 24,
-		"nom": "EV024",
-		"x": 28,
-		"y": 15,
+		"id": 13,
+		"nom": "Clone[341][008]",
+		"x": 5,
+		"y": 6
+	},
+	{
+		"id": 8,
+		"nom": "EV008",
+		"x": 5,
+		"y": 5,
 		"pages": [
 		{
 			"conditions": [
@@ -1331,16 +1362,41 @@
 			],
 			"commandes": [
 			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 418,
-				"xDebutHeros": 27,
-				"yDebutHeros": 13
+				"nom": "ModifierVariable",
+				"numeroVariable": 32,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 1,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 55
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RendreAuDessusDeTout",
+					"auDessusDeTout": true
+				}
+				]
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 55
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
 			}
 			],
 			"vitesse": "moderee",
 			"frequence": "basse",
-			"animeEnMouvement": true,
+			"animeEnMouvement": false,
 			"animeALArret": false,
 			"directionFixe": false,
 			"traversable": false,
@@ -1403,68 +1459,6 @@
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 8,
-		"nom": "EV008",
-		"x": 5,
-		"y": 5,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 32,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 1,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 55
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "RendreAuDessusDeTout",
-					"auDessusDeTout": true
-				}
-				]
-			},
-			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 55
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 14,
-		"nom": "Clone[341][001]",
-		"x": 25,
-		"y": 11
 	},
 	{
 		"id": 3,
@@ -1706,6 +1700,43 @@
 		]
 	},
 	{
+		"id": 14,
+		"nom": "Clone[341][001]",
+		"x": 25,
+		"y": 11
+	},
+	{
+		"id": 20,
+		"nom": "EV020",
+		"x": 0,
+		"y": 9,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 260,
+				"xDebutHeros": 28,
+				"yDebutHeros": 14
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 9,
 		"nom": "EV009",
 		"x": 9,
@@ -1762,49 +1793,6 @@
 		]
 	},
 	{
-		"id": 20,
-		"nom": "EV020",
-		"x": 0,
-		"y": 9,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 260,
-				"xDebutHeros": 28,
-				"yDebutHeros": 14
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 26,
-		"nom": "Clone[582][52]",
-		"x": 47,
-		"y": 8
-	},
-	{
-		"id": 15,
-		"nom": "Clone[341][001]",
-		"x": 26,
-		"y": 10
-	},
-	{
 		"id": 4,
 		"nom": "Blocage",
 		"x": 6,
@@ -1853,35 +1841,16 @@
 		]
 	},
 	{
-		"id": 21,
-		"nom": "EV021",
-		"x": 0,
-		"y": 10,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 260,
-				"xDebutHeros": 28,
-				"yDebutHeros": 15
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
+		"id": 15,
+		"nom": "Clone[341][001]",
+		"x": 26,
+		"y": 10
+	},
+	{
+		"id": 26,
+		"nom": "Clone[582][52]",
+		"x": 47,
+		"y": 8
 	},
 	{
 		"id": 10,
@@ -1936,6 +1905,37 @@
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 21,
+		"nom": "EV021",
+		"x": 0,
+		"y": 10,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 260,
+				"xDebutHeros": 28,
+				"yDebutHeros": 15
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
 			"animeALArret": false,
 			"directionFixe": false,
 			"traversable": false,

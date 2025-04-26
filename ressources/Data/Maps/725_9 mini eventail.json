@@ -56,12 +56,6 @@
 	],
 	"events": [
 	{
-		"id": 16,
-		"nom": "Clone[341][0065]",
-		"x": 6,
-		"y": 6
-	},
-	{
 		"id": 5,
 		"nom": "CoffrillagePlein RESET SHADOW[48] (-4)",
 		"x": 14,
@@ -430,6 +424,36 @@
 		]
 	},
 	{
+		"id": 16,
+		"nom": "Clone[341][0065]",
+		"x": 6,
+		"y": 6
+	},
+	{
+		"id": 22,
+		"nom": "Blocage anti-évènement",
+		"x": 8,
+		"y": 7,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 11,
 		"nom": "EV011",
 		"x": 2,
@@ -467,42 +491,6 @@
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 22,
-		"nom": "Blocage anti-évènement",
-		"x": 8,
-		"y": 7,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 28,
-		"nom": "Clone[341][078]",
-		"x": 2,
-		"y": 2
-	},
-	{
-		"id": 17,
-		"nom": "Clone[341][004]",
-		"x": 2,
-		"y": 10
 	},
 	{
 		"id": 6,
@@ -562,15 +550,15 @@
 		]
 	},
 	{
-		"id": 1,
+		"id": 17,
 		"nom": "Clone[341][004]",
-		"x": 4,
+		"x": 2,
 		"y": 10
 	},
 	{
-		"id": 12,
-		"nom": "Clone[341][055]",
-		"x": 12,
+		"id": 28,
+		"nom": "Clone[341][078]",
+		"x": 2,
 		"y": 2
 	},
 	{
@@ -586,6 +574,49 @@
 			}
 			],
 			"commandes": [
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 12,
+		"nom": "Clone[341][055]",
+		"x": 12,
+		"y": 2
+	},
+	{
+		"id": 1,
+		"nom": "Clone[341][004]",
+		"x": 4,
+		"y": 10
+	},
+	{
+		"id": 18,
+		"nom": "EV018",
+		"x": 8,
+		"y": 14,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 709,
+				"xDebutHeros": 8,
+				"yDebutHeros": 1
+			}
 			],
 			"vitesse": "moderee",
 			"frequence": "basse",
@@ -782,49 +813,6 @@
 		]
 	},
 	{
-		"id": 18,
-		"nom": "EV018",
-		"x": 8,
-		"y": 14,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 709,
-				"xDebutHeros": 8,
-				"yDebutHeros": 1
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 2,
-		"nom": "Clone[341][004]",
-		"x": 4,
-		"y": 9
-	},
-	{
-		"id": 13,
-		"nom": "Clone[341][0065]",
-		"x": 10,
-		"y": 3
-	},
-	{
 		"id": 24,
 		"nom": "Blocage anti-évènement",
 		"x": 12,
@@ -849,10 +837,16 @@
 		]
 	},
 	{
-		"id": 19,
-		"nom": "Clone[341][078]",
-		"x": 7,
-		"y": 10
+		"id": 13,
+		"nom": "Clone[341][0065]",
+		"x": 10,
+		"y": 3
+	},
+	{
+		"id": 2,
+		"nom": "Clone[341][004]",
+		"x": 4,
+		"y": 9
 	},
 	{
 		"id": 8,
@@ -874,7 +868,7 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) \"I put on the fan\\nthe wind from mount Fuji:\\nhere is my souvenir from Edo.\""
+				"texte": "(en) \"I put on the fan\\nthe wind from Mount Fuji:\\nhere is my souvenir from Edo.\""
 			},
 			{
 				"nom": "Message",
@@ -909,9 +903,15 @@
 		]
 	},
 	{
-		"id": 25,
+		"id": 19,
 		"nom": "Clone[341][078]",
-		"x": 3,
+		"x": 7,
+		"y": 10
+	},
+	{
+		"id": 14,
+		"nom": "Clone[341][055]",
+		"x": 10,
 		"y": 4
 	},
 	{
@@ -921,16 +921,10 @@
 		"y": 9
 	},
 	{
-		"id": 14,
-		"nom": "Clone[341][055]",
-		"x": 10,
-		"y": 4
-	},
-	{
-		"id": 20,
+		"id": 25,
 		"nom": "Clone[341][078]",
-		"x": 9,
-		"y": 11
+		"x": 3,
+		"y": 4
 	},
 	{
 		"id": 9,
@@ -976,10 +970,10 @@
 		]
 	},
 	{
-		"id": 15,
-		"nom": "Clone[341][0072]",
-		"x": 8,
-		"y": 13
+		"id": 20,
+		"nom": "Clone[341][078]",
+		"x": 9,
+		"y": 11
 	},
 	{
 		"id": 4,
@@ -1001,6 +995,36 @@
 				"xDebutHeros": 3,
 				"yDebutHeros": 3
 			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 15,
+		"nom": "Clone[341][0072]",
+		"x": 8,
+		"y": 13
+	},
+	{
+		"id": 21,
+		"nom": "Blocage anti-évènement",
+		"x": 4,
+		"y": 6,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
 			],
 			"vitesse": "moderee",
 			"frequence": "basse",
@@ -1068,30 +1092,6 @@
 			"animeALArret": false,
 			"directionFixe": false,
 			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 21,
-		"nom": "Blocage anti-évènement",
-		"x": 4,
-		"y": 6,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
 			"auDessusDeTout": false
 		}
 		]

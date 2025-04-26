@@ -111,6 +111,57 @@
 	],
 	"events": [
 	{
+		"id": 5,
+		"nom": "Torche murale",
+		"x": 1,
+		"y": 10,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "torche murale character",
+			"directionInitiale": 2,
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": true,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 38,
+		"nom": "EV038",
+		"x": 10,
+		"y": 1,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": 457,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": true
+		}
+		]
+	},
+	{
 		"id": 27,
 		"nom": "Curé SHADOW[24]",
 		"x": 14,
@@ -229,10 +280,10 @@
 		]
 	},
 	{
-		"id": 38,
-		"nom": "EV038",
-		"x": 10,
-		"y": 1,
+		"id": 33,
+		"nom": "Livre",
+		"x": 14,
+		"y": 8,
 		"pages": [
 		{
 			"conditions": [
@@ -242,63 +293,12 @@
 			],
 			"commandes": [
 			],
-			"image": 457,
+			"image": "livre ouvert character",
+			"directionInitiale": 2,
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": false,
 			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": true
-		}
-		]
-	},
-	{
-		"id": 5,
-		"nom": "Torche murale",
-		"x": 1,
-		"y": 10,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "torche murale character",
-			"directionInitiale": 2,
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 11,
-		"nom": "Torche murale",
-		"x": 1,
-		"y": 6,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "torche murale character",
-			"directionInitiale": 2,
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": true,
 			"directionFixe": true,
 			"traversable": false,
 			"auDessusDeTout": false
@@ -355,11 +355,11 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) Is this what \\c[2]saint Steven\\c[0] meant?"
+				"texte": "(en) Is this what \\c[2]Saint Steven\\c[0] meant?"
 			},
 			{
 				"nom": "Message",
-				"texte": "Est-ce cela que \\c[2]saint Steeven\\c[0] voulait dire ?"
+				"texte": "Est-ce cela que \\c[2]Saint Steeven\\c[0] voulait dire ?"
 			},
 			{
 				"nom": "Attendre",
@@ -392,10 +392,10 @@
 		]
 	},
 	{
-		"id": 33,
-		"nom": "Livre",
-		"x": 14,
-		"y": 8,
+		"id": 11,
+		"nom": "Torche murale",
+		"x": 1,
+		"y": 6,
 		"pages": [
 		{
 			"conditions": [
@@ -405,12 +405,12 @@
 			],
 			"commandes": [
 			],
-			"image": "livre ouvert character",
+			"image": "torche murale character",
 			"directionInitiale": 2,
-			"vitesse": "moderee",
-			"frequence": "basse",
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
 			"animeEnMouvement": false,
-			"animeALArret": false,
+			"animeALArret": true,
 			"directionFixe": true,
 			"traversable": false,
 			"auDessusDeTout": false
@@ -418,10 +418,36 @@
 		]
 	},
 	{
-		"id": 39,
-		"nom": "Clone[341][165]",
-		"x": 16,
-		"y": 20
+		"id": 6,
+		"nom": "Torche murale",
+		"x": 1,
+		"y": 20,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "torche murale character",
+			"directionInitiale": 2,
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": true,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 17,
+		"nom": "Clone[341][004]",
+		"x": 4,
+		"y": 25
 	},
 	{
 		"id": 28,
@@ -455,16 +481,16 @@
 		]
 	},
 	{
-		"id": 17,
-		"nom": "Clone[341][004]",
-		"x": 4,
-		"y": 25
+		"id": 39,
+		"nom": "Clone[341][165]",
+		"x": 16,
+		"y": 20
 	},
 	{
-		"id": 6,
+		"id": 12,
 		"nom": "Torche murale",
-		"x": 1,
-		"y": 20,
+		"x": 19,
+		"y": 6,
 		"pages": [
 		{
 			"conditions": [
@@ -475,131 +501,11 @@
 			"commandes": [
 			],
 			"image": "torche murale character",
-			"directionInitiale": 2,
+			"directionInitiale": 1,
 			"vitesse": "tres rapide",
 			"frequence": "la plus haute",
 			"animeEnMouvement": false,
 			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 23,
-		"nom": "Curé SHADOW[24]",
-		"x": 6,
-		"y": 7,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 0,
-				"direction": 0,
-				"numero": 0
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_temp.faceset = \"pretre\""
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) I managed to prove the existence of God \\nby using Fermat's big theorem!"
-			},
-			{
-				"nom": "Message",
-				"texte": "J'ai réussi à démontrer l'existence de Dieu \\nen utilisant le grand théorème de Fermat !"
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) There is a unique point in the universe \\nwhere knowledge and power diverge!"
-			},
-			{
-				"nom": "Message",
-				"texte": "Il existe un unique point de l'univers où \\nle savoir et le pouvoir divergent !"
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) The problem is that I can't prove Fermat's \\nbig theorem."
-			},
-			{
-				"nom": "Message",
-				"texte": "Le problème, c'est que je n'arrive pas \\nà démontrer le grand théorème de Fermat."
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) My proof is lost!"
-			},
-			{
-				"nom": "Message",
-				"texte": "Ma démonstration tombe à l'eau !"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
-			],
-			"image": "cure character",
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 34,
-		"nom": "Livre",
-		"x": 14,
-		"y": 19,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "livre ouvert character",
-			"directionInitiale": 3,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
 			"directionFixe": true,
 			"traversable": false,
 			"auDessusDeTout": false
@@ -809,10 +715,130 @@
 		]
 	},
 	{
-		"id": 12,
+		"id": 34,
+		"nom": "Livre",
+		"x": 14,
+		"y": 19,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "livre ouvert character",
+			"directionInitiale": 3,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 23,
+		"nom": "Curé SHADOW[24]",
+		"x": 6,
+		"y": 7,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 0,
+				"direction": 0,
+				"numero": 0
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"pretre\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) I managed to prove the existence of God \\nby using Fermat's big theorem!"
+			},
+			{
+				"nom": "Message",
+				"texte": "J'ai réussi à démontrer l'existence de Dieu \\nen utilisant le grand théorème de Fermat !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) There is a unique point in the universe \\nwhere knowledge and power diverge!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Il existe un unique point de l'univers où \\nle savoir et le pouvoir divergent !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) The problem is that I can't prove Fermat's \\nbig theorem."
+			},
+			{
+				"nom": "Message",
+				"texte": "Le problème, c'est que je n'arrive pas \\nà démontrer le grand théorème de Fermat."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) My proof is lost!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Ma démonstration tombe à l'eau !"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"image": "cure character",
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 7,
 		"nom": "Torche murale",
-		"x": 19,
-		"y": 6,
+		"x": 1,
+		"y": 24,
 		"pages": [
 		{
 			"conditions": [
@@ -823,7 +849,7 @@
 			"commandes": [
 			],
 			"image": "torche murale character",
-			"directionInitiale": 1,
+			"directionInitiale": 2,
 			"vitesse": "tres rapide",
 			"frequence": "la plus haute",
 			"animeEnMouvement": false,
@@ -833,6 +859,122 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 29,
+		"nom": "Curé SHADOW[24]",
+		"x": 6,
+		"y": 18,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 0,
+				"direction": 0,
+				"numero": 0
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"pretre\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Here at Saint Steven's church we seek \\nto understand God and the universe through \\nquantum metaphysics."
+			},
+			{
+				"nom": "Message",
+				"texte": "Ici à l'église Saint Steeven nous cherchons\\nà comprendre Dieu et l'univers à l'aide de \\nla métaphysique quantique."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Is God a nice guy?"
+			},
+			{
+				"nom": "Message",
+				"texte": "Dieu est-il un mec super sympa ?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Is God a guy?"
+			},
+			{
+				"nom": "Message",
+				"texte": "Dieu est-il un mec ?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Is God?"
+			},
+			{
+				"nom": "Message",
+				"texte": "Dieu est-il ?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) God?"
+			},
+			{
+				"nom": "Message",
+				"texte": "Dieu ?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) ???"
+			},
+			{
+				"nom": "Message",
+				"texte": "???"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"image": "cure character",
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 18,
+		"nom": "Clone[341][004]",
+		"x": 16,
+		"y": 25
 	},
 	{
 		"id": 40,
@@ -908,7 +1050,7 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) What a mathematical revolution !"
+				"texte": "(en) What a mathematical revolution!"
 			},
 			{
 				"nom": "Message",
@@ -961,232 +1103,54 @@
 		]
 	},
 	{
-		"id": 18,
-		"nom": "Clone[341][004]",
-		"x": 16,
-		"y": 25
-	},
-	{
-		"id": 29,
-		"nom": "Curé SHADOW[24]",
-		"x": 6,
-		"y": 18,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 0,
-				"direction": 0,
-				"numero": 0
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_temp.faceset = \"pretre\""
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) Here at saint Steven's church we seek \\nto understand God and the universe through \\nquantum metaphysics."
-			},
-			{
-				"nom": "Message",
-				"texte": "Ici à l'église saint Steeven nous cherchons\\nà comprendre Dieu et l'univers à l'aide de \\nla métaphysique quantique."
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) Is God a nice guy?"
-			},
-			{
-				"nom": "Message",
-				"texte": "Dieu est-il un mec super sympa ?"
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) Is God a guy?"
-			},
-			{
-				"nom": "Message",
-				"texte": "Dieu est-il un mec ?"
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) Is God?"
-			},
-			{
-				"nom": "Message",
-				"texte": "Dieu est-il ?"
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) God?"
-			},
-			{
-				"nom": "Message",
-				"texte": "Dieu ?"
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) ???"
-			},
-			{
-				"nom": "Message",
-				"texte": "???"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
-			],
-			"image": "cure character",
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 7,
-		"nom": "Torche murale",
+		"id": 13,
+		"nom": "placer les torches",
 		"x": 1,
-		"y": 24,
+		"y": 26,
 		"pages": [
 		{
 			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "torche murale character",
-			"directionInitiale": 2,
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 2,
-		"nom": "Clone[341][004]",
-		"x": 14,
-		"y": 4
-	},
-	{
-		"id": 24,
-		"nom": "Curé SHADOW[24]",
-		"x": 11,
-		"y": 5,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
 			],
 			"commandes": [
 			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 0,
-				"direction": 0,
-				"numero": 0
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
+				"nom": "AppelerUnScript",
+				"script": "$game_map.events[11].offset_x(4)"
 			},
 			{
 				"nom": "AppelerUnScript",
-				"script": "$game_temp.faceset = \"pretre\""
+				"script": "$game_map.events[5].offset_x(4)"
 			},
 			{
-				"nom": "Commentaire",
-				"texte": "(en) Saint Steven's church is our laboratory \\nfor theology and quantum metaphysics."
+				"nom": "AppelerUnScript",
+				"script": "$game_map.events[6].offset_x(4)"
 			},
 			{
-				"nom": "Message",
-				"texte": "L'église saint Steeven est notre laboratoire \\nde théologie et de métaphysique quantique."
+				"nom": "AppelerUnScript",
+				"script": "$game_map.events[7].offset_x(4)"
 			},
 			{
-				"nom": "Commentaire",
-				"texte": "(en) This cross that we carry to the neck \\nsymbolizes the zeroth axiom of Euclid, \\nfoundation of the geometry:"
+				"nom": "AppelerUnScript",
+				"script": "$game_map.events[8].offset_x(-4)"
 			},
 			{
-				"nom": "Message",
-				"texte": "Cette croix que nous portons au cou \\nsymbolise le zéroième axiome d'Euclide, \\nfondement de la géométrie :"
+				"nom": "AppelerUnScript",
+				"script": "$game_map.events[9].offset_x(-4)"
 			},
 			{
-				"nom": "Commentaire",
-				"texte": "(en) \"Two non-parallel lines intersect at a single \\npoint\"."
+				"nom": "AppelerUnScript",
+				"script": "$game_map.events[10].offset_x(-4)"
 			},
 			{
-				"nom": "Message",
-				"texte": "\"Deux droites non parallèles se coupent en\\nun unique point\"."
+				"nom": "AppelerUnScript",
+				"script": "$game_map.events[12].offset_x(-4)"
 			},
 			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
+				"nom": "SupprimerEvent"
 			}
 			],
-			"image": "cure character",
 			"vitesse": "moderee",
 			"frequence": "basse",
-			"animeEnMouvement": false,
+			"animeEnMouvement": true,
 			"animeALArret": false,
 			"directionFixe": false,
 			"traversable": false,
@@ -1580,66 +1544,10 @@
 		]
 	},
 	{
-		"id": 13,
-		"nom": "placer les torches",
-		"x": 1,
-		"y": 26,
-		"pages": [
-		{
-			"conditions": [
-			],
-			"commandes": [
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_map.events[11].offset_x(4)"
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_map.events[5].offset_x(4)"
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_map.events[6].offset_x(4)"
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_map.events[7].offset_x(4)"
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_map.events[8].offset_x(-4)"
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_map.events[9].offset_x(-4)"
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_map.events[10].offset_x(-4)"
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_map.events[12].offset_x(-4)"
-			},
-			{
-				"nom": "SupprimerEvent"
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 30,
+		"id": 24,
 		"nom": "Curé SHADOW[24]",
-		"x": 14,
-		"y": 18,
+		"x": 11,
+		"y": 5,
 		"pages": [
 		{
 			"conditions": [
@@ -1669,43 +1577,27 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) On a macroscopic scale, mechanics describes \\nthe trajectory of bodies so well that we never \\nobserve any randomness other than \\nthat relating to data which are unknown to us."
+				"texte": "(en) Saint Steven's church is our laboratory \\nfor theology and quantum metaphysics."
 			},
 			{
 				"nom": "Message",
-				"texte": "À l'échelle macroscopique, la mécanique décrit \\nsi bien la trajectoire des corps qu'on n'observe \\ncertes pas de hasard autre que celui afférent \\nà des données qui nous sont inconnues."
+				"texte": "L'église Saint Steeven est notre laboratoire \\nde théologie et de métaphysique quantique."
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) But at the quantum scale, randomness seems \\nto exist when passing from a superposition \\nof states to the realization of one of them, \\nduring the collapse of the wave function."
+				"texte": "(en) This cross that we carry to the neck \\nsymbolizes the zeroth axiom of Euclid, \\nfoundation of the geometry:"
 			},
 			{
 				"nom": "Message",
-				"texte": "Mais à l'échelle quantique, le hasard semble \\nexister lors du passage d'une superposition \\nd'états à la réalisation de l'un d'entre eux, \\nlors de l'effondrement de la fonction d'onde."
+				"texte": "Cette croix que nous portons au cou \\nsymbolise le zéroième axiome d'Euclide, \\nfondement de la géométrie :"
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) Everett dispelled this random phenomenon\\nby suggesting that with each collapse, \\nthe universe separated into several different \\nuniverses."
+				"texte": "(en) \"Two non-parallel lines intersect at a single \\npoint\"."
 			},
 			{
 				"nom": "Message",
-				"texte": "Everett a dissipé ce phénomène aléatoire \\nen suggérant qu'à chaque effondrement, \\nl'univers se séparait en plusieurs univers \\ndifférents."
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) If the universe splits into q universes, \\nand there are p universes in a certain state, \\nthen that state has a probability p/q \\nof occurring."
-			},
-			{
-				"nom": "Message",
-				"texte": "Si l'univers se sépare en q univers, \\net qu'il y a p univers dans un certain état, \\nalors cet état a une probabilité p/q d'arriver."
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) That's why Berenstein's theorem states \\nthat quantum probabilities must be rational \\nnumbers!"
-			},
-			{
-				"nom": "Message",
-				"texte": "Le théorème de Berenstein stipule ainsi \\nque les probabilités quantiques doivent être\\ndes nombres rationnels !"
+				"texte": "\"Deux droites non parallèles se coupent en\\nun unique point\"."
 			},
 			{
 				"nom": "Attendre",
@@ -1732,6 +1624,38 @@
 			"animeEnMouvement": false,
 			"animeALArret": false,
 			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 2,
+		"nom": "Clone[341][004]",
+		"x": 14,
+		"y": 4
+	},
+	{
+		"id": 8,
+		"nom": "Torche murale",
+		"x": 19,
+		"y": 24,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "torche murale character",
+			"directionInitiale": 1,
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": true,
+			"directionFixe": true,
 			"traversable": false,
 			"auDessusDeTout": false
 		}
@@ -1856,10 +1780,10 @@
 		]
 	},
 	{
-		"id": 8,
-		"nom": "Torche murale",
-		"x": 19,
-		"y": 24,
+		"id": 30,
+		"nom": "Curé SHADOW[24]",
+		"x": 14,
+		"y": 18,
 		"pages": [
 		{
 			"conditions": [
@@ -1868,49 +1792,88 @@
 			}
 			],
 			"commandes": [
-			],
-			"image": "torche murale character",
-			"directionInitiale": 1,
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 3,
-		"nom": "Clone[582][53]",
-		"x": 7,
-		"y": 5
-	},
-	{
-		"id": 36,
-		"nom": "EV036",
-		"x": 18,
-		"y": 16,
-		"pages": [
-		{
-			"conditions": [
 			{
-				"nom": "ArriveeAuContact"
+				"nom": "ConditionDirection",
+				"idEventConcerne": 0,
+				"direction": 0,
+				"numero": 0
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"pretre\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) On a macroscopic scale, mechanics describe \\nthe trajectory of bodies so well that we never \\nobserve any randomness other than \\nthat relating to data which are unknown to us."
+			},
+			{
+				"nom": "Message",
+				"texte": "À l'échelle macroscopique, la mécanique décrit \\nsi bien la trajectoire des corps qu'on n'observe \\ncertes pas de hasard autre que celui afférent \\nà des données qui nous sont inconnues."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) But at the quantum scale, randomness seems \\nto exist when passing from a superposition \\nof states to the realization of one of them, \\nduring the collapse of the wave function."
+			},
+			{
+				"nom": "Message",
+				"texte": "Mais à l'échelle quantique, le hasard semble \\nexister lors du passage d'une superposition \\nd'états à la réalisation de l'un d'entre eux, \\nlors de l'effondrement de la fonction d'onde."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Everett dispelled this random phenomenon\\nby suggesting that with each collapse, \\nthe universe separated into several different \\nuniverses."
+			},
+			{
+				"nom": "Message",
+				"texte": "Everett a dissipé ce phénomène aléatoire \\nen suggérant qu'à chaque effondrement, \\nl'univers se séparait en plusieurs univers \\ndifférents."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) If the universe splits into q universes, \\nand there are p universes in a certain state, \\nthen that state has a probability p/q \\nof occurring."
+			},
+			{
+				"nom": "Message",
+				"texte": "Si l'univers se sépare en q univers, \\net qu'il y a p univers dans un certain état, \\nalors cet état a une probabilité p/q d'arriver."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) That's why Berenstein's theorem states \\nthat quantum probabilities must be rational \\nnumbers!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Le théorème de Berenstein stipule ainsi \\nque les probabilités quantiques doivent être\\ndes nombres rationnels !"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
 			}
 			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 512,
-				"xDebutHeros": 6,
-				"yDebutHeros": 8
-			}
-			],
+			"image": "cure character",
 			"vitesse": "moderee",
 			"frequence": "basse",
-			"animeEnMouvement": true,
+			"animeEnMouvement": false,
 			"animeALArret": false,
 			"directionFixe": false,
 			"traversable": false,
@@ -1999,10 +1962,67 @@
 		]
 	},
 	{
-		"id": 42,
-		"nom": "Clone[582][33]",
-		"x": 15,
-		"y": 8
+		"id": 36,
+		"nom": "EV036",
+		"x": 18,
+		"y": 16,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 512,
+				"xDebutHeros": 6,
+				"yDebutHeros": 8
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 3,
+		"nom": "Clone[582][53]",
+		"x": 7,
+		"y": 5
+	},
+	{
+		"id": 9,
+		"nom": "Torche murale",
+		"x": 19,
+		"y": 20,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "torche murale character",
+			"directionInitiale": 1,
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": true,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 31,
@@ -2052,10 +2072,16 @@
 		]
 	},
 	{
-		"id": 9,
-		"nom": "Torche murale",
-		"x": 19,
-		"y": 20,
+		"id": 42,
+		"nom": "Clone[582][33]",
+		"x": 15,
+		"y": 8
+	},
+	{
+		"id": 4,
+		"nom": "Parchemin",
+		"x": 13,
+		"y": 3,
 		"pages": [
 		{
 			"conditions": [
@@ -2064,60 +2090,35 @@
 			}
 			],
 			"commandes": [
-			],
-			"image": "torche murale character",
-			"directionInitiale": 1,
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 37,
-		"nom": "EV037",
-		"x": 10,
-		"y": 2,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
 			{
 				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 30,
+				"numeroInterrupteur": 12,
 				"valeur": true
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "au cas où le héros entre en courant :"
+				"texte": "(en) \"The willow's leaves fall.\\nThe master and I\\nlisten to the bell.\""
 			},
 			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierVitesse",
-					"vitesse": "normale"
-				}
-				]
+				"nom": "Message",
+				"texte": "\"Les feuilles du saule tombent.\\nEt le maître et moi\\nécoutons la cloche.\""
 			},
 			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 537,
-				"xDebutHeros": 10,
-				"yDebutHeros": 30
+				"nom": "Commentaire",
+				"texte": "(en) \\c[2]Matsuo Bashô\\c[2]"
+			},
+			{
+				"nom": "Message",
+				"texte": "\\c[2]Matsuo Bashô\\c[2]"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
 			}
 			],
 			"vitesse": "moderee",
@@ -2212,11 +2213,11 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) While waiting for their return, \\c[2]saint Steven\\c[0] \\nproposed to use this church to do science, \\non the basis of the scientific protocol."
+				"texte": "(en) While waiting for their return, \\c[2]Saint Steven\\c[0] \\nproposed to use this church to do science, \\non the basis of the scientific protocol."
 			},
 			{
 				"nom": "Message",
-				"texte": "En attendant leur retour, \\c[2]saint Steeven\\c[1] proposa\\nd'utiliser cette église pour y faire de la science, \\nsur la base du protocole scientifique."
+				"texte": "En attendant leur retour, \\c[2]Saint Steeven\\c[1] proposa\\nd'utiliser cette église pour y faire de la science, \\nsur la base du protocole scientifique."
 			},
 			{
 				"nom": "Attendre",
@@ -2249,47 +2250,46 @@
 		]
 	},
 	{
-		"id": 4,
-		"nom": "Parchemin",
-		"x": 13,
-		"y": 3,
+		"id": 37,
+		"nom": "EV037",
+		"x": 10,
+		"y": 2,
 		"pages": [
 		{
 			"conditions": [
 			{
-				"nom": "Parler"
+				"nom": "ArriveeAuContact"
 			}
 			],
 			"commandes": [
 			{
 				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
+				"numeroInterrupteur": 30,
 				"valeur": true
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) \"The willow's leaves fall.\\nThe master and I\\nlisten to the bell.\""
+				"texte": "au cas où le héros entre en courant :"
 			},
 			{
-				"nom": "Message",
-				"texte": "\"Les feuilles du saule tombent.\\nEt le maître et moi\\nécoutons la cloche.\""
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierVitesse",
+					"vitesse": "normale"
+				}
+				]
 			},
 			{
-				"nom": "Commentaire",
-				"texte": "(en) \\c[2]Matsuo Bashô\\c[2]"
-			},
-			{
-				"nom": "Message",
-				"texte": "\\c[2]Matsuo Bashô\\c[2]"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 537,
+				"xDebutHeros": 10,
+				"yDebutHeros": 30
 			}
 			],
 			"vitesse": "moderee",
@@ -2303,42 +2303,26 @@
 		]
 	},
 	{
-		"id": 43,
-		"nom": "Clone[582][33]",
-		"x": 13,
-		"y": 19
-	},
-	{
-		"id": 21,
-		"nom": "EV021",
-		"x": 11,
-		"y": 29,
+		"id": 10,
+		"nom": "Torche murale",
+		"x": 19,
+		"y": 10,
 		"pages": [
 		{
 			"conditions": [
-			],
-			"commandes": [
 			{
-				"nom": "EffacerImage",
-				"numero": 3
-			},
-			{
-				"nom": "ModifierTonDeLEcran",
-				"rouge": 127,
-				"vert": 127,
-				"bleu": 127,
-				"gris": 0,
-				"dureeTransition": 0
-			},
-			{
-				"nom": "SupprimerEvent"
+				"nom": "Parler"
 			}
 			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
+			"commandes": [
+			],
+			"image": "torche murale character",
+			"directionInitiale": 1,
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": true,
+			"directionFixe": true,
 			"traversable": false,
 			"auDessusDeTout": false
 		}
@@ -2393,30 +2377,46 @@
 		]
 	},
 	{
-		"id": 10,
-		"nom": "Torche murale",
-		"x": 19,
-		"y": 10,
+		"id": 21,
+		"nom": "EV021",
+		"x": 11,
+		"y": 29,
 		"pages": [
 		{
 			"conditions": [
-			{
-				"nom": "Parler"
-			}
 			],
 			"commandes": [
+			{
+				"nom": "EffacerImage",
+				"numero": 3
+			},
+			{
+				"nom": "ModifierTonDeLEcran",
+				"rouge": 127,
+				"vert": 127,
+				"bleu": 127,
+				"gris": 0,
+				"dureeTransition": 0
+			},
+			{
+				"nom": "SupprimerEvent"
+			}
 			],
-			"image": "torche murale character",
-			"directionInitiale": 1,
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 43,
+		"nom": "Clone[582][33]",
+		"x": 13,
+		"y": 19
 	}
 	]
 }

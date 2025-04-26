@@ -66,37 +66,6 @@
 	],
 	"events": [
 	{
-		"id": 5,
-		"nom": "EV005",
-		"x": 10,
-		"y": 14,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 597,
-				"xDebutHeros": 10,
-				"yDebutHeros": 8
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
 		"id": 16,
 		"nom": "Mur",
 		"x": 16,
@@ -267,6 +236,37 @@
 		]
 	},
 	{
+		"id": 5,
+		"nom": "EV005",
+		"x": 10,
+		"y": 14,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 597,
+				"xDebutHeros": 10,
+				"yDebutHeros": 8
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 11,
 		"nom": "EV011",
 		"x": 10,
@@ -298,6 +298,12 @@
 		]
 	},
 	{
+		"id": 6,
+		"nom": "Clone[341][113]",
+		"x": 14,
+		"y": 3
+	},
+	{
 		"id": 17,
 		"nom": "EV017",
 		"x": 16,
@@ -322,100 +328,6 @@
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 6,
-		"nom": "Clone[341][113]",
-		"x": 14,
-		"y": 3
-	},
-	{
-		"id": 12,
-		"nom": "Stèle",
-		"x": 14,
-		"y": 2,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 0,
-				"direction": 3,
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) \"Here I am in \\c[2]Taiyo\\c[0]'s shrine.\\nIt was among its snow clovers \\nthat the greatest theorems were born."
-			},
-			{
-				"nom": "Message",
-				"texte": "\"Me voici dans le sanctuaire de \\c[2]Taiyô\\c[1].\\nC'est parmi ses trèfles des neiges \\nque naquirent les plus grands théorèmes."
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) She was the last scholar of the legend."
-			},
-			{
-				"nom": "Message",
-				"texte": "Elle fut le dernier érudit de la légende."
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) I hope I'll find the last piece of the puzzle, \\nthus solving Kujira's enigma..."
-			},
-			{
-				"nom": "Message",
-				"texte": "J'espère que j'y trouverai la dernière pièce \\ndu puzzle, résolvant ainsi l'énigme de Kujira..."
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) One last effort, I'm almost there!\""
-			},
-			{
-				"nom": "Message",
-				"texte": "Un dernier effort, j'y suis presque !\""
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en)                         Memoirs of the \\c[2]traveling poet\\c[0]"
-			},
-			{
-				"nom": "Message",
-				"texte": "                        Mémoires du \\c[2]Poète voyageur"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
 			"animeALArret": false,
 			"directionFixe": false,
 			"traversable": false,
@@ -534,64 +446,90 @@
 		]
 	},
 	{
-		"id": 7,
-		"nom": "haut du mur",
-		"x": 16,
-		"y": 0,
+		"id": 12,
+		"nom": "Stèle",
+		"x": 14,
+		"y": 2,
 		"pages": [
 		{
 			"conditions": [
 			{
-				"nom": "ArriveeAuContact"
+				"nom": "Parler"
 			}
 			],
 			"commandes": [
 			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 594,
-				"xDebutHeros": 16,
-				"yDebutHeros": 13
-			}
-			],
-			"image": 4,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": true
-		},
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
+				"nom": "ConditionDirection",
+				"idEventConcerne": 0,
+				"direction": 3,
+				"numero": 0
 			},
 			{
-				"nom": "Interrupteur",
-				"numeroInterrupteur": 65,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
 			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 594,
-				"xDebutHeros": 16,
-				"yDebutHeros": 13
+				"nom": "Commentaire",
+				"texte": "(en) \"Here I am in \\c[2]Taiyo\\c[0]'s sanctuary.\\nIt was among its snow clovers \\nthat the greatest theorems were born."
+			},
+			{
+				"nom": "Message",
+				"texte": "\"Me voici dans le sanctuaire de \\c[2]Taiyô\\c[1].\\nC'est parmi ses trèfles des neiges \\nque naquirent les plus grands théorèmes."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) She was the last scholar of the legend."
+			},
+			{
+				"nom": "Message",
+				"texte": "Elle fut le dernier érudit de la légende."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) I hope I'll find the last piece of the puzzle, \\nthus solving Kujira's enigma..."
+			},
+			{
+				"nom": "Message",
+				"texte": "J'espère que j'y trouverai la dernière pièce \\ndu puzzle, résolvant ainsi l'énigme de Kujira..."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) One last effort, I'm almost there!\""
+			},
+			{
+				"nom": "Message",
+				"texte": "Un dernier effort, j'y suis presque !\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en)                         Memoirs of the \\c[2]traveling poet\\c[0]"
+			},
+			{
+				"nom": "Message",
+				"texte": "                        Mémoires du \\c[2]Poète voyageur"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
 			}
 			],
-			"image": 198,
-			"opacite": 0,
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": false,
 			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": true
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
 		}
 		]
 	},
@@ -801,10 +739,66 @@
 		]
 	},
 	{
-		"id": 13,
-		"nom": "Clone[341][113]",
-		"x": 15,
-		"y": 4
+		"id": 7,
+		"nom": "haut du mur",
+		"x": 16,
+		"y": 0,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 594,
+				"xDebutHeros": 16,
+				"yDebutHeros": 13
+			}
+			],
+			"image": 4,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": true
+		},
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			},
+			{
+				"nom": "Interrupteur",
+				"numeroInterrupteur": 65,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 594,
+				"xDebutHeros": 16,
+				"yDebutHeros": 13
+			}
+			],
+			"image": 198,
+			"opacite": 0,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": true
+		}
+		]
 	},
 	{
 		"id": 2,
@@ -813,10 +807,10 @@
 		"y": 8
 	},
 	{
-		"id": 19,
-		"nom": "Clone[341][059]",
-		"x": 13,
-		"y": 8
+		"id": 13,
+		"nom": "Clone[341][113]",
+		"x": 15,
+		"y": 4
 	},
 	{
 		"id": 8,
@@ -856,9 +850,9 @@
 		]
 	},
 	{
-		"id": 3,
-		"nom": "Clone[582][101]",
-		"x": 8,
+		"id": 19,
+		"nom": "Clone[341][059]",
+		"x": 13,
 		"y": 8
 	},
 	{
@@ -897,6 +891,18 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 3,
+		"nom": "Clone[582][101]",
+		"x": 8,
+		"y": 8
+	},
+	{
+		"id": 9,
+		"nom": "Clone[341][004]",
+		"x": 6,
+		"y": 10
 	},
 	{
 		"id": 20,
@@ -950,10 +956,10 @@
 		]
 	},
 	{
-		"id": 9,
-		"nom": "Clone[341][004]",
-		"x": 6,
-		"y": 10
+		"id": 4,
+		"nom": "Clone[582][103]",
+		"x": 8,
+		"y": 9
 	},
 	{
 		"id": 15,
@@ -1194,18 +1200,6 @@
 		]
 	},
 	{
-		"id": 4,
-		"nom": "Clone[582][103]",
-		"x": 8,
-		"y": 9
-	},
-	{
-		"id": 10,
-		"nom": "Clone[341][004]",
-		"x": 14,
-		"y": 10
-	},
-	{
 		"id": 21,
 		"nom": "Avancement",
 		"x": 13,
@@ -1263,6 +1257,12 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 10,
+		"nom": "Clone[341][004]",
+		"x": 14,
+		"y": 10
 	}
 	]
 }

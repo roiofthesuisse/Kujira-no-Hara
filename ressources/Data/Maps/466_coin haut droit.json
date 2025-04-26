@@ -66,33 +66,6 @@
 	],
 	"events": [
 	{
-		"id": 5,
-		"nom": "EV005",
-		"x": 11,
-		"y": 8,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "dalles plan donjon5 character",
-			"directionInitiale": 1,
-			"animationInitiale": 2,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
 		"id": 16,
 		"nom": "EV016",
 		"x": 0,
@@ -216,6 +189,33 @@
 		]
 	},
 	{
+		"id": 5,
+		"nom": "EV005",
+		"x": 11,
+		"y": 8,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "dalles plan donjon5 character",
+			"directionInitiale": 1,
+			"animationInitiale": 2,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 11,
 		"nom": "Poesie SHADOW[20,4]",
 		"x": 13,
@@ -306,7 +306,7 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) Aaaah!\\nMy lo... \\n[1] !\\nWhat are you doing here?"
+				"texte": "(en) Aaaah!\\nMy lo... \\n[1]!\\nWhat are you doing here?"
 			},
 			{
 				"nom": "Message",
@@ -350,7 +350,7 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) As you surely know, we are in \\c[2]Jishin\\c[0]'s shrine!"
+				"texte": "(en) As you surely know, we are in \\c[2]Jishin\\c[0]'s \\nsanctuary!"
 			},
 			{
 				"nom": "Message",
@@ -379,7 +379,7 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) As you surely know, we are in \\c[2]Jishin\\c[0]'s shrine!"
+				"texte": "(en) As you surely know, we are in \\c[2]Jishin\\c[0]'s \\nsanctuary!"
 			},
 			{
 				"nom": "Message",
@@ -558,33 +558,6 @@
 		]
 	},
 	{
-		"id": 6,
-		"nom": "EV006",
-		"x": 9,
-		"y": 8,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "dalles plan donjon5 character",
-			"directionInitiale": 2,
-			"animationInitiale": 1,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
 		"id": 17,
 		"nom": "EV017",
 		"x": 10,
@@ -708,31 +681,27 @@
 		]
 	},
 	{
-		"id": 1,
-		"nom": "EV001",
-		"x": 10,
-		"y": 0,
+		"id": 6,
+		"nom": "EV006",
+		"x": 9,
+		"y": 8,
 		"pages": [
 		{
 			"conditions": [
 			{
-				"nom": "ArriveeAuContact"
+				"nom": "Parler"
 			}
 			],
 			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 487,
-				"xDebutHeros": 10,
-				"yDebutHeros": 11
-			}
 			],
+			"image": "dalles plan donjon5 character",
+			"directionInitiale": 2,
+			"animationInitiale": 1,
 			"vitesse": "moderee",
 			"frequence": "basse",
-			"animeEnMouvement": true,
+			"animeEnMouvement": false,
 			"animeALArret": false,
-			"directionFixe": false,
+			"directionFixe": true,
 			"traversable": false,
 			"auDessusDeTout": false
 		}
@@ -811,6 +780,198 @@
 				"nom": "SupprimerEvent"
 			}
 			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 1,
+		"nom": "EV001",
+		"x": 10,
+		"y": 0,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 487,
+				"xDebutHeros": 10,
+				"yDebutHeros": 11
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 7,
+		"nom": "EV007",
+		"x": 10,
+		"y": 7,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 71,
+				"inegalite": "==",
+				"valeurQuIlEstCenseAvoir": 2,
+				"comparerAUneAutreVariable": false,
+				"numero": 0
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "dalles plan donjon5 character",
+					"direction": 0,
+					"animation": 1,
+					"teinte": 0
+				}
+				]
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 72,
+				"inegalite": "==",
+				"valeurQuIlEstCenseAvoir": 2,
+				"comparerAUneAutreVariable": false,
+				"numero": 1
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "dalles plan donjon5 character",
+					"direction": 0,
+					"animation": 2,
+					"teinte": 0
+				}
+				]
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 73,
+				"inegalite": "==",
+				"valeurQuIlEstCenseAvoir": 2,
+				"comparerAUneAutreVariable": false,
+				"numero": 2
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "dalles plan donjon5 character",
+					"direction": 0,
+					"animation": 3,
+					"teinte": 0
+				}
+				]
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 2
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 74,
+				"inegalite": "==",
+				"valeurQuIlEstCenseAvoir": 2,
+				"comparerAUneAutreVariable": false,
+				"numero": 3
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "dalles plan donjon5 character",
+					"direction": 1,
+					"animation": 0,
+					"teinte": 0
+				}
+				]
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 3
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 75,
+				"inegalite": "==",
+				"valeurQuIlEstCenseAvoir": 2,
+				"comparerAUneAutreVariable": false,
+				"numero": 4
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "dalles plan donjon5 character",
+					"direction": 1,
+					"animation": 1,
+					"teinte": 0
+				}
+				]
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 4
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			}
+			],
+			"image": "dalles plan donjon5 character",
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": false,
@@ -1009,116 +1170,94 @@
 		]
 	},
 	{
-		"id": 7,
-		"nom": "EV007",
-		"x": 10,
-		"y": 7,
+		"id": 13,
+		"nom": "apparition de Poesie",
+		"x": 14,
+		"y": 2,
 		"pages": [
 		{
 			"conditions": [
 			],
 			"commandes": [
 			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 71,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 2,
-				"comparerAUneAutreVariable": false,
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 56,
+				"valeur": false
+			},
+			{
+				"nom": "ConditionObjetPossede",
+				"idObjet": 52,
 				"numero": 0
 			},
 			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "dalles plan donjon5 character",
-					"direction": 0,
-					"animation": 1,
-					"teinte": 0
-				}
-				]
+				"nom": "Commentaire",
+				"texte": "donjon terminé"
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 56,
+				"valeur": true
 			},
 			{
 				"nom": "ConditionFin",
 				"numero": 0
 			},
 			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 72,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 2,
-				"comparerAUneAutreVariable": false,
+				"nom": "ConditionArmeEquipee",
+				"idArme": 2,
 				"numero": 1
 			},
 			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "dalles plan donjon5 character",
-					"direction": 0,
-					"animation": 2,
-					"teinte": 0
-				}
-				]
+				"nom": "Commentaire",
+				"texte": "maillet trouvé"
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 56,
+				"valeur": true
 			},
 			{
 				"nom": "ConditionFin",
 				"numero": 1
 			},
 			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 73,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 2,
-				"comparerAUneAutreVariable": false,
+				"nom": "ConditionArmePossedee",
+				"idArme": 2,
 				"numero": 2
 			},
 			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "dalles plan donjon5 character",
-					"direction": 0,
-					"animation": 3,
-					"teinte": 0
-				}
-				]
+				"nom": "Commentaire",
+				"texte": "maillet trouvé"
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 56,
+				"valeur": true
 			},
 			{
 				"nom": "ConditionFin",
 				"numero": 2
 			},
 			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 74,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 2,
-				"comparerAUneAutreVariable": false,
+				"nom": "ConditionInterrupteur",
+				"numeroInterrupteur": 56,
+				"valeurQuIlEstCenseAvoir": false,
 				"numero": 3
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "effacer poésie"
+			},
+			{
 				"nom": "Deplacement",
+				"idEventADeplacer": 11,
 				"ignorerLesMouvementsImpossibles": false,
 				"repeterLeDeplacement": false,
 				"attendreLaFinDuDeplacement": false,
 				"mouvements": [
 				{
-					"nom": "ModifierApparence",
-					"image": "dalles plan donjon5 character",
-					"direction": 1,
-					"animation": 0,
-					"teinte": 0
+					"nom": "AppelerUnScript",
+					"script": "erase"
 				}
 				]
 			},
@@ -1127,41 +1266,12 @@
 				"numero": 3
 			},
 			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 75,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 2,
-				"comparerAUneAutreVariable": false,
-				"numero": 4
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "dalles plan donjon5 character",
-					"direction": 1,
-					"animation": 1,
-					"teinte": 0
-				}
-				]
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 4
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
+				"nom": "SupprimerEvent"
 			}
 			],
-			"image": "dalles plan donjon5 character",
 			"vitesse": "moderee",
 			"frequence": "basse",
-			"animeEnMouvement": false,
+			"animeEnMouvement": true,
 			"animeALArret": false,
 			"directionFixe": false,
 			"traversable": false,
@@ -1331,116 +1441,6 @@
 		]
 	},
 	{
-		"id": 13,
-		"nom": "apparition de Poesie",
-		"x": 14,
-		"y": 2,
-		"pages": [
-		{
-			"conditions": [
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 56,
-				"valeur": false
-			},
-			{
-				"nom": "ConditionObjetPossede",
-				"idObjet": 52,
-				"numero": 0
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "donjon terminé"
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 56,
-				"valeur": true
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionArmeEquipee",
-				"idArme": 2,
-				"numero": 1
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "maillet trouvé"
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 56,
-				"valeur": true
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionArmePossedee",
-				"idArme": 2,
-				"numero": 2
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "maillet trouvé"
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 56,
-				"valeur": true
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 2
-			},
-			{
-				"nom": "ConditionInterrupteur",
-				"numeroInterrupteur": 56,
-				"valeurQuIlEstCenseAvoir": false,
-				"numero": 3
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "effacer poésie"
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 11,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "AppelerUnScript",
-					"script": "erase"
-				}
-				]
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 3
-			},
-			{
-				"nom": "SupprimerEvent"
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
 		"id": 8,
 		"nom": "EV008",
 		"x": 10,
@@ -1602,6 +1602,12 @@
 		]
 	},
 	{
+		"id": 14,
+		"nom": "Clone[341][059]",
+		"x": 18,
+		"y": 2
+	},
+	{
 		"id": 3,
 		"nom": "EV003",
 		"x": 9,
@@ -1625,12 +1631,6 @@
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 14,
-		"nom": "Clone[341][059]",
-		"x": 18,
-		"y": 2
 	},
 	{
 		"id": 9,
@@ -1794,33 +1794,6 @@
 		]
 	},
 	{
-		"id": 4,
-		"nom": "EV004",
-		"x": 11,
-		"y": 6,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "dalles plan donjon5 character",
-			"directionInitiale": 2,
-			"animationInitiale": 2,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
 		"id": 15,
 		"nom": "Pancarte",
 		"x": 17,
@@ -1846,7 +1819,7 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) Here's a Return Bell! \\nThere are several in this dungeon. \\nIf you ring it, you'll be transported \\nto another Return Bell!"
+				"texte": "(en) Here's a return bell! \\nThere are several in this dungeon. \\nIf you ring it, you'll be transported \\nto another return bell!"
 			},
 			{
 				"nom": "Message",
@@ -1871,6 +1844,33 @@
 			"animeEnMouvement": false,
 			"animeALArret": false,
 			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 4,
+		"nom": "EV004",
+		"x": 11,
+		"y": 6,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "dalles plan donjon5 character",
+			"directionInitiale": 2,
+			"animationInitiale": 2,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
 			"traversable": false,
 			"auDessusDeTout": false
 		}

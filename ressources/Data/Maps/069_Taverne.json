@@ -240,12 +240,6 @@
 		]
 	},
 	{
-		"id": 22,
-		"nom": "Clone[341][008]",
-		"x": 30,
-		"y": 11
-	},
-	{
 		"id": 11,
 		"nom": "EV011",
 		"x": 13,
@@ -275,6 +269,18 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 22,
+		"nom": "Clone[341][008]",
+		"x": 30,
+		"y": 11
+	},
+	{
+		"id": 6,
+		"nom": "Clone[341][039]",
+		"x": 32,
+		"y": 21
 	},
 	{
 		"id": 17,
@@ -372,35 +378,10 @@
 		]
 	},
 	{
-		"id": 6,
-		"nom": "Clone[341][039]",
-		"x": 32,
-		"y": 21
-	},
-	{
-		"id": 23,
-		"nom": "dessus tonneau",
-		"x": 7,
-		"y": 9,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": 284,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
+		"id": 1,
+		"nom": "Clone[582][120]",
+		"x": 16,
+		"y": 27
 	},
 	{
 		"id": 12,
@@ -422,7 +403,7 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) \"Let's drink all night \\nto make a flowerpot \\nout of the barrel!\""
+				"texte": "(en) \"Let's drink all night \\nto make a flower pot \\nout of the barrel!\""
 			},
 			{
 				"nom": "Message",
@@ -457,16 +438,29 @@
 		]
 	},
 	{
-		"id": 1,
-		"nom": "Clone[582][120]",
-		"x": 16,
-		"y": 27
-	},
-	{
-		"id": 7,
-		"nom": "Clone[341][039]",
-		"x": 19,
-		"y": 16
+		"id": 23,
+		"nom": "dessus tonneau",
+		"x": 7,
+		"y": 9,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": 284,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 18,
@@ -531,6 +525,24 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 7,
+		"nom": "Clone[341][039]",
+		"x": 19,
+		"y": 16
+	},
+	{
+		"id": 24,
+		"nom": "Clone[582][51]",
+		"x": 29,
+		"y": 14
+	},
+	{
+		"id": 2,
+		"nom": "Clone[341][005]",
+		"x": 14,
+		"y": 18
 	},
 	{
 		"id": 13,
@@ -629,15 +641,9 @@
 		]
 	},
 	{
-		"id": 2,
+		"id": 19,
 		"nom": "Clone[341][005]",
-		"x": 14,
-		"y": 18
-	},
-	{
-		"id": 24,
-		"nom": "Clone[582][51]",
-		"x": 29,
+		"x": 27,
 		"y": 14
 	},
 	{
@@ -647,16 +653,45 @@
 		"y": 21
 	},
 	{
-		"id": 19,
-		"nom": "Clone[341][005]",
-		"x": 27,
-		"y": 14
-	},
-	{
-		"id": 3,
-		"nom": "Clone[341][004]",
-		"x": 32,
-		"y": 16
+		"id": 25,
+		"nom": "EV025",
+		"x": 30,
+		"y": 14,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 24,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RendreAuDessusDeTout",
+					"auDessusDeTout": true
+				}
+				]
+			},
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 14,
@@ -739,51 +774,10 @@
 		]
 	},
 	{
-		"id": 25,
-		"nom": "EV025",
-		"x": 30,
-		"y": 14,
-		"pages": [
-		{
-			"conditions": [
-			],
-			"commandes": [
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 24,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "RendreAuDessusDeTout",
-					"auDessusDeTout": true
-				}
-				]
-			},
-			{
-				"nom": "SupprimerEvent"
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 20,
-		"nom": "Clone[341][165]",
-		"x": 30,
-		"y": 18
+		"id": 3,
+		"nom": "Clone[341][004]",
+		"x": 32,
+		"y": 16
 	},
 	{
 		"id": 9,
@@ -873,114 +867,16 @@
 		]
 	},
 	{
-		"id": 26,
-		"nom": "Viking SHADOW[30] (-4)",
-		"x": 24,
-		"y": 13,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_temp.faceset = \"viking rouge femme\""
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "Viking1 femme.ogg",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) We didn't want a \\c[2]Mercator\\c[0] store\\nin our village at the beginning."
-			},
-			{
-				"nom": "Message",
-				"texte": "On ne voulait pas d'une boutique de \\c[2]Mercator\\c[0]\\ndans notre village au début."
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "Viking2 femme.ogg",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) But he told us that he had a shop \\nin the \\c[2]yellow Viking's\\c[0] village, \\nand that if we didn't have one, \\nour village would be not as good as theirs!"
-			},
-			{
-				"nom": "Message",
-				"texte": "Mais il nous a dit qu'il avait une boutique \\ndans le village viking jaune, et que \\nsi on n'en avait pas, notre village serait \\nmoins bien que le leur !"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
-			],
-			"deplacement": {
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": true,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "RegarderUnEvent",
-					"idEvent": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 16
-				}
-				]
-			},
-			"image": "viking femme petit character",
-			"directionInitiale": 1,
-			"vitesse": "lente",
-			"frequence": "tres basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "Interrupteur",
-				"numeroInterrupteur": 127,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "SupprimerEvent"
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
+		"id": 20,
+		"nom": "Clone[341][165]",
+		"x": 30,
+		"y": 18
+	},
+	{
+		"id": 4,
+		"nom": "Clone[582][115]",
+		"x": 26,
+		"y": 10
 	},
 	{
 		"id": 15,
@@ -1012,7 +908,7 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) I've seen at the village store a piece \\nof carved wood that is very expensive."
+				"texte": "(en) I saw at the village store a piece \\nof carved wood that was very expensive."
 			},
 			{
 				"nom": "Message",
@@ -1133,16 +1029,10 @@
 		]
 	},
 	{
-		"id": 4,
-		"nom": "Clone[582][115]",
-		"x": 26,
-		"y": 10
-	},
-	{
-		"id": 21,
-		"nom": "dessus tonneau",
-		"x": 7,
-		"y": 10,
+		"id": 26,
+		"nom": "Viking SHADOW[30] (-4)",
+		"x": 24,
+		"y": 13,
 		"pages": [
 		{
 			"conditions": [
@@ -1151,8 +1041,93 @@
 			}
 			],
 			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"viking rouge femme\""
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "Viking1 femme.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) We didn't want a \\c[2]Mercator\\c[0] store\\nin our village at the beginning."
+			},
+			{
+				"nom": "Message",
+				"texte": "On ne voulait pas d'une boutique de \\c[2]Mercator\\c[0]\\ndans notre village au début."
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "Viking2 femme.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) But he told us that he had a shop \\nin the \\c[2]yellow Viking's\\c[0] village, \\nand that if we didn't have one, \\nour village would not be as good as theirs!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Mais il nous a dit qu'il avait une boutique \\ndans le village viking jaune, et que \\nsi on n'en avait pas, notre village serait \\nmoins bien que le leur !"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
 			],
-			"image": 284,
+			"deplacement": {
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": true,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RegarderUnEvent",
+					"idEvent": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 16
+				}
+				]
+			},
+			"image": "viking femme petit character",
+			"directionInitiale": 1,
+			"vitesse": "lente",
+			"frequence": "tres basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Interrupteur",
+				"numeroInterrupteur": 127,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": true,
@@ -1248,6 +1223,31 @@
 				"nom": "SupprimerEvent"
 			}
 			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 21,
+		"nom": "dessus tonneau",
+		"x": 7,
+		"y": 10,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": 284,
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": true,

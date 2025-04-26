@@ -171,6 +171,82 @@
 	],
 	"events": [
 	{
+		"id": 16,
+		"nom": "Stèle",
+		"x": 17,
+		"y": 15,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 0,
+				"direction": 3,
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \"This room was where \\c[2]Ningyo\\nthe scholar\\c[0] retired to meditate.\""
+			},
+			{
+				"nom": "Message",
+				"texte": "\"Cette salle était là où \\c[2]Ningyo l'érudit\\c[1] se\\nretirait pour méditer.\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \"Such intense energy is concentrated\\nhere that it seems to attract fireflies...\""
+			},
+			{
+				"nom": "Message",
+				"texte": "\"Une énergie si intense y est concentrée\\nqu'elle semble attirer les lucioles...\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en)                         Memoirs of the \\c[2]traveling poet\\c[0]"
+			},
+			{
+				"nom": "Message",
+				"texte": "                        Mémoires du \\c[2]Poète voyageur"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 5,
 		"nom": "Luciole",
 		"x": 25,
@@ -554,82 +630,6 @@
 			"directionFixe": false,
 			"traversable": true,
 			"auDessusDeTout": true
-		}
-		]
-	},
-	{
-		"id": 16,
-		"nom": "Stèle",
-		"x": 17,
-		"y": 15,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 0,
-				"direction": 3,
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) \"This room was where \\c[2]Ningyo\\nthe scholar\\c[0] retired to meditate.\""
-			},
-			{
-				"nom": "Message",
-				"texte": "\"Cette salle était là où \\c[2]Ningyo l'érudit\\c[1] se\\nretirait pour méditer.\""
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) \"Such intense energy is concentrated\\nhere that it seems to attract fireflies...\""
-			},
-			{
-				"nom": "Message",
-				"texte": "\"Une énergie si intense y est concentrée\\nqu'elle semble attirer les lucioles...\""
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en)                         Memoirs of the \\c[2]traveling poet\\c[0]"
-			},
-			{
-				"nom": "Message",
-				"texte": "                        Mémoires du \\c[2]Poète voyageur"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
 		}
 		]
 	},
@@ -1021,31 +1021,6 @@
 		]
 	},
 	{
-		"id": 17,
-		"nom": "blocage",
-		"x": 25,
-		"y": 20,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": 10,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
 		"id": 6,
 		"nom": "Luciole",
 		"x": 33,
@@ -1433,42 +1408,25 @@
 		]
 	},
 	{
-		"id": 12,
-		"nom": "EV012",
-		"x": 29,
-		"y": 34,
+		"id": 17,
+		"nom": "blocage",
+		"x": 25,
+		"y": 20,
 		"pages": [
 		{
 			"conditions": [
-			],
-			"commandes": [
 			{
-				"nom": "ModifierBrouillard",
-				"opacite": 75,
-				"modeDeFusion": "normal",
-				"defilementX": 0,
-				"defilementY": 0,
-				"zoom": 100,
-				"nuance": 0,
-				"nomImage": "essai lumiere tourbillon geant"
-			},
-			{
-				"nom": "ModifierTonDeLEcran",
-				"rouge": 142,
-				"vert": 132,
-				"bleu": 127,
-				"gris": 0,
-				"dureeTransition": 0
-			},
-			{
-				"nom": "SupprimerEvent"
+				"nom": "Parler"
 			}
 			],
+			"commandes": [
+			],
+			"image": 10,
 			"vitesse": "moderee",
 			"frequence": "basse",
-			"animeEnMouvement": true,
+			"animeEnMouvement": false,
 			"animeALArret": false,
-			"directionFixe": false,
+			"directionFixe": true,
 			"traversable": false,
 			"auDessusDeTout": false
 		}
@@ -1686,6 +1644,95 @@
 		]
 	},
 	{
+		"id": 12,
+		"nom": "EV012",
+		"x": 29,
+		"y": 34,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "ModifierBrouillard",
+				"opacite": 75,
+				"modeDeFusion": "normal",
+				"defilementX": 0,
+				"defilementY": 0,
+				"zoom": 100,
+				"nuance": 0,
+				"nomImage": "essai lumiere tourbillon geant"
+			},
+			{
+				"nom": "ModifierTonDeLEcran",
+				"rouge": 142,
+				"vert": 132,
+				"bleu": 127,
+				"gris": 0,
+				"dureeTransition": 0
+			},
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 18,
+		"nom": "perle",
+		"x": 25,
+		"y": 24,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"deplacement": {
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RendreTraversable",
+					"traversable": true
+				},
+				{
+					"nom": "Avancer",
+					"direction": 0,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "RendreTraversable",
+					"traversable": false
+				}
+				]
+			},
+			"image": "perle character",
+			"directionInitiale": 1,
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": true,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 7,
 		"nom": "Luciole",
 		"x": 25,
@@ -1897,47 +1944,31 @@
 		]
 	},
 	{
-		"id": 18,
-		"nom": "perle",
+		"id": 13,
+		"nom": "EV013",
 		"x": 25,
-		"y": 24,
+		"y": 30,
 		"pages": [
 		{
 			"conditions": [
 			{
-				"nom": "Parler"
+				"nom": "ArriveeAuContact"
 			}
 			],
 			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 199,
+				"xDebutHeros": 16,
+				"yDebutHeros": 12
+			}
 			],
-			"deplacement": {
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "RendreTraversable",
-					"traversable": true
-				},
-				{
-					"nom": "Avancer",
-					"direction": 0,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "RendreTraversable",
-					"traversable": false
-				}
-				]
-			},
-			"image": "perle character",
-			"directionInitiale": 1,
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
 		}
@@ -2243,37 +2274,6 @@
 		]
 	},
 	{
-		"id": 13,
-		"nom": "EV013",
-		"x": 25,
-		"y": 30,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 199,
-				"xDebutHeros": 16,
-				"yDebutHeros": 12
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
 		"id": 8,
 		"nom": "Luciole",
 		"x": 21,
@@ -2417,6 +2417,37 @@
 			"directionFixe": false,
 			"traversable": true,
 			"auDessusDeTout": true
+		}
+		]
+	},
+	{
+		"id": 14,
+		"nom": "EV014",
+		"x": 24,
+		"y": 13,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 197,
+				"xDebutHeros": 14,
+				"yDebutHeros": 15
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
 		}
 		]
 	},
@@ -2632,37 +2663,6 @@
 		]
 	},
 	{
-		"id": 14,
-		"nom": "EV014",
-		"x": 24,
-		"y": 13,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 197,
-				"xDebutHeros": 14,
-				"yDebutHeros": 15
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
 		"id": 9,
 		"nom": "Luciole",
 		"x": 28,
@@ -2806,358 +2806,6 @@
 			"directionFixe": false,
 			"traversable": true,
 			"auDessusDeTout": true
-		}
-		]
-	},
-	{
-		"id": 15,
-		"nom": "Ningyo l'érudit",
-		"x": 25,
-		"y": 25,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) But who is it that wakes me up\\nfrom my antediluvian sleep?"
-			},
-			{
-				"nom": "Message",
-				"texte": "Mais qui donc me tire de mon antédiluvien \\nsommeil ?"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 16
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "RegarderDansUneDirection",
-					"direction": 1
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "erudits character",
-					"direction": 1,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "RendreDirectionFixe",
-					"directionFixe": true
-				}
-				]
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 16
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_temp.faceset = \"ningyo\""
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) I am \\c[2]Ningyo\\c[0] the scholar."
-			},
-			{
-				"nom": "Message",
-				"texte": "Je suis \\c[2]Ningyo l'érudit\\c[1]."
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) If I caught this chara-designer,\\nhe would have a hard time, believe me!"
-			},
-			{
-				"nom": "Message",
-				"texte": "Si je tenais ce chara-designer, il passerait \\nun sale quart d'heure, crois-moi !"
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) You are clever to have come to end my shrine \\nand its enigmas."
-			},
-			{
-				"nom": "Message",
-				"texte": "Tu es malin pour être venu à bout de mon\\nsanctuaire et de ses énigmes."
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) As the rule goes, I'll pass on my power to you."
-			},
-			{
-				"nom": "Message",
-				"texte": "Comme le veut la règle, je vais te transmettre \\nmon pouvoir."
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "JouerAnimation",
-				"idEvent": 0,
-				"idAnimation": 7
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 5,
-				"operationAFaire": "ajouter",
-				"valeurADonner": 2,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 4,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 5,
-				"operationAFaire2": "contenu de la variable"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) Your life energy has increased,\\nand you can use my fins outside the shrine."
-			},
-			{
-				"nom": "Message",
-				"texte": "Ton énergie vitale a augmenté, et tu peux \\nutiliser mes nageoires hors du sanctuaire."
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) I entrust you with the pearl of water lilies.\\nNow you are the new guardian of the life \\nflowing in \\c[2]Kujira\\c[0]."
-			},
-			{
-				"nom": "Message",
-				"texte": "Je te confie la perle des nénufars, \\nte voilà le nouveau gardien du flot de vie qui\\ns'écoule en \\c[2]Kujira\\c[1]."
-			},
-			{
-				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "fanfare (important).ogg",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 18,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierOpacite",
-					"opacite": 0
-				},
-				{
-					"nom": "RendreTraversable",
-					"traversable": true
-				}
-				]
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "Jiyounasu content character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				}
-				]
-			},
-			{
-				"nom": "AjouterObjet",
-				"idObjet": 49,
-				"variable": false,
-				"quantite": 1
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_temp.faceset = nil"
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) \\c[2]Ningyo the scholar\\c[0] gives you the pearl\\nof water lilies."
-			},
-			{
-				"nom": "Message",
-				"texte": "\\c[2]Ningyo l'érudit\\c[1] vous donne la perle des \\nnénufars."
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) You have released the second spirit \\nof the scholars."
-			},
-			{
-				"nom": "Message",
-				"texte": "Vous avez libéré le second esprit des \\c[2]érudits\\c[1]."
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 16
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "Jiyounasu character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 8
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "Jiyounasu character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "RendreDirectionFixe",
-					"directionFixe": false
-				}
-				]
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_temp.faceset = \"ningyo\""
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) Carry the hopes and wishes of the people \\nof Kujira."
-			},
-			{
-				"nom": "Message",
-				"texte": "Porte les espoirs et les voeux des habitants \\nde Kujira."
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) Farewell."
-			},
-			{
-				"nom": "Message",
-				"texte": "Adieu."
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 126,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 9,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": true
-			}
-			],
-			"image": "vide mais pas invisible",
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "InterrupteurLocal",
-				"numeroEvent": 15,
-				"numeroInterrupteurLocal": 0,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 18,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierOpacite",
-					"opacite": 0
-				},
-				{
-					"nom": "RendreTraversable",
-					"traversable": true
-				}
-				]
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 17,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierOpacite",
-					"opacite": 0
-				},
-				{
-					"nom": "RendreTraversable",
-					"traversable": true
-				}
-				]
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			},
-			{
-				"nom": "SupprimerEvent"
-			}
-			],
-			"opacite": 0,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
 		}
 		]
 	},
@@ -3457,6 +3105,358 @@
 			"directionFixe": false,
 			"traversable": true,
 			"auDessusDeTout": true
+		}
+		]
+	},
+	{
+		"id": 15,
+		"nom": "Ningyo l'érudit",
+		"x": 25,
+		"y": 25,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) But who is it that wakes me up\\nfrom my antediluvian sleep?"
+			},
+			{
+				"nom": "Message",
+				"texte": "Mais qui donc me tire de mon antédiluvien \\nsommeil ?"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 16
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RegarderDansUneDirection",
+					"direction": 1
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "erudits character",
+					"direction": 1,
+					"animation": 0,
+					"teinte": 0
+				},
+				{
+					"nom": "RendreDirectionFixe",
+					"directionFixe": true
+				}
+				]
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 16
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"ningyo\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) I am \\c[2]Ningyo\\c[0] the scholar."
+			},
+			{
+				"nom": "Message",
+				"texte": "Je suis \\c[2]Ningyo l'érudit\\c[1]."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) If I caught this chara-designer,\\nhe would have a hard time, believe me!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Si je tenais ce chara-designer, il passerait \\nun sale quart d'heure, crois-moi !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) You are clever since you triumphed \\nover the puzzles of my sanctuary."
+			},
+			{
+				"nom": "Message",
+				"texte": "Tu es malin pour être venu à bout de mon\\nsanctuaire et de ses énigmes."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) As the rule goes, I'll pass on my power to you."
+			},
+			{
+				"nom": "Message",
+				"texte": "Comme le veut la règle, je vais te transmettre \\nmon pouvoir."
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "JouerAnimation",
+				"idEvent": 0,
+				"idAnimation": 7
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 5,
+				"operationAFaire": "ajouter",
+				"valeurADonner": 2,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 4,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 5,
+				"operationAFaire2": "contenu de la variable"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Your life energy has increased,\\nand you can use my fins outside the sanctuary."
+			},
+			{
+				"nom": "Message",
+				"texte": "Ton énergie vitale a augmenté, et tu peux \\nutiliser mes nageoires hors du sanctuaire."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) I entrust you with the pearl of water lilies.\\nNow you are the new guardian of the life \\nflowing in \\c[2]Kujira\\c[0]."
+			},
+			{
+				"nom": "Message",
+				"texte": "Je te confie la perle des nénufars, \\nte voilà le nouveau gardien du flot de vie qui\\ns'écoule en \\c[2]Kujira\\c[1]."
+			},
+			{
+				"nom": "JouerEffetMusical",
+				"nomFichierSonore": "fanfare (important).ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 18,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 0
+				},
+				{
+					"nom": "RendreTraversable",
+					"traversable": true
+				}
+				]
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "Jiyounasu content character",
+					"direction": 0,
+					"animation": 0,
+					"teinte": 0
+				}
+				]
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 49,
+				"variable": false,
+				"quantite": 1
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = nil"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \\c[2]Ningyo the scholar\\c[0] gives you the pearl\\nof water lilies."
+			},
+			{
+				"nom": "Message",
+				"texte": "\\c[2]Ningyo l'érudit\\c[1] vous donne la perle des \\nnénufars."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) You have released the second spirit \\nof the scholars."
+			},
+			{
+				"nom": "Message",
+				"texte": "Vous avez libéré le second esprit des \\c[2]érudits\\c[1]."
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 16
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "Jiyounasu character",
+					"direction": 0,
+					"animation": 0,
+					"teinte": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 8
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "Jiyounasu character",
+					"direction": 0,
+					"animation": 0,
+					"teinte": 0
+				},
+				{
+					"nom": "RendreDirectionFixe",
+					"directionFixe": false
+				}
+				]
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"ningyo\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Carry the hopes and wishes of the people \\nof Kujira."
+			},
+			{
+				"nom": "Message",
+				"texte": "Porte les espoirs et les voeux des habitants \\nde Kujira."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Farewell."
+			},
+			{
+				"nom": "Message",
+				"texte": "Adieu."
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 126,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 9,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": true
+			}
+			],
+			"image": "vide mais pas invisible",
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": true,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 15,
+				"numeroInterrupteurLocal": 0,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 18,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 0
+				},
+				{
+					"nom": "RendreTraversable",
+					"traversable": true
+				}
+				]
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 17,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 0
+				},
+				{
+					"nom": "RendreTraversable",
+					"traversable": true
+				}
+				]
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			},
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"opacite": 0,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
 		}
 		]
 	},

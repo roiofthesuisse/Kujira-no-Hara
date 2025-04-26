@@ -66,6 +66,12 @@
 	],
 	"events": [
 	{
+		"id": 5,
+		"nom": "Clone[341][003]",
+		"x": 13,
+		"y": 4
+	},
+	{
 		"id": 16,
 		"nom": "Serrure Donjon",
 		"x": 10,
@@ -271,16 +277,16 @@
 		]
 	},
 	{
-		"id": 5,
-		"nom": "Clone[341][003]",
-		"x": 13,
-		"y": 4
-	},
-	{
 		"id": 11,
 		"nom": "Clone[582][103]",
 		"x": 17,
 		"y": 11
+	},
+	{
+		"id": 6,
+		"nom": "Clone[341][003]",
+		"x": 7,
+		"y": 4
 	},
 	{
 		"id": 17,
@@ -301,14 +307,6 @@
 				"valeur": true
 			},
 			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 0
-			},
-			{
 				"nom": "Commentaire",
 				"texte": "(en) You haven't finished this dungeon yet."
 			},
@@ -326,43 +324,11 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) You will have to get it back\\nthe next time you visit the\\nshrine."
+				"texte": "(en) You will have to get it back\\nthe next time you visit the sanctuary."
 			},
 			{
 				"nom": "Message",
 				"texte": "Il faudra aller la récupérer à votre prochaine \\nvisite du sanctuaire."
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) You did not complete this dungeon."
-			},
-			{
-				"nom": "Message",
-				"texte": "You did not complete this dungeon."
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) If you leave now, you will lose\\nthe weapon of the dungeon."
-			},
-			{
-				"nom": "Message",
-				"texte": "If you leave now, you will lost the weapon\\nof the dungeon."
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) You will have to fetch it again\\nat your next visit of the\\nshrine."
-			},
-			{
-				"nom": "Message",
-				"texte": "You will have to fetch it again at your next \\nvisit of the sanctuary."
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
 			},
 			{
 				"nom": "Attendre",
@@ -380,43 +346,6 @@
 			"animeEnMouvement": false,
 			"animeALArret": false,
 			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 6,
-		"nom": "Clone[341][003]",
-		"x": 7,
-		"y": 4
-	},
-	{
-		"id": 12,
-		"nom": "EV012",
-		"x": 10,
-		"y": 0,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 801,
-				"xDebutHeros": 10,
-				"yDebutHeros": 28
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
 		}
@@ -452,6 +381,43 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 12,
+		"nom": "EV012",
+		"x": 10,
+		"y": 0,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 801,
+				"xDebutHeros": 10,
+				"yDebutHeros": 28
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 7,
+		"nom": "Clone[341][003]",
+		"x": 5,
+		"y": 4
 	},
 	{
 		"id": 18,
@@ -538,38 +504,6 @@
 			"animeALArret": false,
 			"directionFixe": false,
 			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 7,
-		"nom": "Clone[341][003]",
-		"x": 5,
-		"y": 4
-	},
-	{
-		"id": 2,
-		"nom": "buisson",
-		"x": 3,
-		"y": 9,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "buisson fixe",
-			"directionInitiale": 1,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
 			"auDessusDeTout": false
 		}
 		]
@@ -823,6 +757,38 @@
 		]
 	},
 	{
+		"id": 2,
+		"nom": "buisson",
+		"x": 3,
+		"y": 9,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "buisson fixe",
+			"directionInitiale": 1,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 8,
+		"nom": "Clone[341][003]",
+		"x": 15,
+		"y": 4
+	},
+	{
 		"id": 19,
 		"nom": "Avancement",
 		"x": 13,
@@ -876,38 +842,6 @@
 			"animeEnMouvement": false,
 			"animeALArret": false,
 			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 8,
-		"nom": "Clone[341][003]",
-		"x": 15,
-		"y": 4
-	},
-	{
-		"id": 3,
-		"nom": "buisson",
-		"x": 5,
-		"y": 2,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "buisson fixe",
-			"directionInitiale": 2,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
 			"traversable": false,
 			"auDessusDeTout": false
 		}
@@ -1024,6 +958,38 @@
 		]
 	},
 	{
+		"id": 3,
+		"nom": "buisson",
+		"x": 5,
+		"y": 2,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "buisson fixe",
+			"directionInitiale": 2,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 9,
+		"nom": "Clone[341][002]",
+		"x": 16,
+		"y": 10
+	},
+	{
 		"id": 20,
 		"nom": "EV020",
 		"x": 12,
@@ -1075,18 +1041,6 @@
 		]
 	},
 	{
-		"id": 9,
-		"nom": "Clone[341][002]",
-		"x": 16,
-		"y": 10
-	},
-	{
-		"id": 4,
-		"nom": "Clone[341][059]",
-		"x": 4,
-		"y": 10
-	},
-	{
 		"id": 15,
 		"nom": "Stèle",
 		"x": 1,
@@ -1112,7 +1066,7 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) \"Here I am in the shrine of \\c[2]Jishin\\c[0],\\nstill inhabited by his mad golems."
+				"texte": "(en) \"Here I am in \\c[2]Jishin\\c[0]'s sanctuary,\\nstill inhabited by his mad golems."
 			},
 			{
 				"nom": "Message",
@@ -1128,7 +1082,7 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) I will go to the bottom of this shrine \\nto find the way out of the whale."
+				"texte": "(en) I will go to the bottom of this sanctuary\\nto find the way out of the whale."
 			},
 			{
 				"nom": "Message",
@@ -1187,6 +1141,18 @@
 		]
 	},
 	{
+		"id": 4,
+		"nom": "Clone[341][059]",
+		"x": 4,
+		"y": 10
+	},
+	{
+		"id": 10,
+		"nom": "Clone[582][101]",
+		"x": 17,
+		"y": 10
+	},
+	{
 		"id": 21,
 		"nom": "EV021",
 		"x": 20,
@@ -1217,12 +1183,6 @@
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 10,
-		"nom": "Clone[582][101]",
-		"x": 17,
-		"y": 10
 	}
 	]
 }

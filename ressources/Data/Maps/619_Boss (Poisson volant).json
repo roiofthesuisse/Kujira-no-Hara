@@ -1021,19 +1021,24 @@
 				"numero": 1
 			},
 			{
-				"nom": "ConditionScript",
-				"script": "$game_player.prout(\"Jiyounasu AttaqueEpee character\", nil, 2)",
+				"nom": "ConditionInterrupteur",
+				"numeroInterrupteur": 16,
+				"valeurQuIlEstCenseAvoir": false,
 				"numero": 2
 			},
 			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 0,
-				"direction": 0,
-				"numero": 3
+				"nom": "Attendre",
+				"nombreDeFrames": 1
 			},
 			{
-				"nom": "ConditionSinon",
-				"numero": 3
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "MC_Enemy_Hit.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "JouerAnimation",
+				"idAnimation": 1
 			},
 			{
 				"nom": "ConditionVariable",
@@ -1041,7 +1046,7 @@
 				"inegalite": ">=",
 				"valeurQuIlEstCenseAvoir": 3,
 				"comparerAUneAutreVariable": false,
-				"numero": 4
+				"numero": 3
 			},
 			{
 				"nom": "AppelerUnScript",
@@ -1186,17 +1191,7 @@
 			},
 			{
 				"nom": "ConditionSinon",
-				"numero": 4
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "MC_Enemy_Hit.wav",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "JouerAnimation",
-				"idAnimation": 1
+				"numero": 3
 			},
 			{
 				"nom": "Deplacement",
@@ -1225,19 +1220,11 @@
 				"script": "wait_for_event(@event_id)"
 			},
 			{
-				"nom": "Attendre",
-				"nombreDeFrames": 3
-			},
-			{
 				"nom": "ModifierVariable",
 				"numeroVariable": 13,
 				"operationAFaire": "ajouter",
 				"valeurADonner": 1,
 				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 4
 			},
 			{
 				"nom": "ConditionFin",
@@ -1264,8 +1251,8 @@
 				"mouvements": [
 				{
 					"nom": "ModifierApparence",
-					"image": "poisson rouge volant character",
-					"direction": 3,
+					"image": "poisson volant vulnerable character",
+					"direction": 0,
 					"animation": 0,
 					"teinte": 0
 				},
@@ -1276,9 +1263,9 @@
 				},
 				{
 					"nom": "ModifierApparence",
-					"image": "poisson volant assomme character",
+					"image": "poisson volant vulnerable character",
 					"direction": 0,
-					"animation": 0,
+					"animation": 1,
 					"teinte": 0
 				},
 				{
@@ -1291,8 +1278,7 @@
 				}
 				]
 			},
-			"image": "poisson volant character",
-			"directionInitiale": 3,
+			"image": "poisson volant vulnerable character",
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": false,
@@ -1470,6 +1456,7 @@
 			"animationInitiale": 1,
 			"vitesse": "moderee",
 			"frequence": "basse",
+			"figerLesAutresEvents": true,
 			"animeEnMouvement": false,
 			"animeALArret": false,
 			"directionFixe": true,
@@ -1725,6 +1712,11 @@
 				"texte": "le boss est-il sur une torche ?"
 			},
 			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 56,
+				"valeur": false
+			},
+			{
 				"nom": "ConditionDirection",
 				"idEventConcerne": 10,
 				"direction": 0,
@@ -1736,44 +1728,8 @@
 				"numero": 1
 			},
 			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 5,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "PasEnArriere"
-				}
-				]
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "wait_for_event(@event_id)"
-			},
-			{
-				"nom": "JouerAnimation",
-				"idEvent": 5,
-				"idAnimation": 4
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "Monstre1.wav",
-				"volume": 1.00,
-				"tempo": 1.50
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 16
-			},
-			{
 				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 2,
-				"valeur": false
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 3,
+				"numeroInterrupteur": 56,
 				"valeur": true
 			},
 			{
@@ -1796,44 +1752,8 @@
 				"numero": 3
 			},
 			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 5,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "PasEnArriere"
-				}
-				]
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "wait_for_event(@event_id)"
-			},
-			{
-				"nom": "JouerAnimation",
-				"idEvent": 5,
-				"idAnimation": 4
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "Monstre1.wav",
-				"volume": 1.00,
-				"tempo": 1.50
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 16
-			},
-			{
 				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 2,
-				"valeur": false
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 3,
+				"numeroInterrupteur": 56,
 				"valeur": true
 			},
 			{
@@ -1856,44 +1776,8 @@
 				"numero": 5
 			},
 			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 5,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "PasEnArriere"
-				}
-				]
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "wait_for_event(@event_id)"
-			},
-			{
-				"nom": "JouerAnimation",
-				"idEvent": 5,
-				"idAnimation": 4
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "Monstre1.wav",
-				"volume": 1.00,
-				"tempo": 1.50
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 16
-			},
-			{
 				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 2,
-				"valeur": false
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 3,
+				"numeroInterrupteur": 56,
 				"valeur": true
 			},
 			{
@@ -1916,44 +1800,8 @@
 				"numero": 7
 			},
 			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 5,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "PasEnArriere"
-				}
-				]
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "wait_for_event(@event_id)"
-			},
-			{
-				"nom": "JouerAnimation",
-				"idEvent": 5,
-				"idAnimation": 4
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "Monstre1.wav",
-				"volume": 1.00,
-				"tempo": 1.50
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 16
-			},
-			{
 				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 2,
-				"valeur": false
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 3,
+				"numeroInterrupteur": 56,
 				"valeur": true
 			},
 			{
@@ -1976,6 +1824,62 @@
 				"numero": 9
 			},
 			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 56,
+				"valeur": true
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 9
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 8
+			},
+			{
+				"nom": "ConditionInterrupteur",
+				"numeroInterrupteur": 56,
+				"valeurQuIlEstCenseAvoir": false,
+				"numero": 10
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 1,
+				"valeurADonner": true
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 10
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 11,
+				"numeroInterrupteurLocal": 1,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "JouerAnimation",
+				"idEvent": 5,
+				"idAnimation": 4
+			},
+			{
 				"nom": "Deplacement",
 				"idEventADeplacer": 5,
 				"ignorerLesMouvementsImpossibles": false,
@@ -1984,7 +1888,79 @@
 				"mouvements": [
 				{
 					"nom": "PasEnArriere"
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 33
 				}
+				]
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "ballon degonfle.ogg",
+				"volume": 1.00,
+				"tempo": 1.50
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_variables[335] = Graphics.frame_count"
+			},
+			{
+				"nom": "Boucle",
+				"numero": 0
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_variables[337] = Graphics.frame_count-$game_variables[335]"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_map.events[5].offset_x(  256*(Math.sin($game_variables[337]/10.0))*Math.cos($game_variables[337]/10.0)  )"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_map.events[5].offset_y(  256*(Math.cos($game_variables[337]/10.0)**2)*Math.sin($game_variables[337]/10.0)  )"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.animations.push([48, true, $game_map.events[5].x+$game_map.events[5].get_offset_x()/32, $game_map.events[5].y+$game_map.events[5].get_offset_y()/32])"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 337,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 74,
+				"comparerAUneAutreVariable": false,
+				"numero": 0
+			},
+			{
+				"nom": "BoucleSortir",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "BoucleFin",
+				"numero": 0
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 5,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
 				]
 			},
 			{
@@ -1992,19 +1968,25 @@
 				"script": "wait_for_event(@event_id)"
 			},
 			{
-				"nom": "JouerAnimation",
-				"idEvent": 5,
-				"idAnimation": 4
-			},
-			{
 				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "Monstre1.wav",
+				"nomFichierSonore": "ballon tombe.ogg",
 				"volume": 1.00,
-				"tempo": 1.50
+				"tempo": 1.00
 			},
 			{
-				"nom": "Attendre",
-				"nombreDeFrames": 16
+				"nom": "AppelerUnScript",
+				"script": "$game_map.events[5].offset_x(0)"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_map.events[5].offset_y(0)"
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 13,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"operationAFaire2": "valeur brute"
 			},
 			{
 				"nom": "ModifierInterrupteur",
@@ -2017,16 +1999,9 @@
 				"valeur": true
 			},
 			{
-				"nom": "ConditionFin",
-				"numero": 9
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 8
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 1,
+				"valeurADonner": false
 			}
 			],
 			"vitesse": "moderee",
@@ -2872,34 +2847,6 @@
 		]
 	},
 	{
-		"id": 2,
-		"nom": "traduction des messages",
-		"x": 20,
-		"y": 12,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "AppelerUnScript",
-				"script": "$scene = Scene_Scan2.new"
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
 		"id": 41,
 		"nom": "Clone[341][004]",
 		"x": 8,
@@ -3509,7 +3456,7 @@
 				"variable": false,
 				"numeroNouvelleMap": 196,
 				"xDebutHeros": 16,
-				"yDebutHeros": 47
+				"yDebutHeros": 46
 			}
 			],
 			"vitesse": "moderee",

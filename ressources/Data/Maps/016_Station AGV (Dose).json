@@ -111,6 +111,34 @@
 	],
 	"events": [
 	{
+		"id": 27,
+		"nom": "export des textes anglais",
+		"x": 23,
+		"y": 13,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "AppelerUnScript",
+				"script": "$scene = Scene_Scan3.new"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 5,
 		"nom": "Clone[341][0021]",
 		"x": 17,
@@ -205,6 +233,38 @@
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 28,
+		"nom": "EV028",
+		"x": 24,
+		"y": 13,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "Commentaire",
+				"texte": "(en) You filled up your vase with universal panacea!"
+			},
+			{
+				"nom": "Message",
+				"texte": "gfsdhgsfd"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
 			"animeALArret": false,
 			"directionFixe": false,
 			"traversable": false,

@@ -183,6 +183,37 @@
 		]
 	},
 	{
+		"id": 12,
+		"nom": "EV012",
+		"x": 0,
+		"y": 7,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 745,
+				"xDebutHeros": 19,
+				"yDebutHeros": 7
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 1,
 		"nom": "Coffrillage (clé d'or)",
 		"x": 10,
@@ -527,37 +558,6 @@
 		]
 	},
 	{
-		"id": 12,
-		"nom": "EV012",
-		"x": 0,
-		"y": 7,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 745,
-				"xDebutHeros": 19,
-				"yDebutHeros": 7
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
 		"id": 7,
 		"nom": "soleil",
 		"x": 12,
@@ -588,6 +588,54 @@
 			{
 				"nom": "Interrupteur",
 				"numeroInterrupteur": 145,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			],
+			"image": "dalles soleil character",
+			"directionInitiale": 3,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 2,
+		"nom": "soleil",
+		"x": 8,
+		"y": 5,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "dalles soleil character",
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			},
+			{
+				"nom": "Interrupteur",
+				"numeroInterrupteur": 140,
 				"valeurQuIlEstCenseAvoir": true
 			}
 			],
@@ -662,10 +710,10 @@
 		]
 	},
 	{
-		"id": 2,
-		"nom": "soleil",
-		"x": 8,
-		"y": 5,
+		"id": 19,
+		"nom": "Carte du Donjon",
+		"x": 10,
+		"y": 11,
 		"pages": [
 		{
 			"conditions": [
@@ -674,37 +722,59 @@
 			}
 			],
 			"commandes": [
-			],
-			"image": "dalles soleil character",
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
 			{
-				"nom": "Parler"
+				"nom": "ConditionDirection",
+				"idEventConcerne": 0,
+				"direction": 3,
+				"numero": 0
 			},
 			{
-				"nom": "Interrupteur",
-				"numeroInterrupteur": 140,
-				"valeurQuIlEstCenseAvoir": true
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "ModifierAvancementQuete",
+				"numero": 97,
+				"avancement": "FAITE"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) The map of this sanctuary is now available \\nin the MAP menu!"
+			},
+			{
+				"nom": "Message",
+				"texte": "La carte de ce sanctuaire est à présent \\ndisponible dans le menu CARTE !"
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "EffacerImage",
+				"numero": 6
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
 			}
 			],
-			"commandes": [
-			],
-			"image": "dalles soleil character",
-			"directionInitiale": 3,
+			"image": "plan donjon character",
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": false,
 			"animeALArret": false,
 			"directionFixe": true,
-			"traversable": true,
+			"traversable": false,
 			"auDessusDeTout": false
 		}
 		]
@@ -915,82 +985,6 @@
 		]
 	},
 	{
-		"id": 19,
-		"nom": "Carte du Donjon",
-		"x": 10,
-		"y": 11,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 0,
-				"direction": 3,
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "ModifierAvancementQuete",
-				"numero": 97,
-				"avancement": "FAITE"
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) The map of this shrine is now available \\nin the \"map\" menu!"
-			},
-			{
-				"nom": "Message",
-				"texte": "La carte de ce sanctuaire est à présent \\ndisponible dans le menu \"carte\" !"
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "EffacerImage",
-				"numero": 6
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
-			],
-			"image": "plan donjon character",
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 14,
-		"nom": "Clone[341][0057]",
-		"x": 19,
-		"y": 7
-	},
-	{
 		"id": 3,
 		"nom": "soleil",
 		"x": 12,
@@ -1037,6 +1031,12 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 14,
+		"nom": "Clone[341][0057]",
+		"x": 19,
+		"y": 7
 	},
 	{
 		"id": 9,

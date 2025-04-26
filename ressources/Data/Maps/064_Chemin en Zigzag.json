@@ -156,43 +156,6 @@
 	],
 	"events": [
 	{
-		"id": 5,
-		"nom": "Clone[341][028]",
-		"x": 19,
-		"y": 33
-	},
-	{
-		"id": 16,
-		"nom": "EV016",
-		"x": 15,
-		"y": 44,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 168,
-				"xDebutHeros": 12,
-				"yDebutHeros": 1
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
 		"id": 27,
 		"nom": "Mathusalem",
 		"x": 20,
@@ -488,7 +451,7 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) If the third scroll led you to a scholar's shrine, \\nthat should also be the case for the second one, \\nwhich I gave you earlier."
+				"texte": "(en) The third scroll led you to a scholar's sanctuary.\\nThat should also be the case for the second one, \\nwhich I gave you earlier."
 			},
 			{
 				"nom": "Message",
@@ -689,6 +652,84 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 16,
+		"nom": "EV016",
+		"x": 15,
+		"y": 44,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 168,
+				"xDebutHeros": 12,
+				"yDebutHeros": 1
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 5,
+		"nom": "Clone[341][028]",
+		"x": 19,
+		"y": 33
+	},
+	{
+		"id": 33,
+		"nom": "Annonce du Lieu",
+		"x": 23,
+		"y": 37,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "Commentaire",
+				"texte": "annonce du lieu\\n(sortie de donjon)"
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 127,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 4,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 11,
+		"nom": "Clone[021][004]",
+		"x": 15,
+		"y": 23
 	},
 	{
 		"id": 22,
@@ -910,75 +951,10 @@
 		]
 	},
 	{
-		"id": 11,
-		"nom": "Clone[021][004]",
+		"id": 28,
+		"nom": "Clone[341][002]",
 		"x": 15,
-		"y": 23
-	},
-	{
-		"id": 33,
-		"nom": "Annonce du Lieu",
-		"x": 23,
-		"y": 37,
-		"pages": [
-		{
-			"conditions": [
-			],
-			"commandes": [
-			{
-				"nom": "Commentaire",
-				"texte": "annonce du lieu\\n(sortie de donjon)"
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 127,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 4,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "SupprimerEvent"
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 39,
-		"nom": "Blocage anti-évènement",
-		"x": 22,
-		"y": 20,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 6,
-		"nom": "Clone[341][028]",
-		"x": 20,
-		"y": 9
+		"y": 7
 	},
 	{
 		"id": 17,
@@ -1012,28 +988,34 @@
 		]
 	},
 	{
-		"id": 28,
-		"nom": "Clone[341][002]",
-		"x": 15,
-		"y": 7
+		"id": 6,
+		"nom": "Clone[341][028]",
+		"x": 20,
+		"y": 9
 	},
 	{
-		"id": 1,
-		"nom": "Clone[341][061]",
-		"x": 11,
-		"y": 19
-	},
-	{
-		"id": 12,
-		"nom": "Clone[021][004]",
-		"x": 17,
-		"y": 25
-	},
-	{
-		"id": 23,
-		"nom": "Clone[582][44]",
-		"x": 11,
-		"y": 26
+		"id": 39,
+		"nom": "Blocage anti-évènement",
+		"x": 22,
+		"y": 20,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 34,
@@ -1174,16 +1156,22 @@
 		]
 	},
 	{
-		"id": 18,
-		"nom": "Clone[341][102]",
-		"x": 13,
-		"y": 19
+		"id": 23,
+		"nom": "Clone[582][44]",
+		"x": 11,
+		"y": 26
 	},
 	{
-		"id": 7,
-		"nom": "Clone[341][028]",
-		"x": 15,
-		"y": 13
+		"id": 12,
+		"nom": "Clone[021][004]",
+		"x": 17,
+		"y": 25
+	},
+	{
+		"id": 1,
+		"nom": "Clone[341][061]",
+		"x": 11,
+		"y": 19
 	},
 	{
 		"id": 29,
@@ -1192,16 +1180,22 @@
 		"y": 7
 	},
 	{
-		"id": 35,
-		"nom": "Clone[341][055]",
-		"x": 6,
-		"y": 33
+		"id": 7,
+		"nom": "Clone[341][028]",
+		"x": 15,
+		"y": 13
 	},
 	{
-		"id": 2,
-		"nom": "Clone[341][028]",
-		"x": 9,
-		"y": 20
+		"id": 18,
+		"nom": "Clone[341][102]",
+		"x": 13,
+		"y": 19
+	},
+	{
+		"id": 13,
+		"nom": "Clone[021][004]",
+		"x": 20,
+		"y": 13
 	},
 	{
 		"id": 24,
@@ -1753,22 +1747,16 @@
 		]
 	},
 	{
-		"id": 13,
-		"nom": "Clone[021][004]",
-		"x": 20,
-		"y": 13
-	},
-	{
-		"id": 30,
-		"nom": "Clone[582][103]",
-		"x": 16,
-		"y": 8
-	},
-	{
-		"id": 8,
+		"id": 2,
 		"nom": "Clone[341][028]",
-		"x": 14,
-		"y": 17
+		"x": 9,
+		"y": 20
+	},
+	{
+		"id": 35,
+		"nom": "Clone[341][055]",
+		"x": 6,
+		"y": 33
 	},
 	{
 		"id": 19,
@@ -1802,97 +1790,16 @@
 		]
 	},
 	{
-		"id": 36,
-		"nom": "Pancarte",
-		"x": 14,
-		"y": 36,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 0,
-				"direction": 3,
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) \\u2191 House of the late \\c[2]lamplighter\\c[0]\\n\\u2191 \\c[2]Red Vikings\\c[0]' village\\n\\u2193 Shrine of \\c[2]Kaze the scholar\\c[0]"
-			},
-			{
-				"nom": "Message",
-				"texte": "\\u2191 Maison de feu l'\\c[2]allumeur de réverbères\\c[1]\\n\\u2191 Village viking rouge\\n\\u2193 Sanctuaire de \\c[2]Kazé l'érudit\\c[1]"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 3,
+		"id": 8,
 		"nom": "Clone[341][028]",
-		"x": 10,
-		"y": 19
+		"x": 14,
+		"y": 17
 	},
 	{
-		"id": 14,
-		"nom": "EV014",
-		"x": 10,
-		"y": 0,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 52,
-				"xDebutHeros": 20,
-				"yDebutHeros": 29
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
+		"id": 30,
+		"nom": "Clone[582][103]",
+		"x": 16,
+		"y": 8
 	},
 	{
 		"id": 25,
@@ -2444,6 +2351,111 @@
 		]
 	},
 	{
+		"id": 14,
+		"nom": "EV014",
+		"x": 10,
+		"y": 0,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 52,
+				"xDebutHeros": 20,
+				"yDebutHeros": 29
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 3,
+		"nom": "Clone[341][028]",
+		"x": 10,
+		"y": 19
+	},
+	{
+		"id": 36,
+		"nom": "Pancarte",
+		"x": 14,
+		"y": 36,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 0,
+				"direction": 3,
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \\u2191 House of the late \\c[2]lamplighter\\c[0]\\n\\u2191 \\c[2]Red Vikings\\c[0]' village\\n\\u2193 Sanctuary of \\c[2]Kaze the scholar\\c[0]"
+			},
+			{
+				"nom": "Message",
+				"texte": "\\u2191 Maison de feu l'\\c[2]allumeur de réverbères\\c[1]\\n\\u2191 Village viking rouge\\n\\u2193 Sanctuaire de \\c[2]Kazé l'érudit\\c[1]"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 20,
+		"nom": "Clone[582][51]",
+		"x": 8,
+		"y": 21
+	},
+	{
+		"id": 9,
+		"nom": "Clone[341][061]",
+		"x": 16,
+		"y": 14
+	},
+	{
 		"id": 31,
 		"nom": "EV031",
 		"x": 12,
@@ -2469,30 +2481,25 @@
 		]
 	},
 	{
-		"id": 9,
-		"nom": "Clone[341][061]",
-		"x": 16,
-		"y": 14
-	},
-	{
-		"id": 20,
-		"nom": "Clone[582][51]",
-		"x": 8,
-		"y": 21
-	},
-	{
-		"id": 37,
-		"nom": "Blocage anti-évènement",
+		"id": 15,
+		"nom": "EV015",
 		"x": 11,
-		"y": 30,
+		"y": 0,
 		"pages": [
 		{
 			"conditions": [
 			{
-				"nom": "Parler"
+				"nom": "ArriveeAuContact"
 			}
 			],
 			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 52,
+				"xDebutHeros": 21,
+				"yDebutHeros": 29
+			}
 			],
 			"vitesse": "moderee",
 			"frequence": "basse",
@@ -2503,6 +2510,12 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 4,
+		"nom": "Clone[341][028]",
+		"x": 18,
+		"y": 34
 	},
 	{
 		"id": 26,
@@ -2530,11 +2543,11 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) \"Only with the \\c[2]scholars\\c[1]\\nwe can still talk\\nwhereas they left."
+				"texte": "(en) \"The \\c[2]scholars\\c[1] of the legend...\\nWe can still talk to them \\neven though they have left."
 			},
 			{
 				"nom": "Message",
-				"texte": "\"Il n'y a qu'avec les \\c[2]érudits\\c[1] \\nque l'on peut parler\\nune fois qu'ils sont partis."
+				"texte": "\"Les \\c[2]érudits\\c[1] de la légende...\\non peut encore parler avec eux\\nbien qu'ils soient partis."
 			},
 			{
 				"nom": "Commentaire",
@@ -2581,31 +2594,18 @@
 		]
 	},
 	{
-		"id": 4,
-		"nom": "Clone[341][028]",
-		"x": 18,
-		"y": 34
-	},
-	{
-		"id": 15,
-		"nom": "EV015",
+		"id": 37,
+		"nom": "Blocage anti-évènement",
 		"x": 11,
-		"y": 0,
+		"y": 30,
 		"pages": [
 		{
 			"conditions": [
 			{
-				"nom": "ArriveeAuContact"
+				"nom": "Parler"
 			}
 			],
 			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 52,
-				"xDebutHeros": 21,
-				"yDebutHeros": 29
-			}
 			],
 			"vitesse": "moderee",
 			"frequence": "basse",
@@ -2616,6 +2616,38 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 32,
+		"nom": "arche",
+		"x": 10,
+		"y": 23,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "arches kujira character",
+			"directionInitiale": 1,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": true
+		}
+		]
+	},
+	{
+		"id": 10,
+		"nom": "Clone[341][061]",
+		"x": 10,
+		"y": 37
 	},
 	{
 		"id": 21,
@@ -2645,38 +2677,6 @@
 			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 10,
-		"nom": "Clone[341][061]",
-		"x": 10,
-		"y": 37
-	},
-	{
-		"id": 32,
-		"nom": "arche",
-		"x": 10,
-		"y": 23,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "arches kujira character",
-			"directionInitiale": 1,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": true
 		}
 		]
 	}

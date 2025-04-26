@@ -141,10 +141,10 @@
 	],
 	"events": [
 	{
-		"id": 27,
-		"nom": "Blocage anti-évènement",
-		"x": 9,
-		"y": 15,
+		"id": 16,
+		"nom": "oriflamme (12)",
+		"x": 16,
+		"y": 29,
 		"pages": [
 		{
 			"conditions": [
@@ -154,11 +154,12 @@
 			],
 			"commandes": [
 			],
+			"image": "oriflamme character",
 			"vitesse": "moderee",
 			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
+			"animeEnMouvement": false,
+			"animeALArret": true,
+			"directionFixe": true,
 			"traversable": false,
 			"auDessusDeTout": false
 		}
@@ -305,7 +306,7 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) You win a crystal of the whale!"
+				"texte": "(en) You get a crystal of the whale!"
 			},
 			{
 				"nom": "Message",
@@ -401,35 +402,10 @@
 		]
 	},
 	{
-		"id": 16,
-		"nom": "oriflamme (12)",
-		"x": 16,
-		"y": 29,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "oriflamme character",
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 22,
+		"id": 27,
 		"nom": "Blocage anti-évènement",
-		"x": 20,
-		"y": 16,
+		"x": 9,
+		"y": 15,
 		"pages": [
 		{
 			"conditions": [
@@ -474,6 +450,42 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 22,
+		"nom": "Blocage anti-évènement",
+		"x": 20,
+		"y": 16,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 28,
+		"nom": "Clone[341][184]",
+		"x": 29,
+		"y": 24
+	},
+	{
+		"id": 6,
+		"nom": "Clone[341][008]",
+		"x": 31,
+		"y": 17
 	},
 	{
 		"id": 17,
@@ -708,22 +720,30 @@
 		]
 	},
 	{
-		"id": 6,
-		"nom": "Clone[341][008]",
-		"x": 31,
-		"y": 17
-	},
-	{
-		"id": 28,
-		"nom": "Clone[341][184]",
-		"x": 29,
-		"y": 24
-	},
-	{
-		"id": 23,
-		"nom": "Clone[021][004]",
-		"x": 9,
-		"y": 20
+		"id": 12,
+		"nom": "Rocher2 SHADOW[32] (-4)",
+		"x": 10,
+		"y": 11,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "rocher gris character",
+			"directionInitiale": 2,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 1,
@@ -757,30 +777,47 @@
 		]
 	},
 	{
-		"id": 12,
-		"nom": "Rocher2 SHADOW[32] (-4)",
-		"x": 10,
-		"y": 11,
+		"id": 23,
+		"nom": "Clone[021][004]",
+		"x": 9,
+		"y": 20
+	},
+	{
+		"id": 18,
+		"nom": "EV018",
+		"x": 18,
+		"y": 30,
 		"pages": [
 		{
 			"conditions": [
 			{
-				"nom": "Parler"
+				"nom": "ArriveeAuContact"
 			}
 			],
 			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 404,
+				"xDebutHeros": 12,
+				"yDebutHeros": 7
+			}
 			],
-			"image": "rocher gris character",
-			"directionInitiale": 2,
 			"vitesse": "moderee",
 			"frequence": "basse",
-			"animeEnMouvement": false,
+			"animeEnMouvement": true,
 			"animeALArret": false,
-			"directionFixe": true,
+			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 7,
+		"nom": "Clone[341][006]",
+		"x": 26,
+		"y": 16
 	},
 	{
 		"id": 29,
@@ -809,16 +846,36 @@
 		]
 	},
 	{
-		"id": 7,
-		"nom": "Clone[341][006]",
-		"x": 26,
-		"y": 16
+		"id": 13,
+		"nom": "Rocher4 SHADOW[32] (-4)",
+		"x": 7,
+		"y": 12,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "rocher gris character",
+			"directionInitiale": 2,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
-		"id": 18,
-		"nom": "EV018",
-		"x": 18,
-		"y": 30,
+		"id": 2,
+		"nom": "EV002",
+		"x": 0,
+		"y": 11,
 		"pages": [
 		{
 			"conditions": [
@@ -830,9 +887,9 @@
 			{
 				"nom": "ChangerDeMap",
 				"variable": false,
-				"numeroNouvelleMap": 404,
-				"xDebutHeros": 12,
-				"yDebutHeros": 7
+				"numeroNouvelleMap": 340,
+				"xDebutHeros": 19,
+				"yDebutHeros": 15
 			}
 			],
 			"vitesse": "moderee",
@@ -872,41 +929,10 @@
 		]
 	},
 	{
-		"id": 2,
-		"nom": "EV002",
-		"x": 0,
-		"y": 11,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 340,
-				"xDebutHeros": 19,
-				"yDebutHeros": 15
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 13,
-		"nom": "Rocher4 SHADOW[32] (-4)",
-		"x": 7,
-		"y": 12,
+		"id": 8,
+		"nom": "Corne de Brume (8)",
+		"x": 18,
+		"y": 17,
 		"pages": [
 		{
 			"conditions": [
@@ -916,37 +942,12 @@
 			],
 			"commandes": [
 			],
-			"image": "rocher gris character",
-			"directionInitiale": 2,
-			"vitesse": "moderee",
-			"frequence": "basse",
+			"image": "corne de brume character",
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
 			"animeEnMouvement": false,
 			"animeALArret": false,
 			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 30,
-		"nom": "Blocage anti-évènement",
-		"x": 13,
-		"y": 26,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
 		}
@@ -1002,7 +1003,7 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) When \\c[2]Tabula the terrible\\c[0] will ear about it, \\nI will surely receive a promotion."
+				"texte": "(en) When \\c[2]Tabula the Terrible\\c[0] hears about it, \\nI will surely receive a promotion."
 			},
 			{
 				"nom": "Message",
@@ -1306,7 +1307,7 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) \\SHAKE S... silence, prisoner!\\nDon't tell such things!"
+				"texte": "(en) \\SHAKE S... silence, prisoner!\\nDon't say such things!"
 			},
 			{
 				"nom": "Message",
@@ -2307,10 +2308,10 @@
 		]
 	},
 	{
-		"id": 8,
-		"nom": "Corne de Brume (8)",
-		"x": 18,
-		"y": 17,
+		"id": 30,
+		"nom": "Blocage anti-évènement",
+		"x": 13,
+		"y": 26,
 		"pages": [
 		{
 			"conditions": [
@@ -2320,9 +2321,65 @@
 			],
 			"commandes": [
 			],
-			"image": "corne de brume character",
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 3,
+		"nom": "EV003",
+		"x": 39,
+		"y": 21,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 399,
+				"xDebutHeros": 1,
+				"yDebutHeros": 12
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 14,
+		"nom": "Rocher5 SHADOW[32] (-4)",
+		"x": 8,
+		"y": 8,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "rocher gris character",
+			"directionInitiale": 2,
+			"vitesse": "moderee",
+			"frequence": "basse",
 			"animeEnMouvement": false,
 			"animeALArret": false,
 			"directionFixe": true,
@@ -2388,167 +2445,6 @@
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 14,
-		"nom": "Rocher5 SHADOW[32] (-4)",
-		"x": 8,
-		"y": 8,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "rocher gris character",
-			"directionInitiale": 2,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 3,
-		"nom": "EV003",
-		"x": 39,
-		"y": 21,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 399,
-				"xDebutHeros": 1,
-				"yDebutHeros": 12
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 31,
-		"nom": "Blocage anti-évènement",
-		"x": 10,
-		"y": 28,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 20,
-		"nom": "Stèle",
-		"x": 21,
-		"y": 11,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 0,
-				"direction": 3,
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) \"A powerful sound can shake the mountains."
-			},
-			{
-				"nom": "Message",
-				"texte": "\"Un son puissant peut faire trembler les \\nmontagnes."
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) But only the one who went to\\ntake the winds deep into the sands..."
-			},
-			{
-				"nom": "Message",
-				"texte": "Mais seul celui qui est allé prendre les \\nvents au fond des sables..."
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) ...can make the horn vibrate!\""
-			},
-			{
-				"nom": "Message",
-				"texte": "...pourra faire vibrer la corne !\""
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en)                         Memoirs of the \\c[2]traveling poet\\c[0]"
-			},
-			{
-				"nom": "Message",
-				"texte": "                        Mémoires du \\c[2]Poète voyageur"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
 			"animeALArret": false,
 			"directionFixe": false,
 			"traversable": false,
@@ -3472,16 +3368,90 @@
 		]
 	},
 	{
-		"id": 15,
-		"nom": "Clone[341][135]",
-		"x": 15,
-		"y": 13
+		"id": 20,
+		"nom": "Stèle",
+		"x": 21,
+		"y": 11,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 0,
+				"direction": 3,
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \"A powerful sound can shake the mountains."
+			},
+			{
+				"nom": "Message",
+				"texte": "\"Un son puissant peut faire trembler les \\nmontagnes."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) But only the one who went to\\ntake the winds deep into the sands..."
+			},
+			{
+				"nom": "Message",
+				"texte": "Mais seul celui qui est allé prendre les \\nvents au fond des sables..."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) ...can make the horn vibrate!\""
+			},
+			{
+				"nom": "Message",
+				"texte": "...pourra faire vibrer la corne !\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en)                         Memoirs of the \\c[2]traveling poet\\c[0]"
+			},
+			{
+				"nom": "Message",
+				"texte": "                        Mémoires du \\c[2]Poète voyageur"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
-		"id": 26,
-		"nom": "EV026",
-		"x": 29,
-		"y": 19,
+		"id": 31,
+		"nom": "Blocage anti-évènement",
+		"x": 10,
+		"y": 28,
 		"pages": [
 		{
 			"conditions": [
@@ -3491,14 +3461,13 @@
 			],
 			"commandes": [
 			],
-			"image": 21,
 			"vitesse": "moderee",
 			"frequence": "basse",
-			"animeEnMouvement": false,
+			"animeEnMouvement": true,
 			"animeALArret": false,
-			"directionFixe": true,
+			"directionFixe": false,
 			"traversable": false,
-			"auDessusDeTout": true
+			"auDessusDeTout": false
 		}
 		]
 	},
@@ -3534,10 +3503,35 @@
 		]
 	},
 	{
-		"id": 21,
-		"nom": "Clone[021][004]",
-		"x": 22,
-		"y": 28
+		"id": 26,
+		"nom": "EV026",
+		"x": 29,
+		"y": 19,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": 21,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": true
+		}
+		]
+	},
+	{
+		"id": 15,
+		"nom": "Clone[341][135]",
+		"x": 15,
+		"y": 13
 	},
 	{
 		"id": 10,
@@ -3564,6 +3558,12 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 21,
+		"nom": "Clone[021][004]",
+		"x": 22,
+		"y": 28
 	}
 	]
 }

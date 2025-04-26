@@ -121,6 +121,12 @@
 	],
 	"events": [
 	{
+		"id": 5,
+		"nom": "Clone[341][039]",
+		"x": 12,
+		"y": 22
+	},
+	{
 		"id": 16,
 		"nom": "viking rouge 2 SHADOW[30] (-4)",
 		"x": 15,
@@ -147,10 +153,142 @@
 		]
 	},
 	{
-		"id": 5,
-		"nom": "Clone[341][039]",
-		"x": 12,
-		"y": 22
+		"id": 22,
+		"nom": "bruit de respiration",
+		"x": 13,
+		"y": 13,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Variable",
+				"numeroVariable": 161,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 10
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ConditionInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeurQuIlEstCenseAvoir": false,
+				"numero": 0
+			},
+			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 21,
+				"direction": 1,
+				"numero": 1
+			},
+			{
+				"nom": "ConditionScript",
+				"script": "($game_player.x - $game_map.events[@event_id].x)**2 + ($game_player.y - $game_map.events[@event_id].y)**2 <= 9",
+				"numero": 2
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "PoesieQuiDortInspiration.ogg",
+				"volume": 0.90,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 2
+			},
+			{
+				"nom": "ConditionScript",
+				"script": "($game_player.x - $game_map.events[@event_id].x)**2 + ($game_player.y - $game_map.events[@event_id].y)**2 <= 50",
+				"numero": 3
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "PoesieQuiDortInspiration.ogg",
+				"volume": 0.60,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 3
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 2
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 66
+			},
+			{
+				"nom": "ConditionScript",
+				"script": "($game_player.x - $game_map.events[@event_id].x)**2 + ($game_player.y - $game_map.events[@event_id].y)**2 <= 9",
+				"numero": 4
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "PoesieQuiDortExpiration.ogg",
+				"volume": 0.80,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 4
+			},
+			{
+				"nom": "ConditionScript",
+				"script": "($game_player.x - $game_map.events[@event_id].x)**2 + ($game_player.y - $game_map.events[@event_id].y)**2 <= 50",
+				"numero": 5
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "PoesieQuiDortExpiration.ogg",
+				"volume": 0.50,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 5
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 4
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 66
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 1
+			},
+			{
+				"nom": "SupprimerEvent"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 11,
@@ -475,7 +613,7 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) HE PLAYED IT VERY BADLY \\nBUT WAS ADMIRED BY HIS PEOPLE !"
+				"texte": "(en) HE PLAYED IT VERY BADLY \\nBUT WAS ADMIRED BY HIS PEOPLE!"
 			},
 			{
 				"nom": "Message",
@@ -483,7 +621,7 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) HE WAS A GREAT WARRIOR, LIKE YOU AND ME !"
+				"texte": "(en) HE WAS A GREAT WARRIOR, LIKE YOU AND ME!"
 			},
 			{
 				"nom": "Message",
@@ -840,142 +978,10 @@
 		]
 	},
 	{
-		"id": 22,
-		"nom": "bruit de respiration",
-		"x": 13,
-		"y": 13,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Variable",
-				"numeroVariable": 161,
-				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 10
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ConditionInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeurQuIlEstCenseAvoir": false,
-				"numero": 0
-			},
-			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 21,
-				"direction": 1,
-				"numero": 1
-			},
-			{
-				"nom": "ConditionScript",
-				"script": "($game_player.x - $game_map.events[@event_id].x)**2 + ($game_player.y - $game_map.events[@event_id].y)**2 <= 9",
-				"numero": 2
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "PoesieQuiDortInspiration.ogg",
-				"volume": 0.90,
-				"tempo": 1.00
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 2
-			},
-			{
-				"nom": "ConditionScript",
-				"script": "($game_player.x - $game_map.events[@event_id].x)**2 + ($game_player.y - $game_map.events[@event_id].y)**2 <= 50",
-				"numero": 3
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "PoesieQuiDortInspiration.ogg",
-				"volume": 0.60,
-				"tempo": 1.00
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 3
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 2
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 66
-			},
-			{
-				"nom": "ConditionScript",
-				"script": "($game_player.x - $game_map.events[@event_id].x)**2 + ($game_player.y - $game_map.events[@event_id].y)**2 <= 9",
-				"numero": 4
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "PoesieQuiDortExpiration.ogg",
-				"volume": 0.80,
-				"tempo": 1.00
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 4
-			},
-			{
-				"nom": "ConditionScript",
-				"script": "($game_player.x - $game_map.events[@event_id].x)**2 + ($game_player.y - $game_map.events[@event_id].y)**2 <= 50",
-				"numero": 5
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "PoesieQuiDortExpiration.ogg",
-				"volume": 0.50,
-				"tempo": 1.00
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 5
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 4
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 66
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "SupprimerEvent"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
+		"id": 6,
+		"nom": "Clone[341][039]",
+		"x": 20,
+		"y": 22
 	},
 	{
 		"id": 17,
@@ -1036,7 +1042,7 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) You find a piece of Wooden plank!"
+				"texte": "(en) You find a piece of wooden plank!"
 			},
 			{
 				"nom": "Message",
@@ -1168,10 +1174,10 @@
 		]
 	},
 	{
-		"id": 6,
-		"nom": "Clone[341][039]",
-		"x": 20,
-		"y": 22
+		"id": 23,
+		"nom": "Clone[341][165]",
+		"x": 10,
+		"y": 8
 	},
 	{
 		"id": 12,
@@ -1188,133 +1194,6 @@
 			"commandes": [
 			],
 			"image": "kiria character",
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 23,
-		"nom": "Clone[341][165]",
-		"x": 10,
-		"y": 8
-	},
-	{
-		"id": 18,
-		"nom": "effacer personnages",
-		"x": 28,
-		"y": 22,
-		"pages": [
-		{
-			"conditions": [
-			],
-			"commandes": [
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 161,
-				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 10,
-				"comparerAUneAutreVariable": false,
-				"numero": 0
-			},
-			{
-				"nom": "TeleporterEvent",
-				"idEvent": 19,
-				"variable": false,
-				"nouveauX": 18,
-				"nouveauY": 23,
-				"direction": 0
-			},
-			{
-				"nom": "SupprimerEvent"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 129,
-				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 10,
-				"comparerAUneAutreVariable": false,
-				"numero": 1
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 11,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierOpacite",
-					"opacite": 0
-				},
-				{
-					"nom": "AppelerUnScript",
-					"script": "erase"
-				}
-				]
-			},
-			{
-				"nom": "TeleporterEvent",
-				"idEvent": 19,
-				"variable": false,
-				"nouveauX": 18,
-				"nouveauY": 23,
-				"direction": 0
-			},
-			{
-				"nom": "SupprimerEvent"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionObjetPossede",
-				"idObjet": 50,
-				"numero": 2
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 11,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierOpacite",
-					"opacite": 0
-				},
-				{
-					"nom": "AppelerUnScript",
-					"script": "erase"
-				}
-				]
-			},
-			{
-				"nom": "TeleporterEvent",
-				"idEvent": 19,
-				"variable": false,
-				"nouveauX": 18,
-				"nouveauY": 23,
-				"direction": 0
-			},
-			{
-				"nom": "SupprimerEvent"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 2
-			}
-			],
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": true,
@@ -1353,7 +1232,7 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) Read the book ?"
+				"texte": "(en) Read the book?"
 			},
 			{
 				"nom": "Commentaire",
@@ -1834,10 +1713,131 @@
 		]
 	},
 	{
-		"id": 24,
-		"nom": "livre",
-		"x": 9,
-		"y": 12,
+		"id": 18,
+		"nom": "effacer personnages",
+		"x": 28,
+		"y": 22,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 161,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 10,
+				"comparerAUneAutreVariable": false,
+				"numero": 0
+			},
+			{
+				"nom": "TeleporterEvent",
+				"idEvent": 19,
+				"variable": false,
+				"nouveauX": 18,
+				"nouveauY": 23,
+				"direction": 0
+			},
+			{
+				"nom": "SupprimerEvent"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 129,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 10,
+				"comparerAUneAutreVariable": false,
+				"numero": 1
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 11,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 0
+				},
+				{
+					"nom": "AppelerUnScript",
+					"script": "erase"
+				}
+				]
+			},
+			{
+				"nom": "TeleporterEvent",
+				"idEvent": 19,
+				"variable": false,
+				"nouveauX": 18,
+				"nouveauY": 23,
+				"direction": 0
+			},
+			{
+				"nom": "SupprimerEvent"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionObjetPossede",
+				"idObjet": 50,
+				"numero": 2
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 11,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 0
+				},
+				{
+					"nom": "AppelerUnScript",
+					"script": "erase"
+				}
+				]
+			},
+			{
+				"nom": "TeleporterEvent",
+				"idEvent": 19,
+				"variable": false,
+				"nouveauX": 18,
+				"nouveauY": 23,
+				"direction": 0
+			},
+			{
+				"nom": "SupprimerEvent"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 2
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 13,
+		"nom": "Plante en pot",
+		"x": 23,
+		"y": 24,
 		"pages": [
 		{
 			"conditions": [
@@ -1846,35 +1846,14 @@
 			}
 			],
 			"commandes": [
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) \"Words\"\\nby \\c[2]Jacques Prévert\\c[0]"
-			},
-			{
-				"nom": "Message",
-				"texte": "\"Paroles\"\\npar \\c[2]Jacques Prévert\\c[0]"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
 			],
+			"image": "plante en pot character",
 			"directionInitiale": 3,
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": false,
 			"animeALArret": false,
-			"directionFixe": false,
+			"directionFixe": true,
 			"traversable": false,
 			"auDessusDeTout": false
 		}
@@ -1928,10 +1907,10 @@
 		]
 	},
 	{
-		"id": 13,
-		"nom": "Plante en pot",
-		"x": 23,
-		"y": 24,
+		"id": 24,
+		"nom": "livre",
+		"x": 9,
+		"y": 12,
 		"pages": [
 		{
 			"conditions": [
@@ -1940,16 +1919,73 @@
 			}
 			],
 			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \"Words\"\\nby \\c[2]Jacques Prévert\\c[0]"
+			},
+			{
+				"nom": "Message",
+				"texte": "\"Paroles\"\\npar \\c[2]Jacques Prévert\\c[0]"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
 			],
-			"image": "plante en pot character",
 			"directionInitiale": 3,
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": false,
 			"animeALArret": false,
-			"directionFixe": true,
+			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 8,
+		"nom": "EV008",
+		"x": 16,
+		"y": 26,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 67,
+				"xDebutHeros": 25,
+				"yDebutHeros": 2
+			},
+			{
+				"nom": "EffacerImage",
+				"numero": 3
+			}
+			],
+			"image": 33,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": true,
+			"auDessusDeTout": true
 		}
 		]
 	},
@@ -2256,46 +2292,10 @@
 		]
 	},
 	{
-		"id": 8,
-		"nom": "EV008",
-		"x": 16,
-		"y": 26,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 67,
-				"xDebutHeros": 25,
-				"yDebutHeros": 2
-			},
-			{
-				"nom": "EffacerImage",
-				"numero": 3
-			}
-			],
-			"image": 33,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": true,
-			"auDessusDeTout": true
-		}
-		]
-	},
-	{
-		"id": 3,
-		"nom": "Clone[582][32]",
-		"x": 20,
-		"y": 11
+		"id": 25,
+		"nom": "Clone[582][120]",
+		"x": 19,
+		"y": 27
 	},
 	{
 		"id": 14,
@@ -2324,16 +2324,10 @@
 		]
 	},
 	{
-		"id": 25,
-		"nom": "Clone[582][120]",
-		"x": 19,
-		"y": 27
-	},
-	{
-		"id": 9,
-		"nom": "Clone[341][008]",
-		"x": 18,
-		"y": 8
+		"id": 3,
+		"nom": "Clone[582][32]",
+		"x": 20,
+		"y": 11
 	},
 	{
 		"id": 20,
@@ -2400,6 +2394,38 @@
 		]
 	},
 	{
+		"id": 9,
+		"nom": "Clone[341][008]",
+		"x": 18,
+		"y": 8
+	},
+	{
+		"id": 15,
+		"nom": "viking rouge 1 SHADOW[30] (-4)",
+		"x": 17,
+		"y": 21,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "viking petit character",
+			"directionInitiale": 3,
+			"vitesse": "normale",
+			"frequence": "haute",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 4,
 		"nom": "Buste",
 		"x": 22,
@@ -2454,26 +2480,526 @@
 		]
 	},
 	{
-		"id": 15,
-		"nom": "viking rouge 1 SHADOW[30] (-4)",
-		"x": 17,
-		"y": 21,
+		"id": 21,
+		"nom": "poesie convalescente",
+		"x": 12,
+		"y": 13,
 		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"opacite": 0,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": true,
+			"auDessusDeTout": false
+		},
 		{
 			"conditions": [
 			{
 				"nom": "Parler"
+			},
+			{
+				"nom": "Variable",
+				"numeroVariable": 161,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 10
 			}
 			],
 			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 16
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "PoesieQuiDortInspiration.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = nil"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Zzzz..."
+			},
+			{
+				"nom": "Message",
+				"texte": "Zzzz..."
+			},
+			{
+				"nom": "JouerMusique",
+				"nomFichierSonore": "Poesie theme 3.ogg",
+				"volume": 0.90,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 16
+			},
+			{
+				"nom": "JouerAnimation",
+				"idAnimation": 3
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RendreDirectionFixe",
+					"directionFixe": false
+				},
+				{
+					"nom": "RendreAnimeALArret",
+					"animeALArret": false
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "poesie dodo character2",
+					"direction": 0,
+					"animation": 0,
+					"teinte": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 16
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "poesie dodo character2",
+					"direction": 1,
+					"animation": 0,
+					"teinte": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 16
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "poesie dodo character2",
+					"direction": 2,
+					"animation": 0,
+					"teinte": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 16
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "poesie dodo character2",
+					"direction": 1,
+					"animation": 0,
+					"teinte": 0
+				}
+				]
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 25
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "Hu.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"poesie surprise\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) We are..."
+			},
+			{
+				"nom": "Message",
+				"texte": "On est..."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) ...in the village?"
+			},
+			{
+				"nom": "Message",
+				"texte": "...au village ?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) ..."
+			},
+			{
+				"nom": "Message",
+				"texte": "..."
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "poesie boude.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "poesie dodo character2",
+					"direction": 0,
+					"animation": 0,
+					"teinte": 0
+				}
+				]
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"poesie vexee\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) What a horrible \\c[2]wizard\\c[0]!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Quel horrible \\c[2]sorcier\\c[1] !"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"poesie surprise\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) I asked him why he had kidnapped me \\nand locked me up, he told me he needed me \\nto prevent an \"infinite suffering\" \\nfrom happening."
+			},
+			{
+				"nom": "Message",
+				"texte": "Je lui ai demandé pourquoi il m'avait enlevée \\net enfermée, il m'a répondu qu'il avait besoin \\nde moi pour empêcher une \"souffrance infinie\" \\nde se produire."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) An \"infinite suffering\"?\\nWhat is that?\\nI can't imagine what that represents..."
+			},
+			{
+				"nom": "Message",
+				"texte": "Une \"souffrance infinie\" ? \\nQu'est-ce que c'est que ça ?\\nJ'ai du mal à imaginer ce que ça représente..."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) It must be like stepping on...\\n...an infinitely hard Lego!?"
+			},
+			{
+				"nom": "Message",
+				"texte": "Ça doit être comme marcher sur un Lego...\\n...infiniment dur !?"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"poesie vexee\""
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "poesie dodo character2",
+					"direction": 1,
+					"animation": 0,
+					"teinte": 0
+				}
+				]
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) But he tried to sacrifice me! And in public!\\nWhy didn't he sacrifice me in his cave?\\nHe wanted everyone to know?"
+			},
+			{
+				"nom": "Message",
+				"texte": "Mais il a tenté de me sacrifier ! Et en public !\\nPourquoi ne m'a-t-il pas sacrifiée \\ndans sa grotte ?\\nIl voulait que tout le monde soit au courant ?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) And what do I have to do with that \\n\"infinite suffering\"?\\nI'm a pain in the neck, but not that much!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Et qu'est-ce que j'ai à voir avec cette \\n\"souffrance infinie\" ?\\nJe suis casse-pied, mais pas à ce point !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) He is the leader of the \\c[2]dark thaumaturges\\c[0], \\nthese imps who want to destroy the whale."
+			},
+			{
+				"nom": "Message",
+				"texte": "Il est le chef des \\c[2]thaumaturges noirs\\c[0], \\nces lutins qui veulent détruire la baleine."
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "poesie dodo character2",
+					"direction": 0,
+					"animation": 0,
+					"teinte": 0
+				}
+				]
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "Gasp.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"poesie surprise\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Oh! By \"infinite suffering\" he perhaps means \\na suffering shared by all the inhabitants \\nof the whale for eternity."
+			},
+			{
+				"nom": "Message",
+				"texte": "Oh ! Par \"souffrance infinie\", il veut peut-être \\nparler d'une souffrance partagée par \\ntous les habitants de la baleine pour l'éternité."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \\c[2]Kujira\\c[0] has been tearing people away \\nfrom their homelands for centuries.\\nThat's what they want to stop..."
+			},
+			{
+				"nom": "Message",
+				"texte": "\\c[2]Kujira\\c[0] arrache des gens à leur terre natale \\ndepuis des siècles.\\nC'est ça qu'ils veulent arrêter."
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "poesie boude.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"poesie vexee\""
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "poesie dodo character2",
+					"direction": 1,
+					"animation": 0,
+					"teinte": 0
+				}
+				]
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) ...even if it means killing the whale\\nwith its current inhabitants!"
+			},
+			{
+				"nom": "Message",
+				"texte": "...quitte à entrainer la baleine dans la mort \\navec ses habitants actuels !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) But I still don't see what this has to do with me!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Mais je ne vois toujours pas quel est le rapport \\navec moi !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) ..."
+			},
+			{
+				"nom": "Message",
+				"texte": "..."
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "Hu.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "poesie dodo character2",
+					"direction": 0,
+					"animation": 0,
+					"teinte": 0
+				}
+				]
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"poesie surprise\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) The \\c[2]little girl with green hair\\c[0]...\\n...I met her in the Western Forest."
+			},
+			{
+				"nom": "Message",
+				"texte": "La \\c[2]fillette aux cheveux verts\\c[0]...\\n...je l'avais rencontrée dans la forêt de l'Ouest."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) She kind of saved my life...\\nBut why?"
+			},
+			{
+				"nom": "Message",
+				"texte": "Elle m'a un peu sauvé la vie...\\nMais pourquoi ?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Who is she?\\nShe said she lives in the big caves...\\n...it is east of the Ibukuro Sea."
+			},
+			{
+				"nom": "Message",
+				"texte": "Qui est-elle ?\\nElle a dit habiter dans les grandes grottes...\\n...c'est à l'est de la mer d'Ibukuro."
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "JouerMusique",
+				"nomFichierSonore": "Maison viking.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": true
+			}
 			],
-			"image": "viking petit character",
+			"image": "poesie dodo character2",
 			"directionInitiale": 3,
-			"vitesse": "normale",
-			"frequence": "haute",
-			"animeEnMouvement": true,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": true,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			},
+			{
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 21,
+				"numeroInterrupteurLocal": 0,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "Gasp.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"poesie surprise\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) This wizard turns fireflies into \\c[2]dark \\nthaumaturgists\\c[0]! I've seen him do it!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Ce \\c[2]sorcier\\c[1] transforme les lucioles en \\n\\c[2]thaumaturges noirs\\c[1] ! Je l'ai vu faire !"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"image": "poesie dodo character2",
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
 			"animeALArret": false,
-			"directionFixe": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Interrupteur",
+				"numeroInterrupteur": 54,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
 			"traversable": false,
 			"auDessusDeTout": false
 		}
@@ -2988,7 +3514,7 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) IF EVER \\c[2]GRUNTHILD\\c[0], THE LEADER OF THE YELLOW VIKINGS\\nFINDS IT BEFORE WE DO..."
+				"texte": "(en) IF EVER \\c[2]GRUNTILDA\\c[0], LEADER OF THE \\c[2]YELLOW VIKINGS\\c[0],\\nFINDS IT BEFORE WE DO..."
 			},
 			{
 				"nom": "Message",
@@ -2996,11 +3522,11 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) ...THAT MEANS THEIR VIKING VILLAGE \\nIS STRONGER THAN OURS!"
+				"texte": "(en) ...THAT MEANS THEIR VILLAGE \\nIS STRONGER THAN OURS!"
 			},
 			{
 				"nom": "Message",
-				"texte": "...ÇA VEUT DIRE QUE LEUR VILLAGE VIKING \\nEST PLUS FORT QUE LE NÔTRE !"
+				"texte": "...ÇA VEUT DIRE QUE LEUR VILLAGE \\nEST PLUS FORT QUE LE NÔTRE !"
 			},
 			{
 				"nom": "Attendre",
@@ -3047,11 +3573,11 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) Uh... we sent spies to the yellow Viking village, \\nand they still haven't found the holy courgette,\\n\\c[2]Tabula the Terrible\\c[0] our leader."
+				"texte": "(en) We sent spies to the \\c[2]yellow Vikings\\c[0]' village, \\nand they still haven't found the holy courgette,\\n\\c[2]Tabula\\c[0], our leader."
 			},
 			{
 				"nom": "Message",
-				"texte": "Euh... on a envoyé des espions au village \\nviking jaune, et ils n'ont pas encore trouvé\\nla sainte savonnette, \\c[2]Tabula\\c[1] notre chef."
+				"texte": "Euh... on a envoyé des espions au village \\nviking jaune, et ils n'ont pas encore trouvé\\nla sainte savonnette, \\c[2]Tabula\\c[1], notre chef."
 			},
 			{
 				"nom": "FaireDefilerLaMap",
@@ -4024,532 +4550,6 @@
 			"animeALArret": false,
 			"directionFixe": false,
 			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 21,
-		"nom": "poesie convalescente",
-		"x": 12,
-		"y": 13,
-		"pages": [
-		{
-			"conditions": [
-			],
-			"commandes": [
-			{
-				"nom": "SupprimerEvent"
-			}
-			],
-			"opacite": 0,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": true,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			},
-			{
-				"nom": "Variable",
-				"numeroVariable": 161,
-				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 10
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 16
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "PoesieQuiDortInspiration.ogg",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_temp.faceset = nil"
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) Zzzz..."
-			},
-			{
-				"nom": "Message",
-				"texte": "Zzzz..."
-			},
-			{
-				"nom": "JouerMusique",
-				"nomFichierSonore": "Poesie theme 3.ogg",
-				"volume": 0.90,
-				"tempo": 1.00
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 16
-			},
-			{
-				"nom": "JouerAnimation",
-				"idAnimation": 3
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "RendreDirectionFixe",
-					"directionFixe": false
-				},
-				{
-					"nom": "RendreAnimeALArret",
-					"animeALArret": false
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "poesie dodo character2",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 16
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "poesie dodo character2",
-					"direction": 1,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 16
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "poesie dodo character2",
-					"direction": 2,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 16
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "poesie dodo character2",
-					"direction": 1,
-					"animation": 0,
-					"teinte": 0
-				}
-				]
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 25
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "Hu.wav",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_temp.faceset = \"poesie surprise\""
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) We are..."
-			},
-			{
-				"nom": "Message",
-				"texte": "On est..."
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) ...in the village?"
-			},
-			{
-				"nom": "Message",
-				"texte": "...au village ?"
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) ..."
-			},
-			{
-				"nom": "Message",
-				"texte": "..."
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "poesie boude.ogg",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "poesie dodo character2",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				}
-				]
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_temp.faceset = \"poesie vexee\""
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) What a horrible \\c[2]wizard\\c[0]!"
-			},
-			{
-				"nom": "Message",
-				"texte": "Quel horrible \\c[2]sorcier\\c[1] !"
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_temp.faceset = \"poesie surprise\""
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) I asked him why he had kidnapped me \\nand locked me up, he told me he needed me \\nto prevent an \"infinite suffering\" \\nfrom happening."
-			},
-			{
-				"nom": "Message",
-				"texte": "Je lui ai demandé pourquoi il m'avait enlevée \\net enfermée, il m'a répondu qu'il avait besoin \\nde moi pour empêcher une \"souffrance infinie\" \\nde se produire."
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) An \"infinite suffering\"?\\nWhat is that?\\nI can't imagine what that represents..."
-			},
-			{
-				"nom": "Message",
-				"texte": "Une \"souffrance infinie\" ? \\nQu'est-ce que c'est que ça ?\\nJ'ai du mal à imaginer ce que ça représente..."
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) It must be like stepping on...\\n...an infinitely hard Lego!?"
-			},
-			{
-				"nom": "Message",
-				"texte": "Ça doit être comme marcher sur un Lego...\\n...infiniment dur !?"
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_temp.faceset = \"poesie vexee\""
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "poesie dodo character2",
-					"direction": 1,
-					"animation": 0,
-					"teinte": 0
-				}
-				]
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) But he tried to sacrifice me! And in public!\\nWhy didn't he sacrifice me in his cave?\\nHe wanted everyone to know?"
-			},
-			{
-				"nom": "Message",
-				"texte": "Mais il a tenté de me sacrifier ! Et en public !\\nPourquoi ne m'a-t-il pas sacrifiée \\ndans sa grotte ?\\nIl voulait que tout le monde soit au courant ?"
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) And what do I have to do with that \\n\"infinite suffering\"?\\nI'm a pain in the neck, but not that much!"
-			},
-			{
-				"nom": "Message",
-				"texte": "Et qu'est-ce que j'ai à voir avec cette \\n\"souffrance infinie\" ?\\nJe suis casse-pied, mais pas à ce point !"
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) He is the leader of the \\c[2]dark thaumaturges\\c[0], \\nthese imps who want to destroy the whale."
-			},
-			{
-				"nom": "Message",
-				"texte": "Il est le chef des \\c[2]thaumaturges noirs\\c[0], \\nces lutins qui veulent détruire la baleine."
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "poesie dodo character2",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				}
-				]
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "Gasp.wav",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_temp.faceset = \"poesie surprise\""
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) Oh! By \"infinite suffering\" he perhaps means \\na suffering shared by all the inhabitants \\nof the whale for eternity."
-			},
-			{
-				"nom": "Message",
-				"texte": "Oh ! Par \"souffrance infinie\", il veut peut-être \\nparler d'une souffrance partagée par \\ntous les habitants de la baleine pour l'éternité."
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) \\c[2]Kujira\\c[0] has been tearing people away \\nfrom their homelands for centuries.\\nThat's what they want to stop..."
-			},
-			{
-				"nom": "Message",
-				"texte": "\\c[2]Kujira\\c[0] arrache des gens à leur terre natale \\ndepuis des siècles.\\nC'est ça qu'ils veulent arrêter."
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "poesie boude.ogg",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_temp.faceset = \"poesie vexee\""
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "poesie dodo character2",
-					"direction": 1,
-					"animation": 0,
-					"teinte": 0
-				}
-				]
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) ...even if it means killing the whale\\nwith its current inhabitants!"
-			},
-			{
-				"nom": "Message",
-				"texte": "...quitte à entrainer la baleine dans la mort \\navec ses habitants actuels !"
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) But I still don't see what this has to do with me!"
-			},
-			{
-				"nom": "Message",
-				"texte": "Mais je ne vois toujours pas quel est le rapport \\navec moi !"
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) ..."
-			},
-			{
-				"nom": "Message",
-				"texte": "..."
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "Hu.wav",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "poesie dodo character2",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				}
-				]
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_temp.faceset = \"poesie surprise\""
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) The \\c[2]little girl with green hair\\c[0]...\\n...I had met her in the Western Forest."
-			},
-			{
-				"nom": "Message",
-				"texte": "La \\c[2]fillette aux cheveux verts\\c[0]...\\n...je l'avais rencontrée dans la forêt de l'Ouest."
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) She kind of saved my life...\\nBut why?"
-			},
-			{
-				"nom": "Message",
-				"texte": "Elle m'a un peu sauvé la vie...\\nMais pourquoi ?"
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) Who is she?\\nShe said she lives in the big caves...\\n...it is east of the Ibukuro Sea."
-			},
-			{
-				"nom": "Message",
-				"texte": "Qui est-elle ?\\nElle a dit habiter dans les grandes grottes...\\n...c'est à l'est de la mer d'Ibukuro."
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "JouerMusique",
-				"nomFichierSonore": "Maison viking.ogg",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": true
-			}
-			],
-			"image": "poesie dodo character2",
-			"directionInitiale": 3,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			},
-			{
-				"nom": "InterrupteurLocal",
-				"numeroEvent": 21,
-				"numeroInterrupteurLocal": 0,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "Gasp.wav",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_temp.faceset = \"poesie surprise\""
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) This wizard turns fireflies into \\c[2]dark \\nthaumaturgists\\c[0], I've seen him do!"
-			},
-			{
-				"nom": "Message",
-				"texte": "Ce \\c[2]sorcier\\c[1] transforme les lucioles en \\n\\c[2]thaumaturges noirs\\c[1], je l'ai vu faire !"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
-			],
-			"image": "poesie dodo character2",
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "Interrupteur",
-				"numeroInterrupteur": 54,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "SupprimerEvent"
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
 			"auDessusDeTout": false
 		}
 		]
