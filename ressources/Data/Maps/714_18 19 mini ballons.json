@@ -101,6 +101,12 @@
 	],
 	"events": [
 	{
+		"id": 16,
+		"nom": "Clone[21][26]",
+		"x": 8,
+		"y": 9
+	},
+	{
 		"id": 5,
 		"nom": "EV005",
 		"x": 20,
@@ -132,10 +138,28 @@
 		]
 	},
 	{
-		"id": 16,
-		"nom": "Clone[21][26]",
-		"x": 8,
-		"y": 9
+		"id": 22,
+		"nom": "Blocage anti-évènement",
+		"x": 3,
+		"y": 3,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 11,
@@ -238,45 +262,15 @@
 		]
 	},
 	{
-		"id": 22,
-		"nom": "Blocage anti-évènement",
-		"x": 3,
-		"y": 3,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 6,
-		"nom": "Clone[341][0057]",
-		"x": 19,
-		"y": 10
-	},
-	{
 		"id": 17,
 		"nom": "Clone[21][26]",
 		"x": 7,
 		"y": 10
 	},
 	{
-		"id": 1,
-		"nom": "Clone[341][055]",
-		"x": 8,
+		"id": 6,
+		"nom": "Clone[341][0057]",
+		"x": 19,
 		"y": 10
 	},
 	{
@@ -304,10 +298,10 @@
 		]
 	},
 	{
-		"id": 7,
-		"nom": "Clone[341][023]",
-		"x": 13,
-		"y": 17
+		"id": 1,
+		"nom": "Clone[341][055]",
+		"x": 8,
+		"y": 10
 	},
 	{
 		"id": 18,
@@ -316,138 +310,10 @@
 		"y": 10
 	},
 	{
-		"id": 13,
-		"nom": "Clochette",
-		"x": 7,
-		"y": 2,
-		"pages": [
-		{
-			"conditions": [
-			],
-			"commandes": [
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 18,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 1,
-				"operationAFaire2": "coordonnee y"
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 18,
-				"inegalite": "<",
-				"valeurQuIlEstCenseAvoir": 3,
-				"comparerAUneAutreVariable": false,
-				"numero": 0
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "RendreAnimeALArret",
-					"animeALArret": true
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "JouerEffetSonore",
-					"nomFichierSonore": "clochette.mp3",
-					"volume": 1.00,
-					"tempo": 1.00
-				},
-				{
-					"nom": "ModifierVitesse",
-					"vitesse": "tres rapide"
-				},
-				{
-					"nom": "ModifierFrequence",
-					"frequence": "la plus haute"
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 33
-				},
-				{
-					"nom": "RendreAnimeALArret",
-					"animeALArret": false
-				}
-				]
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "wait_for_event(@event_id)"
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": true
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			}
-			],
-			"image": "Clochette character",
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "InterrupteurLocal",
-				"numeroEvent": 13,
-				"numeroInterrupteurLocal": 0,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 18,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 1,
-				"operationAFaire2": "coordonnee y"
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 18,
-				"inegalite": ">",
-				"valeurQuIlEstCenseAvoir": 3,
-				"comparerAUneAutreVariable": false,
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": false
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			}
-			],
-			"image": "Clochette character",
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
+		"id": 7,
+		"nom": "Clone[341][023]",
+		"x": 13,
+		"y": 17
 	},
 	{
 		"id": 2,
@@ -621,6 +487,146 @@
 		]
 	},
 	{
+		"id": 13,
+		"nom": "Clochette",
+		"x": 7,
+		"y": 2,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 18,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 1,
+				"operationAFaire2": "coordonnee y"
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 18,
+				"inegalite": "<",
+				"valeurQuIlEstCenseAvoir": 3,
+				"comparerAUneAutreVariable": false,
+				"numero": 0
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RendreAnimeALArret",
+					"animeALArret": true
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "JouerEffetSonore",
+					"nomFichierSonore": "clochette.mp3",
+					"volume": 1.00,
+					"tempo": 1.00
+				},
+				{
+					"nom": "ModifierVitesse",
+					"vitesse": "tres rapide"
+				},
+				{
+					"nom": "ModifierFrequence",
+					"frequence": "la plus haute"
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 33
+				},
+				{
+					"nom": "RendreAnimeALArret",
+					"animeALArret": false
+				}
+				]
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(@event_id)"
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": true
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			}
+			],
+			"image": "Clochette character",
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 13,
+				"numeroInterrupteurLocal": 0,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 18,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 1,
+				"operationAFaire2": "coordonnee y"
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 18,
+				"inegalite": ">",
+				"valeurQuIlEstCenseAvoir": 3,
+				"comparerAUneAutreVariable": false,
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": false
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			}
+			],
+			"image": "Clochette character",
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 19,
+		"nom": "Clone[21][26]",
+		"x": 8,
+		"y": 11
+	},
+	{
 		"id": 8,
 		"nom": "EV008",
 		"x": 3,
@@ -652,10 +658,10 @@
 		]
 	},
 	{
-		"id": 19,
-		"nom": "Clone[21][26]",
-		"x": 8,
-		"y": 11
+		"id": 3,
+		"nom": "Clone[341][055]",
+		"x": 6,
+		"y": 24
 	},
 	{
 		"id": 14,
@@ -664,10 +670,10 @@
 		"y": 23
 	},
 	{
-		"id": 3,
-		"nom": "Clone[341][055]",
-		"x": 6,
-		"y": 24
+		"id": 9,
+		"nom": "Clone[341][004]",
+		"x": 18,
+		"y": 9
 	},
 	{
 		"id": 20,
@@ -676,10 +682,10 @@
 		"y": 11
 	},
 	{
-		"id": 9,
-		"nom": "Clone[341][004]",
-		"x": 18,
-		"y": 9
+		"id": 4,
+		"nom": "Clone[341][0021]",
+		"x": 5,
+		"y": 24
 	},
 	{
 		"id": 15,
@@ -688,22 +694,16 @@
 		"y": 24
 	},
 	{
-		"id": 4,
-		"nom": "Clone[341][0021]",
-		"x": 5,
-		"y": 24
+		"id": 10,
+		"nom": "Clone[341][004]",
+		"x": 18,
+		"y": 11
 	},
 	{
 		"id": 21,
 		"nom": "Clone[341][004]",
 		"x": 17,
 		"y": 9
-	},
-	{
-		"id": 10,
-		"nom": "Clone[341][004]",
-		"x": 18,
-		"y": 11
 	}
 	]
 }

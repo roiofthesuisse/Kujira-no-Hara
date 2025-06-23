@@ -141,46 +141,42 @@
 	],
 	"events": [
 	{
-		"id": 5,
-		"nom": "Clone[341][028]",
-		"x": 34,
-		"y": 14
-	},
-	{
-		"id": 16,
-		"nom": "Annonce du Lieu",
-		"x": 40,
-		"y": 15,
+		"id": 9,
+		"nom": "Fumée",
+		"x": 18,
+		"y": 16,
 		"pages": [
 		{
 			"conditions": [
-			],
-			"commandes": [
 			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 127,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 6,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "SupprimerEvent"
+				"nom": "Parler"
 			}
 			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
+			"commandes": [
+			],
+			"image": "197-Support05",
+			"opacite": 175,
+			"directionInitiale": 1,
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": true,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": true
 		}
 		]
 	},
 	{
-		"id": 27,
-		"nom": "Tabula SHADOW[40] (-8)",
-		"x": 17,
+		"id": 47,
+		"nom": "Clone[582][122]",
+		"x": 19,
+		"y": 11
+	},
+	{
+		"id": 28,
+		"nom": "viking rouge SHADOW[30] (-4)",
+		"x": 20,
 		"y": 23,
 		"pages": [
 		{
@@ -202,21 +198,21 @@
 			},
 			{
 				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "tabula graaah2.mp3",
+				"nomFichierSonore": "Viking1 femme.ogg",
 				"volume": 0.80,
 				"tempo": 1.00
 			},
 			{
 				"nom": "AppelerUnScript",
-				"script": "$game_temp.faceset = \"tabula\""
+				"script": "$game_temp.faceset = \"viking rouge femme\""
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) WE ARE NOT VERY ADVANCED..."
+				"texte": "(en) Let's rob the sanctuaries!"
 			},
 			{
 				"nom": "Message",
-				"texte": "ON N'EST PAS TRÈS AVANCÉS..."
+				"texte": "Pillons les sanctuaires !"
 			},
 			{
 				"nom": "Attendre",
@@ -228,8 +224,8 @@
 				"valeur": false
 			}
 			],
-			"image": "tabula le terrible",
-			"directionInitiale": 2,
+			"image": "viking femme petit character",
+			"directionInitiale": 1,
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": true,
@@ -239,6 +235,53 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 66,
+		"nom": "Clone[582][122]",
+		"x": 16,
+		"y": 11
+	},
+	{
+		"id": 19,
+		"nom": "EV019",
+		"x": 0,
+		"y": 18,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "EffacerImage",
+				"numero": 9
+			},
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 161,
+				"xDebutHeros": 23,
+				"yDebutHeros": 10
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 57,
+		"nom": "Clone[582][122]",
+		"x": 17,
+		"y": 14
 	},
 	{
 		"id": 38,
@@ -263,6 +306,211 @@
 				"texte": "cghnjfgh"
 			}
 			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 10,
+		"nom": "Clone[582][99]",
+		"x": 23,
+		"y": 18
+	},
+	{
+		"id": 48,
+		"nom": "Clone[582][122]",
+		"x": 22,
+		"y": 13
+	},
+	{
+		"id": 29,
+		"nom": "viking rouge SHADOW[30] (-4)",
+		"x": 19,
+		"y": 22,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			},
+			{
+				"nom": "Interrupteur",
+				"numeroInterrupteur": 133,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "Viking1 femme.ogg",
+				"volume": 0.80,
+				"tempo": 1.00
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"viking rouge femme\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Why didn't the \\c[2]scholars\\c[0] leave \\nan instruction manual?"
+			},
+			{
+				"nom": "Message",
+				"texte": "Pourquoi les \\c[2]érudits\\c[1] n'ont pas laissé \\nun mode d'emploi ?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Or is the prophecy the instructions for use?"
+			},
+			{
+				"nom": "Message",
+				"texte": "Ou alors la prophétie est le mode d'emploi ?"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"image": "viking femme petit character",
+			"directionInitiale": 1,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 67,
+		"nom": "Clone[582][122]",
+		"x": 20,
+		"y": 11
+	},
+	{
+		"id": 20,
+		"nom": "EV020",
+		"x": 0,
+		"y": 19,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "EffacerImage",
+				"numero": 9
+			},
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 161,
+				"xDebutHeros": 23,
+				"yDebutHeros": 11
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 58,
+		"nom": "Clone[582][122]",
+		"x": 16,
+		"y": 15
+	},
+	{
+		"id": 1,
+		"nom": "Clone[341][005]",
+		"x": 15,
+		"y": 19
+	},
+	{
+		"id": 39,
+		"nom": "Clone[341][028]",
+		"x": 32,
+		"y": 16
+	},
+	{
+		"id": 30,
+		"nom": "viking rouge SHADOW[30] (-4)",
+		"x": 19,
+		"y": 23,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			},
+			{
+				"nom": "Interrupteur",
+				"numeroInterrupteur": 133,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "Viking1.wav",
+				"volume": 0.80,
+				"tempo": 1.00
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"viking rouge\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) I'll have a double serving of dessert!"
+			},
+			{
+				"nom": "Message",
+				"texte": "J'aurai double ration de dessert !"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"image": "viking petit character",
+			"directionInitiale": 1,
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": true,
@@ -365,10 +613,451 @@
 		]
 	},
 	{
+		"id": 49,
+		"nom": "Clone[582][122]",
+		"x": 21,
+		"y": 13
+	},
+	{
+		"id": 21,
+		"nom": "Clone[341][001]",
+		"x": 12,
+		"y": 26
+	},
+	{
+		"id": 59,
+		"nom": "Clone[582][122]",
+		"x": 16,
+		"y": 14
+	},
+	{
+		"id": 2,
+		"nom": "Clone[341][005]",
+		"x": 15,
+		"y": 17
+	},
+	{
+		"id": 40,
+		"nom": "Avancement",
+		"x": 39,
+		"y": 15,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 126,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 36,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": true
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 40,
+				"numeroInterrupteurLocal": 0,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 31,
+		"nom": "viking rouge SHADOW[30] (-4)",
+		"x": 20,
+		"y": 22,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			},
+			{
+				"nom": "Interrupteur",
+				"numeroInterrupteur": 133,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "Viking1.wav",
+				"volume": 0.80,
+				"tempo": 1.00
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"viking rouge\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) That camphorated suppository thing \\nmade me hungry."
+			},
+			{
+				"nom": "Message",
+				"texte": "Cette histoire de suppositoires camphrés \\nm'a donné faim."
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"image": "viking petit character",
+			"directionInitiale": 1,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 12,
+		"nom": "Clone[582][99]",
+		"x": 25,
+		"y": 16
+	},
+	{
+		"id": 50,
+		"nom": "Clone[582][122]",
+		"x": 23,
+		"y": 12
+	},
+	{
+		"id": 3,
+		"nom": "Pancarte",
+		"x": 20,
+		"y": 20,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 0,
+				"direction": 3,
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Hut of the \\c[2]Shaman\\c[0]"
+			},
+			{
+				"nom": "Message",
+				"texte": "Hutte de la \\c[2]chamane\\c[1]"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) (Predictions and entomology)"
+			},
+			{
+				"nom": "Message",
+				"texte": "(Prédictions et entomologie)"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 41,
+		"nom": "Clone[582][122]",
+		"x": 18,
+		"y": 12
+	},
+	{
 		"id": 22,
 		"nom": "Clone[341][002]",
 		"x": 34,
 		"y": 21
+	},
+	{
+		"id": 60,
+		"nom": "Clone[582][122]",
+		"x": 15,
+		"y": 16
+	},
+	{
+		"id": 32,
+		"nom": "effacer les vikings",
+		"x": 18,
+		"y": 23,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Interrupteur",
+				"numeroInterrupteur": 133,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": true
+			},
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Interrupteur",
+				"numeroInterrupteur": 133,
+				"valeurQuIlEstCenseAvoir": true
+			},
+			{
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 32,
+				"numeroInterrupteurLocal": 0,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 27,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "AppelerUnScript",
+					"script": "erase"
+				}
+				]
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 28,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "AppelerUnScript",
+					"script": "erase"
+				}
+				]
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 29,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "AppelerUnScript",
+					"script": "erase"
+				}
+				]
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 30,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "AppelerUnScript",
+					"script": "erase"
+				}
+				]
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 31,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "AppelerUnScript",
+					"script": "erase"
+				}
+				]
+			},
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 13,
+		"nom": "Clone[582][99]",
+		"x": 27,
+		"y": 17
+	},
+	{
+		"id": 51,
+		"nom": "Clone[582][122]",
+		"x": 22,
+		"y": 12
+	},
+	{
+		"id": 4,
+		"nom": "EV004",
+		"x": 18,
+		"y": 19,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "EffacerImage",
+				"numero": 9
+			},
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 49,
+				"xDebutHeros": 10,
+				"yDebutHeros": 11
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 42,
+		"nom": "Clone[582][122]",
+		"x": 19,
+		"y": 12
+	},
+	{
+		"id": 23,
+		"nom": "Clone[582][101]",
+		"x": 35,
+		"y": 21
+	},
+	{
+		"id": 61,
+		"nom": "Clone[582][122]",
+		"x": 17,
+		"y": 15
+	},
+	{
+		"id": 14,
+		"nom": "Clone[582][95]",
+		"x": 20,
+		"y": 9
+	},
+	{
+		"id": 52,
+		"nom": "Clone[582][122]",
+		"x": 18,
+		"y": 13
 	},
 	{
 		"id": 33,
@@ -445,405 +1134,10 @@
 		]
 	},
 	{
-		"id": 6,
-		"nom": "Clone[341][061]",
-		"x": 33,
-		"y": 14
-	},
-	{
-		"id": 17,
-		"nom": "EV017",
-		"x": 40,
-		"y": 18,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "EffacerImage",
-				"numero": 9
-			},
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 332,
-				"xDebutHeros": 1,
-				"yDebutHeros": 8
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 28,
-		"nom": "viking rouge SHADOW[30] (-4)",
+		"id": 43,
+		"nom": "Clone[582][122]",
 		"x": 20,
-		"y": 23,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			},
-			{
-				"nom": "Interrupteur",
-				"numeroInterrupteur": 133,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "Viking1 femme.ogg",
-				"volume": 0.80,
-				"tempo": 1.00
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_temp.faceset = \"viking rouge femme\""
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) Let's rob the sanctuaries!"
-			},
-			{
-				"nom": "Message",
-				"texte": "Pillons les sanctuaires !"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
-			],
-			"image": "viking femme petit character",
-			"directionInitiale": 1,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 39,
-		"nom": "Clone[341][028]",
-		"x": 32,
-		"y": 16
-	},
-	{
-		"id": 12,
-		"nom": "Clone[582][99]",
-		"x": 25,
-		"y": 16
-	},
-	{
-		"id": 34,
-		"nom": "EV034",
-		"x": 34,
-		"y": 13,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 22,
-				"xDebutHeros": 14,
-				"yDebutHeros": 30
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 1,
-		"nom": "Clone[341][005]",
-		"x": 15,
-		"y": 19
-	},
-	{
-		"id": 23,
-		"nom": "Clone[582][101]",
-		"x": 35,
-		"y": 21
-	},
-	{
-		"id": 40,
-		"nom": "Avancement",
-		"x": 39,
-		"y": 15,
-		"pages": [
-		{
-			"conditions": [
-			],
-			"commandes": [
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 126,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 36,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": true
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "InterrupteurLocal",
-				"numeroEvent": 40,
-				"numeroInterrupteurLocal": 0,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "SupprimerEvent"
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 7,
-		"nom": "Clone[341][001]",
-		"x": 12,
-		"y": 27
-	},
-	{
-		"id": 18,
-		"nom": "EV018",
-		"x": 40,
-		"y": 19,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "EffacerImage",
-				"numero": 9
-			},
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 332,
-				"xDebutHeros": 1,
-				"yDebutHeros": 9
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 29,
-		"nom": "viking rouge SHADOW[30] (-4)",
-		"x": 19,
-		"y": 22,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			},
-			{
-				"nom": "Interrupteur",
-				"numeroInterrupteur": 133,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "Viking1 femme.ogg",
-				"volume": 0.80,
-				"tempo": 1.00
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_temp.faceset = \"viking rouge femme\""
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) Why didn't the \\c[2]scholars\\c[0] leave \\nan instruction manual?"
-			},
-			{
-				"nom": "Message",
-				"texte": "Pourquoi les \\c[2]érudits\\c[1] n'ont pas laissé \\nun mode d'emploi ?"
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) Or is the prophecy the instructions for use?"
-			},
-			{
-				"nom": "Message",
-				"texte": "Ou alors la prophétie est le mode d'emploi ?"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
-			],
-			"image": "viking femme petit character",
-			"directionInitiale": 1,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 13,
-		"nom": "Clone[582][99]",
-		"x": 27,
-		"y": 17
-	},
-	{
-		"id": 35,
-		"nom": "effacer algue",
-		"x": 35,
-		"y": 14,
-		"pages": [
-		{
-			"conditions": [
-			],
-			"commandes": [
-			{
-				"nom": "ConditionScript",
-				"script": "($game_player.x-$game_map.events[@event_id].x).abs + ($game_player.y-$game_map.events[@event_id].y).abs <= 3",
-				"numero": 0
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 5,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "AppelerUnScript",
-					"script": "erase"
-				}
-				]
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 5,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "RendreAuDessusDeTout",
-					"auDessusDeTout": true
-				}
-				]
-			},
-			{
-				"nom": "SupprimerEvent"
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 2,
-		"nom": "Clone[341][005]",
-		"x": 15,
-		"y": 17
+		"y": 12
 	},
 	{
 		"id": 24,
@@ -965,16 +1259,34 @@
 		]
 	},
 	{
-		"id": 8,
-		"nom": "Clone[341][001]",
-		"x": 12,
-		"y": 11
+		"id": 62,
+		"nom": "Clone[582][122]",
+		"x": 14,
+		"y": 16
 	},
 	{
-		"id": 19,
-		"nom": "EV019",
-		"x": 0,
-		"y": 18,
+		"id": 5,
+		"nom": "Clone[341][028]",
+		"x": 34,
+		"y": 14
+	},
+	{
+		"id": 15,
+		"nom": "Clone[582][97]",
+		"x": 26,
+		"y": 9
+	},
+	{
+		"id": 53,
+		"nom": "Clone[582][122]",
+		"x": 19,
+		"y": 13
+	},
+	{
+		"id": 34,
+		"nom": "EV034",
+		"x": 34,
+		"y": 13,
 		"pages": [
 		{
 			"conditions": [
@@ -984,163 +1296,16 @@
 			],
 			"commandes": [
 			{
-				"nom": "EffacerImage",
-				"numero": 9
-			},
-			{
 				"nom": "ChangerDeMap",
 				"variable": false,
-				"numeroNouvelleMap": 161,
-				"xDebutHeros": 23,
-				"yDebutHeros": 10
+				"numeroNouvelleMap": 22,
+				"xDebutHeros": 14,
+				"yDebutHeros": 30
 			}
 			],
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 30,
-		"nom": "viking rouge SHADOW[30] (-4)",
-		"x": 19,
-		"y": 23,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			},
-			{
-				"nom": "Interrupteur",
-				"numeroInterrupteur": 133,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "Viking1.wav",
-				"volume": 0.80,
-				"tempo": 1.00
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_temp.faceset = \"viking rouge\""
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) I'll have a double serving of dessert!"
-			},
-			{
-				"nom": "Message",
-				"texte": "J'aurai double ration de dessert !"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
-			],
-			"image": "viking petit character",
-			"directionInitiale": 1,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 14,
-		"nom": "Clone[582][95]",
-		"x": 20,
-		"y": 9
-	},
-	{
-		"id": 36,
-		"nom": "Clone[341][028]",
-		"x": 28,
-		"y": 14
-	},
-	{
-		"id": 3,
-		"nom": "Pancarte",
-		"x": 20,
-		"y": 20,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 0,
-				"direction": 3,
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) Hut of the \\c[2]Shaman\\c[0]"
-			},
-			{
-				"nom": "Message",
-				"texte": "Hutte de la \\c[2]chamane\\c[1]"
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) (Predictions and entomology)"
-			},
-			{
-				"nom": "Message",
-				"texte": "(Prédictions et entomologie)"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
 			"animeALArret": false,
 			"directionFixe": false,
 			"traversable": false,
@@ -1470,141 +1635,118 @@
 		]
 	},
 	{
-		"id": 20,
-		"nom": "EV020",
-		"x": 0,
-		"y": 19,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "EffacerImage",
-				"numero": 9
-			},
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 161,
-				"xDebutHeros": 23,
-				"yDebutHeros": 11
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 9,
-		"nom": "Fumée",
-		"x": 18,
-		"y": 16,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "197-Support05",
-			"opacite": 175,
-			"directionInitiale": 1,
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": true
-		}
-		]
-	},
-	{
-		"id": 31,
-		"nom": "viking rouge SHADOW[30] (-4)",
-		"x": 20,
-		"y": 22,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			},
-			{
-				"nom": "Interrupteur",
-				"numeroInterrupteur": 133,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "Viking1.wav",
-				"volume": 0.80,
-				"tempo": 1.00
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_temp.faceset = \"viking rouge\""
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) That camphorated suppository thing \\nmade me hungry."
-			},
-			{
-				"nom": "Message",
-				"texte": "Cette histoire de suppositoires camphrés \\nm'a donné faim."
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
-			],
-			"image": "viking petit character",
-			"directionInitiale": 1,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 15,
-		"nom": "Clone[582][97]",
-		"x": 26,
-		"y": 9
-	},
-	{
-		"id": 37,
-		"nom": "Clone[341][061]",
-		"x": 29,
+		"id": 63,
+		"nom": "Clone[582][122]",
+		"x": 15,
 		"y": 15
+	},
+	{
+		"id": 6,
+		"nom": "Clone[341][061]",
+		"x": 33,
+		"y": 14
+	},
+	{
+		"id": 44,
+		"nom": "Clone[582][122]",
+		"x": 17,
+		"y": 13
+	},
+	{
+		"id": 54,
+		"nom": "Clone[582][122]",
+		"x": 19,
+		"y": 14
+	},
+	{
+		"id": 35,
+		"nom": "effacer algue",
+		"x": 35,
+		"y": 14,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "ConditionScript",
+				"script": "($game_player.x-$game_map.events[@event_id].x).abs + ($game_player.y-$game_map.events[@event_id].y).abs <= 3",
+				"numero": 0
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 5,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "AppelerUnScript",
+					"script": "erase"
+				}
+				]
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 5,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RendreAuDessusDeTout",
+					"auDessusDeTout": true
+				}
+				]
+			},
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 16,
+		"nom": "Annonce du Lieu",
+		"x": 40,
+		"y": 15,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 127,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 6,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 26,
@@ -1687,9 +1829,167 @@
 		]
 	},
 	{
-		"id": 4,
-		"nom": "EV004",
+		"id": 64,
+		"nom": "Clone[582][122]",
+		"x": 15,
+		"y": 11
+	},
+	{
+		"id": 7,
+		"nom": "Clone[341][001]",
+		"x": 12,
+		"y": 27
+	},
+	{
+		"id": 45,
+		"nom": "Clone[582][122]",
+		"x": 20,
+		"y": 13
+	},
+	{
+		"id": 36,
+		"nom": "Clone[341][028]",
+		"x": 28,
+		"y": 14
+	},
+	{
+		"id": 17,
+		"nom": "EV017",
+		"x": 40,
+		"y": 18,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "EffacerImage",
+				"numero": 9
+			},
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 332,
+				"xDebutHeros": 1,
+				"yDebutHeros": 8
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 55,
+		"nom": "Clone[582][122]",
 		"x": 18,
+		"y": 14
+	},
+	{
+		"id": 65,
+		"nom": "Clone[582][122]",
+		"x": 17,
+		"y": 12
+	},
+	{
+		"id": 8,
+		"nom": "Clone[341][001]",
+		"x": 12,
+		"y": 11
+	},
+	{
+		"id": 46,
+		"nom": "Clone[582][122]",
+		"x": 21,
+		"y": 12
+	},
+	{
+		"id": 27,
+		"nom": "Tabula SHADOW[40] (-8)",
+		"x": 17,
+		"y": 23,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			},
+			{
+				"nom": "Interrupteur",
+				"numeroInterrupteur": 133,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "tabula graaah2.mp3",
+				"volume": 0.80,
+				"tempo": 1.00
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"tabula\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) WE ARE NOT VERY ADVANCED..."
+			},
+			{
+				"nom": "Message",
+				"texte": "ON N'EST PAS TRÈS AVANCÉS..."
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"image": "tabula le terrible",
+			"directionInitiale": 2,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 56,
+		"nom": "Clone[582][122]",
+		"x": 16,
+		"y": 12
+	},
+	{
+		"id": 37,
+		"nom": "Clone[341][061]",
+		"x": 29,
+		"y": 15
+	},
+	{
+		"id": 18,
+		"nom": "EV018",
+		"x": 40,
 		"y": 19,
 		"pages": [
 		{
@@ -1706,147 +2006,9 @@
 			{
 				"nom": "ChangerDeMap",
 				"variable": false,
-				"numeroNouvelleMap": 49,
-				"xDebutHeros": 10,
-				"yDebutHeros": 11
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 10,
-		"nom": "Clone[582][99]",
-		"x": 23,
-		"y": 18
-	},
-	{
-		"id": 21,
-		"nom": "Clone[341][001]",
-		"x": 12,
-		"y": 26
-	},
-	{
-		"id": 32,
-		"nom": "effacer les vikings",
-		"x": 18,
-		"y": 23,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Interrupteur",
-				"numeroInterrupteur": 133,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": true
-			},
-			{
-				"nom": "SupprimerEvent"
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "Interrupteur",
-				"numeroInterrupteur": 133,
-				"valeurQuIlEstCenseAvoir": true
-			},
-			{
-				"nom": "InterrupteurLocal",
-				"numeroEvent": 32,
-				"numeroInterrupteurLocal": 0,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 27,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "AppelerUnScript",
-					"script": "erase"
-				}
-				]
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 28,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "AppelerUnScript",
-					"script": "erase"
-				}
-				]
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 29,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "AppelerUnScript",
-					"script": "erase"
-				}
-				]
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 30,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "AppelerUnScript",
-					"script": "erase"
-				}
-				]
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 31,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "AppelerUnScript",
-					"script": "erase"
-				}
-				]
-			},
-			{
-				"nom": "SupprimerEvent"
+				"numeroNouvelleMap": 332,
+				"xDebutHeros": 1,
+				"yDebutHeros": 9
 			}
 			],
 			"vitesse": "moderee",

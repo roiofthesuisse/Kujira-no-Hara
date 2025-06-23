@@ -4116,7 +4116,7 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "\\c[2]Vikings jaunes\\c[0] et \\c[2]vikings rouges\\c[0]\\nfont une trêve le jour de l'équinoxe."
+				"texte": "\\c[2]Vikings jaunes\\c[0] et \\c[2]Vikings rouges\\c[0]\\nfont une trêve le jour de l'équinoxe."
 			},
 			{
 				"nom": "Commentaire",
@@ -4502,11 +4502,11 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) One of these boxes contains 50 scales!"
+				"texte": "(en) One of these shells contains 50 scales!"
 			},
 			{
 				"nom": "Message",
-				"texte": "L'un de ces coffrillage contient 50 écailles !"
+				"texte": "L'un de ces coffrillages contient 50 écailles !"
 			},
 			{
 				"nom": "Commentaire",
@@ -4873,11 +4873,11 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) Go and open one of the 3 chests!"
+				"texte": "(en) Go and open one of the 3 shells!"
 			},
 			{
 				"nom": "Message",
-				"texte": "Va vite ouvrir un des 3 coffres !"
+				"texte": "Va vite ouvrir un des 3 coffrillages !"
 			},
 			{
 				"nom": "ConditionFin",
@@ -5614,7 +5614,7 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "C'est un tarte \"goût sucre\"."
+				"texte": "C'est une tarte \"goût sucre\"."
 			},
 			{
 				"nom": "Attendre",
@@ -6291,10 +6291,10 @@
 		]
 	},
 	{
-		"id": 72,
-		"nom": "blocage invisible",
-		"x": 46,
-		"y": 30,
+		"id": 15,
+		"nom": "Viking pas d'ombre car stand",
+		"x": 22,
+		"y": 27,
 		"pages": [
 		{
 			"conditions": [
@@ -6303,110 +6303,28 @@
 			}
 			],
 			"commandes": [
-			],
-			"image": "algues character",
-			"opacite": 0,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 34,
-		"nom": "dose SHADOW[48,-6]",
-		"x": 39,
-		"y": 22,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 37,
-				"direction": 3,
-				"numero": 0
-			},
 			{
 				"nom": "ModifierInterrupteur",
 				"numeroInterrupteur": 12,
 				"valeur": true
 			},
 			{
-				"nom": "JouerAnimation",
-				"idEvent": 34,
-				"idAnimation": 42
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "Viking1.wav",
+				"volume": 1.00,
+				"tempo": 1.00
 			},
 			{
 				"nom": "AppelerUnScript",
-				"script": "$game_temp.faceset = \"magicien dose perruque\""
+				"script": "$game_temp.faceset = \"viking rouge\""
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) I... I have the same hair as my mother!"
+				"texte": "(en) Hello sir, what do you want?"
 			},
 			{
 				"nom": "Message",
-				"texte": "Je... j'ai les mêmes cheveux que ma mère !"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			}
-			],
-			"image": "Magicien dose character",
-			"vitesse": "normale",
-			"frequence": "haute",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 91,
-		"nom": "sousmarin",
-		"x": 16,
-		"y": 16,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) A model of a submarine."
-			},
-			{
-				"nom": "Message",
-				"texte": "Une maquette de sous-marin."
+				"texte": "Bonjour monsieur, que voulez-vous ?"
 			},
 			{
 				"nom": "Attendre",
@@ -6418,11 +6336,10 @@
 				"valeur": false
 			}
 			],
-			"image": "objet kujira 3",
-			"animationInitiale": 1,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
+			"image": "viking petit anemone character",
+			"vitesse": "lente",
+			"frequence": "tres basse",
+			"animeEnMouvement": true,
 			"animeALArret": false,
 			"directionFixe": true,
 			"traversable": false,
@@ -7595,7 +7512,7 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "Après le festival, j'aurais quelque chose \\nà te montrer !"
+				"texte": "Après le festival, j'aurai quelque chose \\nà te montrer !"
 			},
 			{
 				"nom": "ModifierInterrupteur",
@@ -7654,10 +7571,10 @@
 		]
 	},
 	{
-		"id": 15,
-		"nom": "Viking pas d'ombre car stand",
-		"x": 22,
-		"y": 27,
+		"id": 91,
+		"nom": "sousmarin",
+		"x": 16,
+		"y": 16,
 		"pages": [
 		{
 			"conditions": [
@@ -7672,22 +7589,12 @@
 				"valeur": true
 			},
 			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "Viking1.wav",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_temp.faceset = \"viking rouge\""
-			},
-			{
 				"nom": "Commentaire",
-				"texte": "(en) Hello sir, what do you want?"
+				"texte": "(en) A model of a submarine."
 			},
 			{
 				"nom": "Message",
-				"texte": "Bonjour monsieur, que voulez-vous ?"
+				"texte": "Une maquette de sous-marin."
 			},
 			{
 				"nom": "Attendre",
@@ -7699,10 +7606,11 @@
 				"valeur": false
 			}
 			],
-			"image": "viking petit anemone character",
-			"vitesse": "lente",
-			"frequence": "tres basse",
-			"animeEnMouvement": true,
+			"image": "objet kujira 3",
+			"animationInitiale": 1,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
 			"animeALArret": false,
 			"directionFixe": true,
 			"traversable": false,
@@ -7711,10 +7619,76 @@
 		]
 	},
 	{
-		"id": 6,
-		"nom": "EV006",
-		"x": 9,
-		"y": 9,
+		"id": 34,
+		"nom": "dose SHADOW[48,-6]",
+		"x": 39,
+		"y": 22,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 37,
+				"direction": 3,
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "JouerAnimation",
+				"idEvent": 34,
+				"idAnimation": 42
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"magicien dose perruque\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) I... I have the same hair as my mother!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Je... j'ai les mêmes cheveux que ma mère !"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			}
+			],
+			"image": "Magicien dose character",
+			"vitesse": "normale",
+			"frequence": "haute",
+			"animeEnMouvement": false,
+			"animeALArret": true,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 72,
+		"nom": "blocage invisible",
+		"x": 46,
+		"y": 30,
 		"pages": [
 		{
 			"conditions": [
@@ -7724,7 +7698,35 @@
 			],
 			"commandes": [
 			],
-			"image": 9,
+			"image": "algues character",
+			"opacite": 0,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 101,
+		"nom": "gateau",
+		"x": 11,
+		"y": 16,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "tarte character",
+			"directionInitiale": 2,
+			"animationInitiale": 2,
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": false,
@@ -7736,10 +7738,114 @@
 		]
 	},
 	{
-		"id": 63,
-		"nom": "lampion (24)",
+		"id": 82,
+		"nom": "disparition des coffres",
 		"x": 13,
-		"y": 25,
+		"y": 9,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 56,
+				"valeur": false
+			},
+			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 75,
+				"direction": 3,
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 56,
+				"valeur": true
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 78,
+				"direction": 3,
+				"numero": 1
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 56,
+				"valeur": true
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 79,
+				"direction": 3,
+				"numero": 2
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 56,
+				"valeur": true
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 2
+			},
+			{
+				"nom": "ConditionInterrupteur",
+				"numeroInterrupteur": 56,
+				"valeurQuIlEstCenseAvoir": false,
+				"numero": 3
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "un des 3 coffres a été ouvert"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "on ouvre les 3 coffres"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_self_switches[[579, 75, \"B\"]] = true"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_self_switches[[579, 78, \"B\"]] = true"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_self_switches[[579, 79, \"B\"]] = true"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 3
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 44,
+		"nom": "gateau",
+		"x": 33,
+		"y": 22,
 		"pages": [
 		{
 			"conditions": [
@@ -7749,15 +7855,15 @@
 			],
 			"commandes": [
 			],
-			"image": "festival lampion seul",
-			"teinte": "50",
+			"image": "tarte character",
+			"directionInitiale": 2,
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": false,
-			"animeALArret": true,
+			"animeALArret": false,
 			"directionFixe": true,
 			"traversable": false,
-			"auDessusDeTout": false
+			"auDessusDeTout": true
 		}
 		]
 	},
@@ -8173,10 +8279,10 @@
 		]
 	},
 	{
-		"id": 44,
-		"nom": "gateau",
-		"x": 33,
-		"y": 22,
+		"id": 63,
+		"nom": "lampion (24)",
+		"x": 13,
+		"y": 25,
 		"pages": [
 		{
 			"conditions": [
@@ -8186,8 +8292,33 @@
 			],
 			"commandes": [
 			],
-			"image": "tarte character",
-			"directionInitiale": 2,
+			"image": "festival lampion seul",
+			"teinte": "50",
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": true,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 6,
+		"nom": "EV006",
+		"x": 9,
+		"y": 9,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": 9,
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": false,
@@ -8199,114 +8330,10 @@
 		]
 	},
 	{
-		"id": 82,
-		"nom": "disparition des coffres",
-		"x": 13,
-		"y": 9,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 56,
-				"valeur": false
-			},
-			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 75,
-				"direction": 3,
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 56,
-				"valeur": true
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 78,
-				"direction": 3,
-				"numero": 1
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 56,
-				"valeur": true
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 79,
-				"direction": 3,
-				"numero": 2
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 56,
-				"valeur": true
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 2
-			},
-			{
-				"nom": "ConditionInterrupteur",
-				"numeroInterrupteur": 56,
-				"valeurQuIlEstCenseAvoir": false,
-				"numero": 3
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "un des 3 coffres a été ouvert"
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "on ouvre les 3 coffres"
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_self_switches[[579, 75, \"B\"]] = true"
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_self_switches[[579, 78, \"B\"]] = true"
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_self_switches[[579, 79, \"B\"]] = true"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 3
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 101,
-		"nom": "gateau",
-		"x": 11,
-		"y": 16,
+		"id": 92,
+		"nom": "confiture",
+		"x": 16,
+		"y": 15,
 		"pages": [
 		{
 			"conditions": [
@@ -8315,9 +8342,30 @@
 			}
 			],
 			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Strawberry jam."
+			},
+			{
+				"nom": "Message",
+				"texte": "De la confiture de fraise."
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
 			],
-			"image": "tarte character",
-			"directionInitiale": 2,
+			"image": "objet kujira 3",
 			"animationInitiale": 2,
 			"vitesse": "moderee",
 			"frequence": "basse",
@@ -8325,15 +8373,15 @@
 			"animeALArret": false,
 			"directionFixe": true,
 			"traversable": false,
-			"auDessusDeTout": true
+			"auDessusDeTout": false
 		}
 		]
 	},
 	{
-		"id": 16,
-		"nom": "groniass SHADOW[36] (-8)",
-		"x": 25,
-		"y": 22,
+		"id": 35,
+		"nom": "tabula SHADOW[40] (-8)",
+		"x": 40,
+		"y": 23,
 		"pages": [
 		{
 			"conditions": [
@@ -8344,7 +8392,7 @@
 			"commandes": [
 			{
 				"nom": "ConditionDirection",
-				"idEventConcerne": 20,
+				"idEventConcerne": 37,
 				"direction": 3,
 				"numero": 0
 			},
@@ -8355,21 +8403,21 @@
 			},
 			{
 				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "groniass ah.mp3",
+				"nomFichierSonore": "tabula hahaha2.mp3",
 				"volume": 1.00,
 				"tempo": 1.00
 			},
 			{
 				"nom": "AppelerUnScript",
-				"script": "$game_temp.faceset = \"groniass chomping tree\""
+				"script": "$game_temp.faceset = \"tabula baleine\""
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) Still, to kill your brother for a little money..."
+				"texte": "(en) SAY, IS THIS YOUR REAL HAIR?"
 			},
 			{
 				"nom": "Message",
-				"texte": "Quand même, tuer son frère pour un peu \\nd'argent..."
+				"texte": "DITES, CE SONT VOS VRAIS CHEVEUX ?"
 			},
 			{
 				"nom": "Attendre",
@@ -8385,82 +8433,13 @@
 				"numero": 0
 			}
 			],
-			"image": "groniass character",
-			"directionInitiale": 2,
+			"image": "tabula le terrible",
+			"directionInitiale": 1,
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": false,
 			"animeALArret": false,
 			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 73,
-		"nom": "viking rouge SHADOW[30] (-4)",
-		"x": 43,
-		"y": 28,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "Viking1 femme.ogg",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_temp.faceset = \"viking jaune femme\""
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) I heard that \\c[2]Tabula the Terrible\\c[0] \\nand \\c[2]Gruntilda the Fearless\\c[0] met \\nat a fall festival when they were young."
-			},
-			{
-				"nom": "Message",
-				"texte": "Il parait que \\c[2]Tabula le Terrible\\c[0] et \\n\\c[2]Groniass l'Intrépide\\c[0] se sont rencontrés \\nlors d'un festival d'automne."
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
-			],
-			"deplacement": {
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": true,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "RegarderUnEvent",
-					"idEvent": 0
-				}
-				]
-			},
-			"image": "viking2 femme petit anemone character",
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
 		}
@@ -9083,10 +9062,79 @@
 		]
 	},
 	{
-		"id": 35,
-		"nom": "tabula SHADOW[40] (-8)",
-		"x": 40,
-		"y": 23,
+		"id": 73,
+		"nom": "viking rouge SHADOW[30] (-4)",
+		"x": 43,
+		"y": 28,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "Viking1 femme.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"viking jaune femme\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) I heard that \\c[2]Tabula the Terrible\\c[0] \\nand \\c[2]Gruntilda the Fearless\\c[0] met \\nat a fall festival when they were young."
+			},
+			{
+				"nom": "Message",
+				"texte": "Il parait que \\c[2]Tabula le Terrible\\c[0] et \\n\\c[2]Groniass l'Intrépide\\c[0] se sont rencontrés \\nlors d'un festival d'automne."
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"deplacement": {
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": true,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RegarderUnEvent",
+					"idEvent": 0
+				}
+				]
+			},
+			"image": "viking2 femme petit anemone character",
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 16,
+		"nom": "groniass SHADOW[36] (-8)",
+		"x": 25,
+		"y": 22,
 		"pages": [
 		{
 			"conditions": [
@@ -9097,7 +9145,7 @@
 			"commandes": [
 			{
 				"nom": "ConditionDirection",
-				"idEventConcerne": 37,
+				"idEventConcerne": 20,
 				"direction": 3,
 				"numero": 0
 			},
@@ -9108,21 +9156,21 @@
 			},
 			{
 				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "tabula hahaha2.mp3",
+				"nomFichierSonore": "groniass ah.mp3",
 				"volume": 1.00,
 				"tempo": 1.00
 			},
 			{
 				"nom": "AppelerUnScript",
-				"script": "$game_temp.faceset = \"tabula baleine\""
+				"script": "$game_temp.faceset = \"groniass chomping tree\""
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) SAY, IS THIS YOUR REAL HAIR?"
+				"texte": "(en) Still, to kill your brother for a little money..."
 			},
 			{
 				"nom": "Message",
-				"texte": "DITES, CE SONT VOS VRAIS CHEVEUX ?"
+				"texte": "Quand même, tuer son frère pour un peu \\nd'argent..."
 			},
 			{
 				"nom": "Attendre",
@@ -9138,8 +9186,8 @@
 				"numero": 0
 			}
 			],
-			"image": "tabula le terrible",
-			"directionInitiale": 1,
+			"image": "groniass character",
+			"directionInitiale": 2,
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": false,
@@ -9151,58 +9199,173 @@
 		]
 	},
 	{
-		"id": 92,
-		"nom": "confiture",
-		"x": 16,
-		"y": 15,
+		"id": 102,
+		"nom": "Avancement",
+		"x": 18,
+		"y": 6,
 		"pages": [
 		{
 			"conditions": [
-			{
-				"nom": "Parler"
-			}
 			],
 			"commandes": [
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) Strawberry jam."
-			},
-			{
-				"nom": "Message",
-				"texte": "De la confiture de fraise."
-			},
 			{
 				"nom": "Attendre",
 				"nombreDeFrames": 8
 			},
 			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
+				"nom": "ModifierVariable",
+				"numeroVariable": 126,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 24,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": true
 			}
 			],
-			"image": "objet kujira 3",
-			"animationInitiale": 2,
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": false,
 			"animeALArret": false,
-			"directionFixe": true,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 102,
+				"numeroInterrupteurLocal": 0,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
 		}
 		]
 	},
 	{
-		"id": 64,
-		"nom": "lampion (24)",
-		"x": 20,
-		"y": 30,
+		"id": 83,
+		"nom": "disparition des coffres",
+		"x": 15,
+		"y": 9,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 56,
+				"valeur": false
+			},
+			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 75,
+				"direction": 3,
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 56,
+				"valeur": true
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 78,
+				"direction": 3,
+				"numero": 1
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 56,
+				"valeur": true
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 79,
+				"direction": 3,
+				"numero": 2
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 56,
+				"valeur": true
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 2
+			},
+			{
+				"nom": "ConditionInterrupteur",
+				"numeroInterrupteur": 56,
+				"valeurQuIlEstCenseAvoir": false,
+				"numero": 3
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "un des 3 coffres a été ouvert"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "on ouvre les 3 coffres"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_self_switches[[579, 75, \"B\"]] = true"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_self_switches[[579, 78, \"B\"]] = true"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_self_switches[[579, 79, \"B\"]] = true"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 3
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 45,
+		"nom": "gateau",
+		"x": 46,
+		"y": 24,
 		"pages": [
 		{
 			"conditions": [
@@ -9212,15 +9375,40 @@
 			],
 			"commandes": [
 			],
-			"image": "festival lampion seul",
-			"teinte": "50",
+			"image": "tarte character",
+			"directionInitiale": 2,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": true
+		}
+		]
+	},
+	{
+		"id": 7,
+		"nom": "lampions",
+		"x": 23,
+		"y": 34,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "festival lampions",
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": false,
 			"animeALArret": true,
 			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
+			"traversable": true,
+			"auDessusDeTout": true
 		}
 		]
 	},
@@ -9330,271 +9518,9 @@
 		]
 	},
 	{
-		"id": 7,
-		"nom": "lampions",
-		"x": 23,
-		"y": 34,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "festival lampions",
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": true
-		}
-		]
-	},
-	{
-		"id": 45,
-		"nom": "gateau",
-		"x": 46,
-		"y": 24,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "tarte character",
-			"directionInitiale": 2,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": true
-		}
-		]
-	},
-	{
-		"id": 83,
-		"nom": "disparition des coffres",
-		"x": 15,
-		"y": 9,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 56,
-				"valeur": false
-			},
-			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 75,
-				"direction": 3,
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 56,
-				"valeur": true
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 78,
-				"direction": 3,
-				"numero": 1
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 56,
-				"valeur": true
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 79,
-				"direction": 3,
-				"numero": 2
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 56,
-				"valeur": true
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 2
-			},
-			{
-				"nom": "ConditionInterrupteur",
-				"numeroInterrupteur": 56,
-				"valeurQuIlEstCenseAvoir": false,
-				"numero": 3
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "un des 3 coffres a été ouvert"
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "on ouvre les 3 coffres"
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_self_switches[[579, 75, \"B\"]] = true"
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_self_switches[[579, 78, \"B\"]] = true"
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_self_switches[[579, 79, \"B\"]] = true"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 3
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 102,
-		"nom": "Avancement",
-		"x": 18,
-		"y": 6,
-		"pages": [
-		{
-			"conditions": [
-			],
-			"commandes": [
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 126,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 24,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": true
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "InterrupteurLocal",
-				"numeroEvent": 102,
-				"numeroInterrupteurLocal": 0,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "SupprimerEvent"
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 93,
-		"nom": "diamant",
-		"x": 16,
-		"y": 18,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) A diamond."
-			},
-			{
-				"nom": "Message",
-				"texte": "Un diamant."
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
-			],
-			"image": "objet kujira 3",
-			"directionInitiale": 1,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 74,
-		"nom": "blocage invisible",
-		"x": 42,
+		"id": 64,
+		"nom": "lampion (24)",
+		"x": 20,
 		"y": 30,
 		"pages": [
 		{
@@ -9605,12 +9531,12 @@
 			],
 			"commandes": [
 			],
-			"image": "algues character",
-			"opacite": 0,
+			"image": "festival lampion seul",
+			"teinte": "50",
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": false,
-			"animeALArret": false,
+			"animeALArret": true,
 			"directionFixe": true,
 			"traversable": false,
 			"auDessusDeTout": false
@@ -9618,9 +9544,9 @@
 		]
 	},
 	{
-		"id": 36,
-		"nom": "perruque",
-		"x": 39,
+		"id": 55,
+		"nom": "deguisement arbre (-8)",
+		"x": 25,
 		"y": 21,
 		"pages": [
 		{
@@ -9631,14 +9557,15 @@
 			],
 			"commandes": [
 			],
-			"image": "perruque character",
+			"image": "deguisement baleine character",
+			"directionInitiale": 1,
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": false,
 			"animeALArret": false,
 			"directionFixe": true,
 			"traversable": false,
-			"auDessusDeTout": true
+			"auDessusDeTout": false
 		}
 		]
 	},
@@ -9705,9 +9632,9 @@
 		]
 	},
 	{
-		"id": 55,
-		"nom": "deguisement arbre (-8)",
-		"x": 25,
+		"id": 36,
+		"nom": "perruque",
+		"x": 39,
 		"y": 21,
 		"pages": [
 		{
@@ -9718,109 +9645,7 @@
 			],
 			"commandes": [
 			],
-			"image": "deguisement baleine character",
-			"directionInitiale": 1,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 103,
-		"nom": "Blocage anti-évènement",
-		"x": 35,
-		"y": 29,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 65,
-		"nom": "lampion (24)",
-		"x": 20,
-		"y": 25,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "festival lampion seul",
-			"teinte": "50",
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 8,
-		"nom": "lampions",
-		"x": 14,
-		"y": 21,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "festival lampions",
-			"directionInitiale": 1,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": true
-		}
-		]
-	},
-	{
-		"id": 46,
-		"nom": "une autre tarte",
-		"x": 45,
-		"y": 24,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "tarte character",
+			"image": "perruque character",
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": false,
@@ -9832,139 +9657,74 @@
 		]
 	},
 	{
-		"id": 27,
-		"nom": "EV027",
-		"x": 53,
-		"y": 27,
+		"id": 74,
+		"nom": "blocage invisible",
+		"x": 42,
+		"y": 30,
 		"pages": [
 		{
 			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "algues character",
+			"opacite": 0,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 93,
+		"nom": "diamant",
+		"x": 16,
+		"y": 18,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
 			],
 			"commandes": [
 			{
-				"nom": "ConditionInterrupteur",
+				"nom": "ModifierInterrupteur",
 				"numeroInterrupteur": 12,
-				"valeurQuIlEstCenseAvoir": false,
-				"numero": 0
+				"valeur": true
 			},
 			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 26,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "mineur character",
-					"direction": 0,
-					"animation": 1,
-					"teinte": 0
-				}
-				]
+				"nom": "Commentaire",
+				"texte": "(en) A diamond."
 			},
 			{
-				"nom": "ConditionScript",
-				"script": "($game_player.x - $game_map.events[@event_id].x)**2 <= 20",
-				"numero": 1
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "Klank-4.wav",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionScript",
-				"script": "($game_player.x - $game_map.events[@event_id].x)**2 <= 100",
-				"numero": 2
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "Klank-4.wav",
-				"volume": 0.80,
-				"tempo": 1.00
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 2
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "Klank-4.wav",
-				"volume": 0.60,
-				"tempo": 1.00
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 2
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 16
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 26,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "mineur character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				}
-				]
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 16
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 26,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "mineur character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				}
-				]
+				"nom": "Message",
+				"texte": "Un diamant."
 			},
 			{
 				"nom": "Attendre",
 				"nombreDeFrames": 8
 			},
 			{
-				"nom": "ConditionFin",
-				"numero": 0
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
 			}
 			],
+			"image": "objet kujira 3",
+			"directionInitiale": 1,
 			"vitesse": "moderee",
 			"frequence": "basse",
-			"animeEnMouvement": true,
+			"animeEnMouvement": false,
 			"animeALArret": false,
-			"directionFixe": false,
+			"directionFixe": true,
 			"traversable": false,
 			"auDessusDeTout": false
 		}
@@ -10131,6 +9891,662 @@
 			"animeALArret": false,
 			"directionFixe": false,
 			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 27,
+		"nom": "EV027",
+		"x": 53,
+		"y": 27,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "ConditionInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeurQuIlEstCenseAvoir": false,
+				"numero": 0
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 26,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "mineur character",
+					"direction": 0,
+					"animation": 1,
+					"teinte": 0
+				}
+				]
+			},
+			{
+				"nom": "ConditionScript",
+				"script": "($game_player.x - $game_map.events[@event_id].x)**2 <= 20",
+				"numero": 1
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "Klank-4.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionScript",
+				"script": "($game_player.x - $game_map.events[@event_id].x)**2 <= 100",
+				"numero": 2
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "Klank-4.wav",
+				"volume": 0.80,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 2
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "Klank-4.wav",
+				"volume": 0.60,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 2
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 16
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 26,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "mineur character",
+					"direction": 0,
+					"animation": 0,
+					"teinte": 0
+				}
+				]
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 16
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 26,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "mineur character",
+					"direction": 0,
+					"animation": 0,
+					"teinte": 0
+				}
+				]
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 46,
+		"nom": "une autre tarte",
+		"x": 45,
+		"y": 24,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "tarte character",
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": true
+		}
+		]
+	},
+	{
+		"id": 8,
+		"nom": "lampions",
+		"x": 14,
+		"y": 21,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "festival lampions",
+			"directionInitiale": 1,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": true,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": true
+		}
+		]
+	},
+	{
+		"id": 65,
+		"nom": "lampion (24)",
+		"x": 20,
+		"y": 25,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "festival lampion seul",
+			"teinte": "50",
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": true,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 103,
+		"nom": "Blocage anti-évènement",
+		"x": 35,
+		"y": 29,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 94,
+		"nom": "une autre tarte",
+		"x": 21,
+		"y": 28,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "tarte character",
+			"directionInitiale": 3,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": true
+		}
+		]
+	},
+	{
+		"id": 75,
+		"nom": "Clone[582][29]",
+		"x": 13,
+		"y": 8
+	},
+	{
+		"id": 18,
+		"nom": "EV018",
+		"x": 29,
+		"y": 21,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 0,
+				"direction": 3,
+				"numero": 0
+			},
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 478,
+				"xDebutHeros": 14,
+				"yDebutHeros": 17
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 37,
+		"nom": "scene des chaussures",
+		"x": 39,
+		"y": 23,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "ConditionScript",
+				"script": "($game_player.x - $game_map.events[@event_id].x).abs <= 1 && ($game_player.y - $game_map.events[@event_id].y).abs <= 1",
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": true
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			}
+			],
+			"image": "algues character",
+			"opacite": 0,
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 37,
+				"numeroInterrupteurLocal": 0,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "FaireDefilerLaMap",
+				"direction": 3,
+				"nombreDeCarreaux": 2,
+				"vitesse": "normale"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "JouerAnimation",
+				"idEvent": 34,
+				"idAnimation": 42
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"magicien dose perruque\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \\SHAKE Uh... your feet are better?"
+			},
+			{
+				"nom": "Message",
+				"texte": "\\SHAKE Euh... vos pieds vont mieux ?"
+			},
+			{
+				"nom": "FaireDefilerLaMap",
+				"direction": 0,
+				"nombreDeCarreaux": 1,
+				"vitesse": "normale"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "JouerAnimation",
+				"idEvent": 35,
+				"idAnimation": 3
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 33
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "tabula graaah1.mp3",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"tabula baleine\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) SO-SO."
+			},
+			{
+				"nom": "Message",
+				"texte": "BOF BOF."
+			},
+			{
+				"nom": "FaireDefilerLaMap",
+				"direction": 3,
+				"nombreDeCarreaux": 1,
+				"vitesse": "normale"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "JouerAnimation",
+				"idEvent": 34,
+				"idAnimation": 42
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"magicien dose perruque\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \\SHAKE You know, you have to change your shoes \\nevery day."
+			},
+			{
+				"nom": "Message",
+				"texte": "\\SHAKE Vous savez, il faut changer de chaussures \\ntous les jours."
+			},
+			{
+				"nom": "FaireDefilerLaMap",
+				"direction": 0,
+				"nombreDeCarreaux": 1,
+				"vitesse": "normale"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 39,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Sauter",
+					"x": 0,
+					"y": 0
+				}
+				]
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 35,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Sauter",
+					"x": 0,
+					"y": 0
+				}
+				]
+			},
+			{
+				"nom": "JouerAnimation",
+				"idEvent": 35,
+				"idAnimation": 2
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 33
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "tabula bwaaah.mp3",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"tabula baleine\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) IT WOULD TAKE AN INCREDIBLE AMOUNT OF SHOES!"
+			},
+			{
+				"nom": "Message",
+				"texte": "IL FAUDRAIT UNE QUANTITÉ INCROYABLE \\nDE CHAUSSURES !"
+			},
+			{
+				"nom": "FaireDefilerLaMap",
+				"direction": 3,
+				"nombreDeCarreaux": 1,
+				"vitesse": "normale"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "JouerAnimation",
+				"idEvent": 34,
+				"idAnimation": 42
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"magicien dose perruque\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \\SHAKE But no! Two pairs are enough."
+			},
+			{
+				"nom": "Message",
+				"texte": "\\SHAKE Mais non ! Deux paires suffisent."
+			},
+			{
+				"nom": "FaireDefilerLaMap",
+				"direction": 0,
+				"nombreDeCarreaux": 1,
+				"vitesse": "normale"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "JouerAnimation",
+				"idEvent": 35,
+				"idAnimation": 3
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 33
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "tabula graaah1.mp3",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"tabula baleine\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) I DON'T UNDERSTAND.\\nYOU FORGOT THAT I AM NOT A MAGICIAN."
+			},
+			{
+				"nom": "Message",
+				"texte": "J'Y COMPRENDS RIEN.\\nVOUS OUBLIEZ QUE JE NE SUIS PAS MAGICIEN."
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 192,
+				"operationAFaire": "ajouter",
+				"valeurADonner": 1,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 1,
+				"valeurADonner": true
+			}
+			],
+			"image": "algues character",
+			"opacite": 0,
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"figerLesAutresEvents": true,
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 37,
+				"numeroInterrupteurLocal": 1,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			},
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"image": "algues character",
+			"opacite": 0,
+			"directionInitiale": 3,
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
 			"auDessusDeTout": false
 		}
 		]
@@ -10435,422 +10851,6 @@
 			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 37,
-		"nom": "scene des chaussures",
-		"x": 39,
-		"y": 23,
-		"pages": [
-		{
-			"conditions": [
-			],
-			"commandes": [
-			{
-				"nom": "ConditionScript",
-				"script": "($game_player.x - $game_map.events[@event_id].x).abs <= 1 && ($game_player.y - $game_map.events[@event_id].y).abs <= 1",
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": true
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			}
-			],
-			"image": "algues character",
-			"opacite": 0,
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "InterrupteurLocal",
-				"numeroEvent": 37,
-				"numeroInterrupteurLocal": 0,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "FaireDefilerLaMap",
-				"direction": 3,
-				"nombreDeCarreaux": 2,
-				"vitesse": "normale"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "JouerAnimation",
-				"idEvent": 34,
-				"idAnimation": 42
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_temp.faceset = \"magicien dose perruque\""
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) \\SHAKE Uh... your feet are better?"
-			},
-			{
-				"nom": "Message",
-				"texte": "\\SHAKE Euh... vos pieds vont mieux ?"
-			},
-			{
-				"nom": "FaireDefilerLaMap",
-				"direction": 0,
-				"nombreDeCarreaux": 1,
-				"vitesse": "normale"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "JouerAnimation",
-				"idEvent": 35,
-				"idAnimation": 3
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 33
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "tabula graaah1.mp3",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_temp.faceset = \"tabula baleine\""
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) SO-SO."
-			},
-			{
-				"nom": "Message",
-				"texte": "BOF BOF."
-			},
-			{
-				"nom": "FaireDefilerLaMap",
-				"direction": 3,
-				"nombreDeCarreaux": 1,
-				"vitesse": "normale"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "JouerAnimation",
-				"idEvent": 34,
-				"idAnimation": 42
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_temp.faceset = \"magicien dose perruque\""
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) \\SHAKE You know, you have to change your shoes \\nevery day."
-			},
-			{
-				"nom": "Message",
-				"texte": "\\SHAKE Vous savez, il faut changer de chaussures \\ntous les jours."
-			},
-			{
-				"nom": "FaireDefilerLaMap",
-				"direction": 0,
-				"nombreDeCarreaux": 1,
-				"vitesse": "normale"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 39,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "Sauter",
-					"x": 0,
-					"y": 0
-				}
-				]
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 35,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "Sauter",
-					"x": 0,
-					"y": 0
-				}
-				]
-			},
-			{
-				"nom": "JouerAnimation",
-				"idEvent": 35,
-				"idAnimation": 2
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 33
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "tabula bwaaah.mp3",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_temp.faceset = \"tabula baleine\""
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) IT WOULD TAKE AN INCREDIBLE AMOUNT OF SHOES!"
-			},
-			{
-				"nom": "Message",
-				"texte": "IL FAUDRAIT UNE QUANTITÉ INCROYABLE \\nDE CHAUSSURES !"
-			},
-			{
-				"nom": "FaireDefilerLaMap",
-				"direction": 3,
-				"nombreDeCarreaux": 1,
-				"vitesse": "normale"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "JouerAnimation",
-				"idEvent": 34,
-				"idAnimation": 42
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_temp.faceset = \"magicien dose perruque\""
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) \\SHAKE But no! Two pairs are enough."
-			},
-			{
-				"nom": "Message",
-				"texte": "\\SHAKE Mais non ! Deux paires suffisent."
-			},
-			{
-				"nom": "FaireDefilerLaMap",
-				"direction": 0,
-				"nombreDeCarreaux": 1,
-				"vitesse": "normale"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "JouerAnimation",
-				"idEvent": 35,
-				"idAnimation": 3
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 33
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "tabula graaah1.mp3",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_temp.faceset = \"tabula baleine\""
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) YOU FORGET THAT I AM NOT A MAGICIAN."
-			},
-			{
-				"nom": "Message",
-				"texte": "VOUS OUBLIEZ QUE JE NE SUIS PAS MAGICIEN."
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 192,
-				"operationAFaire": "ajouter",
-				"valeurADonner": 1,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 1,
-				"valeurADonner": true
-			}
-			],
-			"image": "algues character",
-			"opacite": 0,
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"figerLesAutresEvents": true,
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "InterrupteurLocal",
-				"numeroEvent": 37,
-				"numeroInterrupteurLocal": 1,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			},
-			{
-				"nom": "SupprimerEvent"
-			}
-			],
-			"image": "algues character",
-			"opacite": 0,
-			"directionInitiale": 3,
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 18,
-		"nom": "EV018",
-		"x": 29,
-		"y": 21,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 0,
-				"direction": 3,
-				"numero": 0
-			},
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 478,
-				"xDebutHeros": 14,
-				"yDebutHeros": 17
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 75,
-		"nom": "Clone[582][29]",
-		"x": 13,
-		"y": 8
-	},
-	{
-		"id": 94,
-		"nom": "une autre tarte",
-		"x": 21,
-		"y": 28,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "tarte character",
-			"directionInitiale": 3,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": true
 		}
 		]
 	}

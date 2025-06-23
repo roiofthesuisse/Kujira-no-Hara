@@ -111,6 +111,12 @@
 	],
 	"events": [
 	{
+		"id": 5,
+		"nom": "Clone[341][004]",
+		"x": 20,
+		"y": 20
+	},
+	{
 		"id": 16,
 		"nom": "Bloquage",
 		"x": 15,
@@ -135,12 +141,6 @@
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 5,
-		"nom": "Clone[341][004]",
-		"x": 20,
-		"y": 20
 	},
 	{
 		"id": 11,
@@ -174,31 +174,6 @@
 		"y": 19
 	},
 	{
-		"id": 12,
-		"nom": "cache",
-		"x": 8,
-		"y": 6,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": 17,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": true
-		}
-		]
-	},
-	{
 		"id": 1,
 		"nom": "Ogre SHADOW[48] (-4)",
 		"x": 14,
@@ -224,6 +199,31 @@
 		]
 	},
 	{
+		"id": 12,
+		"nom": "cache",
+		"x": 8,
+		"y": 6,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": 17,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": true
+		}
+		]
+	},
+	{
 		"id": 7,
 		"nom": "faux champignon SHADOW[28] (-2)",
 		"x": 12,
@@ -243,6 +243,59 @@
 			"animeEnMouvement": false,
 			"animeALArret": false,
 			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 13,
+		"nom": "Obscurité",
+		"x": 18,
+		"y": 24,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 25,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ModifierBrouillard",
+				"opacite": 20,
+				"modeDeFusion": "addition",
+				"defilementX": 0,
+				"defilementY": 0,
+				"zoom": 200,
+				"nuance": 0,
+				"nomImage": "001-Fog01"
+			},
+			{
+				"nom": "TeleporterEvent",
+				"idEvent": 16,
+				"variable": false,
+				"nouveauX": 15,
+				"nouveauY": 21,
+				"direction": 0
+			},
+			{
+				"nom": "EffacerImage",
+				"numero": 3
+			},
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
 		}
@@ -390,59 +443,6 @@
 		]
 	},
 	{
-		"id": 13,
-		"nom": "Obscurité",
-		"x": 18,
-		"y": 24,
-		"pages": [
-		{
-			"conditions": [
-			],
-			"commandes": [
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 25,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ModifierBrouillard",
-				"opacite": 20,
-				"modeDeFusion": "addition",
-				"defilementX": 0,
-				"defilementY": 0,
-				"zoom": 200,
-				"nuance": 0,
-				"nomImage": "001-Fog01"
-			},
-			{
-				"nom": "TeleporterEvent",
-				"idEvent": 16,
-				"variable": false,
-				"nouveauX": 15,
-				"nouveauY": 21,
-				"direction": 0
-			},
-			{
-				"nom": "EffacerImage",
-				"numero": 3
-			},
-			{
-				"nom": "SupprimerEvent"
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
 		"id": 8,
 		"nom": "faux champignon SHADOW[28] (-2)",
 		"x": 9,
@@ -462,6 +462,31 @@
 			"animeEnMouvement": false,
 			"animeALArret": false,
 			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 3,
+		"nom": "Poésie SHADOW[20,4]",
+		"x": 9,
+		"y": 7,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "kiria character",
+			"vitesse": "normale",
+			"frequence": "haute",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
 		}
@@ -489,31 +514,6 @@
 			"directionFixe": true,
 			"traversable": true,
 			"auDessusDeTout": true
-		}
-		]
-	},
-	{
-		"id": 3,
-		"nom": "Poésie SHADOW[20,4]",
-		"x": 9,
-		"y": 7,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "kiria character",
-			"vitesse": "normale",
-			"frequence": "haute",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
 		}
 		]
 	},

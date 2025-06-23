@@ -56,6 +56,12 @@
 	],
 	"events": [
 	{
+		"id": 5,
+		"nom": "Clone[341][0025]",
+		"x": 9,
+		"y": 1
+	},
+	{
 		"id": 16,
 		"nom": "Blocage anti-évènement",
 		"x": 2,
@@ -78,12 +84,6 @@
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 5,
-		"nom": "Clone[341][0025]",
-		"x": 9,
-		"y": 1
 	},
 	{
 		"id": 11,
@@ -111,16 +111,34 @@
 		]
 	},
 	{
+		"id": 17,
+		"nom": "Blocage anti-évènement",
+		"x": 15,
+		"y": 12,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 6,
 		"nom": "Clone[341][023]",
 		"x": 2,
 		"y": 3
-	},
-	{
-		"id": 1,
-		"nom": "Clone[572][9]",
-		"x": 13,
-		"y": 4
 	},
 	{
 		"id": 12,
@@ -142,6 +160,36 @@
 				"xDebutHeros": 1,
 				"yDebutHeros": 6
 			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 1,
+		"nom": "Clone[572][9]",
+		"x": 13,
+		"y": 4
+	},
+	{
+		"id": 18,
+		"nom": "Blocage anti-évènement",
+		"x": 9,
+		"y": 2,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
 			],
 			"vitesse": "moderee",
 			"frequence": "basse",
@@ -185,16 +233,40 @@
 		]
 	},
 	{
+		"id": 13,
+		"nom": "Blocage anti-évènement",
+		"x": 3,
+		"y": 10,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 2,
 		"nom": "Clone[572][9]",
 		"x": 14,
 		"y": 7
 	},
 	{
-		"id": 13,
+		"id": 19,
 		"nom": "Blocage anti-évènement",
-		"x": 3,
-		"y": 10,
+		"x": 12,
+		"y": 6,
 		"pages": [
 		{
 			"conditions": [
@@ -246,16 +318,40 @@
 		]
 	},
 	{
+		"id": 14,
+		"nom": "Blocage anti-évènement",
+		"x": 3,
+		"y": 12,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 3,
 		"nom": "Clone[572][9]",
 		"x": 4,
 		"y": 8
 	},
 	{
-		"id": 14,
+		"id": 20,
 		"nom": "Blocage anti-évènement",
-		"x": 3,
-		"y": 12,
+		"x": 15,
+		"y": 8,
 		"pages": [
 		{
 			"conditions": [
@@ -307,6 +403,47 @@
 		]
 	},
 	{
+		"id": 4,
+		"nom": "EV004",
+		"x": 1,
+		"y": 7,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 36,
+				"valeur": true
+			},
+			{
+				"nom": "TeleporterEvent",
+				"idEvent": 20,
+				"variable": false,
+				"nouveauX": 14,
+				"nouveauY": 7,
+				"direction": 0
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 55
+			},
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": true,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 15,
 		"nom": "Blocage anti-évènement",
 		"x": 19,
@@ -326,39 +463,6 @@
 			"animeALArret": false,
 			"directionFixe": false,
 			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 4,
-		"nom": "EV004",
-		"x": 1,
-		"y": 7,
-		"pages": [
-		{
-			"conditions": [
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 36,
-				"valeur": true
-			},
-			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 55
-			},
-			{
-				"nom": "SupprimerEvent"
-			}
-			],
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": true,
 			"auDessusDeTout": false
 		}
 		]

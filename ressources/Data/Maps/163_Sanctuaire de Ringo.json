@@ -8,6 +8,11 @@
 		"volume": 0.70,
 		"tempo": 1.00
 	},
+	"fondSonore": {
+		"nomFichierSonore": "",
+		"volume": 0.80,
+		"tempo": 1.00
+	},
 	"couche0": [
 	[0036,0037,0005,0004,0005,0004,0005,0005,0004,0005,0004,0004,0038,0039,0036,0037,0004,0005,0004,0038,0039],
 	[0044,0045,0013,0012,0013,0012,0013,0013,0012,0013,0012,0012,0046,0047,0044,0045,0012,0013,0012,0046,0047],
@@ -61,10 +66,16 @@
 	],
 	"events": [
 	{
-		"id": 16,
+		"id": 5,
+		"nom": "Clone[341][102]",
+		"x": 3,
+		"y": 10
+	},
+	{
+		"id": 38,
 		"nom": "blocage",
-		"x": 8,
-		"y": 6,
+		"x": 4,
+		"y": 7,
 		"pages": [
 		{
 			"conditions": [
@@ -143,54 +154,10 @@
 		]
 	},
 	{
-		"id": 38,
+		"id": 16,
 		"nom": "blocage",
-		"x": 4,
-		"y": 7,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "algues character",
-			"opacite": 0,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 5,
-		"nom": "Clone[341][102]",
-		"x": 3,
-		"y": 10
-	},
-	{
-		"id": 33,
-		"nom": "Clone[582][37]",
-		"x": 5,
-		"y": 2
-	},
-	{
-		"id": 22,
-		"nom": "Clone[341][059]",
-		"x": 18,
-		"y": 2
-	},
-	{
-		"id": 11,
-		"nom": "blocage",
-		"x": 4,
-		"y": 8,
+		"x": 8,
+		"y": 6,
 		"pages": [
 		{
 			"conditions": [
@@ -239,92 +206,10 @@
 		]
 	},
 	{
-		"id": 6,
-		"nom": "EV006",
-		"x": 17,
-		"y": 14,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 162,
-				"xDebutHeros": 13,
-				"yDebutHeros": 3
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 28,
-		"nom": "recuperer arme",
-		"x": 20,
-		"y": 13,
-		"pages": [
-		{
-			"conditions": [
-			],
-			"commandes": [
-			{
-				"nom": "Commentaire",
-				"texte": "Arme du donjon récupérée"
-			},
-			{
-				"nom": "ConditionObjetPossede",
-				"idObjet": 94,
-				"numero": 0
-			},
-			{
-				"nom": "AjouterArme",
-				"idArme": 4
-			},
-			{
-				"nom": "RetirerObjet",
-				"idObjet": 94,
-				"variable": false,
-				"quantite": 99
-			},
-			{
-				"nom": "EquiperArme",
-				"idArme": 4
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "SupprimerEvent"
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 17,
+		"id": 11,
 		"nom": "blocage",
-		"x": 7,
-		"y": 6,
+		"x": 4,
+		"y": 8,
 		"pages": [
 		{
 			"conditions": [
@@ -345,6 +230,18 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 22,
+		"nom": "Clone[341][059]",
+		"x": 18,
+		"y": 2
+	},
+	{
+		"id": 33,
+		"nom": "Clone[582][37]",
+		"x": 5,
+		"y": 2
 	},
 	{
 		"id": 39,
@@ -474,10 +371,239 @@
 		]
 	},
 	{
-		"id": 34,
-		"nom": "Clone[582][37]",
-		"x": 2,
-		"y": 3
+		"id": 17,
+		"nom": "blocage",
+		"x": 7,
+		"y": 6,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "algues character",
+			"opacite": 0,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 28,
+		"nom": "recuperer arme",
+		"x": 20,
+		"y": 13,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "Commentaire",
+				"texte": "Arme du donjon récupérée"
+			},
+			{
+				"nom": "ConditionObjetPossede",
+				"idObjet": 94,
+				"numero": 0
+			},
+			{
+				"nom": "AjouterArme",
+				"idArme": 4
+			},
+			{
+				"nom": "RetirerObjet",
+				"idObjet": 94,
+				"variable": false,
+				"quantite": 99
+			},
+			{
+				"nom": "EquiperArme",
+				"idArme": 4
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 6,
+		"nom": "EV006",
+		"x": 17,
+		"y": 14,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 162,
+				"xDebutHeros": 13,
+				"yDebutHeros": 3
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 45,
+		"nom": "initialiser codes",
+		"x": 20,
+		"y": 10,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 138,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 1,
+				"valeurADonner2": 999,
+				"operationAFaire2": "nombre aleatoire"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 139,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 1,
+				"valeurADonner2": 999,
+				"operationAFaire2": "nombre aleatoire"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": true
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 45,
+				"numeroInterrupteurLocal": 0,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "EffacerImage",
+				"numero": 9
+			},
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 12,
+		"nom": "blocage",
+		"x": 8,
+		"y": 8,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "algues character",
+			"opacite": 0,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 1,
+		"nom": "pomme qui roule (64)",
+		"x": 6,
+		"y": 7,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "pomme qui roule exterieur",
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": true,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 23,
@@ -686,238 +812,10 @@
 		]
 	},
 	{
-		"id": 1,
-		"nom": "pomme qui roule (64)",
-		"x": 6,
-		"y": 7,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "pomme qui roule exterieur",
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 12,
-		"nom": "blocage",
-		"x": 8,
-		"y": 8,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "algues character",
-			"opacite": 0,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 45,
-		"nom": "initialiser codes",
-		"x": 20,
-		"y": 10,
-		"pages": [
-		{
-			"conditions": [
-			],
-			"commandes": [
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 138,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 1,
-				"valeurADonner2": 999,
-				"operationAFaire2": "nombre aleatoire"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 139,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 1,
-				"valeurADonner2": 999,
-				"operationAFaire2": "nombre aleatoire"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": true
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "InterrupteurLocal",
-				"numeroEvent": 45,
-				"numeroInterrupteurLocal": 0,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "EffacerImage",
-				"numero": 9
-			},
-			{
-				"nom": "SupprimerEvent"
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 29,
-		"nom": "init cloche retour",
-		"x": 20,
-		"y": 12,
-		"pages": [
-		{
-			"conditions": [
-			],
-			"commandes": [
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 65,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 1,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 93,
-				"operationAFaire": "rendre egal a",
-				"operationAFaire2": "numero de la map"
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(c'est 163 ici)"
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 94,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 18,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 95,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 3,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "SupprimerEvent"
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 7,
-		"nom": "blocage",
-		"x": 7,
-		"y": 9,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "algues character",
-			"opacite": 0,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 18,
-		"nom": "blocage",
-		"x": 6,
-		"y": 6,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "algues character",
-			"opacite": 0,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
+		"id": 34,
+		"nom": "Clone[582][37]",
+		"x": 2,
+		"y": 3
 	},
 	{
 		"id": 40,
@@ -1047,10 +945,10 @@
 		]
 	},
 	{
-		"id": 35,
-		"nom": "triche",
-		"x": 20,
-		"y": 2,
+		"id": 18,
+		"nom": "blocage",
+		"x": 6,
+		"y": 6,
 		"pages": [
 		{
 			"conditions": [
@@ -1059,17 +957,88 @@
 			}
 			],
 			"commandes": [
+			],
+			"image": "algues character",
+			"opacite": 0,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 7,
+		"nom": "blocage",
+		"x": 7,
+		"y": 9,
+		"pages": [
+		{
+			"conditions": [
 			{
-				"nom": "Message",
-				"texte": "gfdjhdgf"
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "algues character",
+			"opacite": 0,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 29,
+		"nom": "init cloche retour",
+		"x": 20,
+		"y": 12,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 65,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 1,
+				"operationAFaire2": "valeur brute"
 			},
 			{
-				"nom": "AjouterGadget",
-				"idGadget": 3
+				"nom": "ModifierVariable",
+				"numeroVariable": 93,
+				"operationAFaire": "rendre egal a",
+				"operationAFaire2": "numero de la map"
 			},
 			{
-				"nom": "AjouterGadget",
-				"idGadget": 2
+				"nom": "Commentaire",
+				"texte": "(c'est 163 ici)"
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 94,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 18,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 95,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 3,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "SupprimerEvent"
 			}
 			],
 			"vitesse": "moderee",
@@ -1081,6 +1050,42 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 46,
+		"nom": "tige",
+		"x": 5,
+		"y": 13,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": true,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 13,
+		"nom": "Clone[582][103]",
+		"x": 17,
+		"y": 5
+	},
+	{
+		"id": 24,
+		"nom": "Clone[582][37]",
+		"x": 18,
+		"y": 5
 	},
 	{
 		"id": 2,
@@ -1193,22 +1198,10 @@
 		]
 	},
 	{
-		"id": 24,
-		"nom": "Clone[582][37]",
-		"x": 18,
-		"y": 5
-	},
-	{
-		"id": 13,
-		"nom": "Clone[582][103]",
-		"x": 17,
-		"y": 5
-	},
-	{
-		"id": 46,
-		"nom": "tige",
-		"x": 5,
-		"y": 13,
+		"id": 35,
+		"nom": "triche",
+		"x": 20,
+		"y": 2,
 		"pages": [
 		{
 			"conditions": [
@@ -1217,160 +1210,24 @@
 			}
 			],
 			"commandes": [
+			{
+				"nom": "Message",
+				"texte": "gfdjhdgf"
+			},
+			{
+				"nom": "AjouterGadget",
+				"idGadget": 3
+			},
+			{
+				"nom": "AjouterGadget",
+				"idGadget": 2
+			}
 			],
 			"vitesse": "moderee",
 			"frequence": "basse",
-			"animeEnMouvement": false,
+			"animeEnMouvement": true,
 			"animeALArret": false,
 			"directionFixe": false,
-			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 30,
-		"nom": "Stèle",
-		"x": 16,
-		"y": 11,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 0,
-				"direction": 3,
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) \"Here I am in \\c[2]Ringo\\c[0]'s sanctuary,\\nwhere apple trees grow on the granite."
-			},
-			{
-				"nom": "Message",
-				"texte": "\"Me voici dans le sanctuaire de \\c[2]Ringo\\c[1],\\noù les pommiers poussent à même le granit."
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) He was one of the great scholars of the legend."
-			},
-			{
-				"nom": "Message",
-				"texte": "Il fut un des grands érudits de la légende."
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) I hope that I will find a clue about the exit \\nof Kujira..."
-			},
-			{
-				"nom": "Message",
-				"texte": "J'espère que je trouverai au fond un indice\\nsur la sortie de Kujira..."
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) For the dungeon key, it's better to ask \\na key specialist for some advice..."
-			},
-			{
-				"nom": "Message",
-				"texte": "Pour la clé du donjon, mieux vaut demander \\nconseil à un spécialiste des clés..."
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) Whoever enters this place will have to show \\nskill and thought.\""
-			},
-			{
-				"nom": "Message",
-				"texte": "Celui qui pénétrera ce lieu devra faire \\npreuve d'adresse et de réflexion.\""
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en)                         Memoirs of the \\c[2]traveling poet\\c[0]"
-			},
-			{
-				"nom": "Message",
-				"texte": "                        Mémoires du \\c[2]poète voyageur"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 8,
-		"nom": "blocage",
-		"x": 5,
-		"y": 9,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "algues character",
-			"opacite": 0,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 19,
-		"nom": "blocage",
-		"x": 5,
-		"y": 6,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "algues character",
-			"opacite": 0,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
 			"traversable": false,
 			"auDessusDeTout": false
 		}
@@ -2571,10 +2428,10 @@
 		]
 	},
 	{
-		"id": 14,
-		"nom": "Trou",
-		"x": 13,
-		"y": 3,
+		"id": 19,
+		"nom": "blocage",
+		"x": 5,
+		"y": 6,
 		"pages": [
 		{
 			"conditions": [
@@ -2584,27 +2441,139 @@
 			],
 			"commandes": [
 			],
-			"vitesse": "normale",
-			"frequence": "haute",
+			"image": "algues character",
+			"opacite": 0,
+			"vitesse": "moderee",
+			"frequence": "basse",
 			"animeEnMouvement": false,
 			"animeALArret": false,
 			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": true
+			"traversable": false,
+			"auDessusDeTout": false
 		}
 		]
 	},
 	{
-		"id": 3,
-		"nom": "Clone[341][002]",
-		"x": 16,
-		"y": 4
+		"id": 8,
+		"nom": "blocage",
+		"x": 5,
+		"y": 9,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "algues character",
+			"opacite": 0,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
-		"id": 25,
-		"nom": "Clone[582][37]",
+		"id": 30,
+		"nom": "Stèle",
 		"x": 16,
-		"y": 6
+		"y": 11,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 0,
+				"direction": 3,
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \"Here I am in \\c[2]Ringo\\c[0]'s sanctuary,\\nwhere apple trees grow on the granite."
+			},
+			{
+				"nom": "Message",
+				"texte": "\"Me voici dans le sanctuaire de \\c[2]Ringo\\c[1],\\noù les pommiers poussent à même le granit."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) He was one of the great scholars of the legend."
+			},
+			{
+				"nom": "Message",
+				"texte": "Il fut un des grands érudits de la légende."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) I hope that I will find a clue about the exit \\nof Kujira..."
+			},
+			{
+				"nom": "Message",
+				"texte": "J'espère que je trouverai au fond un indice\\nsur la sortie de Kujira..."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) For the dungeon key, it's better to ask \\na key specialist for some advice..."
+			},
+			{
+				"nom": "Message",
+				"texte": "Pour la clé du donjon, mieux vaut demander \\nconseil à un spécialiste des clés..."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Whoever enters this place will have to show \\nskill and thought.\""
+			},
+			{
+				"nom": "Message",
+				"texte": "Celui qui pénétrera ce lieu devra faire \\npreuve d'adresse et de réflexion.\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en)                         Memoirs of the \\c[2]traveling poet\\c[0]"
+			},
+			{
+				"nom": "Message",
+				"texte": "                        Mémoires du \\c[2]poète voyageur"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 36,
@@ -2666,10 +2635,22 @@
 		]
 	},
 	{
-		"id": 20,
-		"nom": "Pancarte",
-		"x": 10,
-		"y": 1,
+		"id": 25,
+		"nom": "Clone[582][37]",
+		"x": 16,
+		"y": 6
+	},
+	{
+		"id": 3,
+		"nom": "Clone[341][002]",
+		"x": 16,
+		"y": 4
+	},
+	{
+		"id": 14,
+		"nom": "Trou",
+		"x": 13,
+		"y": 3,
 		"pages": [
 		{
 			"conditions": [
@@ -2678,49 +2659,44 @@
 			}
 			],
 			"commandes": [
+			],
+			"vitesse": "normale",
+			"frequence": "haute",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": true
+		}
+		]
+	},
+	{
+		"id": 31,
+		"nom": "Clone[341][008]",
+		"x": 6,
+		"y": 2
+	},
+	{
+		"id": 42,
+		"nom": "blocage",
+		"x": 6,
+		"y": 8,
+		"pages": [
+		{
+			"conditions": [
 			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 0,
-				"direction": 3,
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en)  \\u266A \\u266B The apples did roll roll roll  \\u266A \\u266B "
-			},
-			{
-				"nom": "Message",
-				"texte": " \\u266A \\u266B Les pommes faisaient rouli roula  \\u266A \\u266B "
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
+				"nom": "Parler"
 			}
 			],
+			"commandes": [
+			],
+			"image": "algues character",
+			"opacite": 0,
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": false,
 			"animeALArret": false,
-			"directionFixe": false,
+			"directionFixe": true,
 			"traversable": false,
 			"auDessusDeTout": false
 		}
@@ -2946,10 +2922,10 @@
 		]
 	},
 	{
-		"id": 42,
-		"nom": "blocage",
-		"x": 6,
-		"y": 8,
+		"id": 20,
+		"nom": "Pancarte",
+		"x": 10,
+		"y": 1,
 		"pages": [
 		{
 			"conditions": [
@@ -2958,58 +2934,49 @@
 			}
 			],
 			"commandes": [
-			],
-			"image": "algues character",
-			"opacite": 0,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 31,
-		"nom": "Clone[341][008]",
-		"x": 6,
-		"y": 2
-	},
-	{
-		"id": 4,
-		"nom": "Clone[582][101]",
-		"x": 17,
-		"y": 4
-	},
-	{
-		"id": 26,
-		"nom": "Clone[582][37]",
-		"x": 16,
-		"y": 2
-	},
-	{
-		"id": 15,
-		"nom": "blocage",
-		"x": 8,
-		"y": 7,
-		"pages": [
-		{
-			"conditions": [
 			{
-				"nom": "Parler"
+				"nom": "ConditionDirection",
+				"idEventConcerne": 0,
+				"direction": 3,
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en)  \\u266A \\u266B The apples did roll roll roll  \\u266A \\u266B "
+			},
+			{
+				"nom": "Message",
+				"texte": " \\u266A \\u266B Les pommes faisaient rouli roula  \\u266A \\u266B "
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
 			}
 			],
-			"commandes": [
-			],
-			"image": "algues character",
-			"opacite": 0,
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": false,
 			"animeALArret": false,
-			"directionFixe": true,
+			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
 		}
@@ -3042,10 +3009,10 @@
 		]
 	},
 	{
-		"id": 21,
+		"id": 15,
 		"nom": "blocage",
-		"x": 4,
-		"y": 6,
+		"x": 8,
+		"y": 7,
 		"pages": [
 		{
 			"conditions": [
@@ -3068,32 +3035,107 @@
 		]
 	},
 	{
-		"id": 10,
-		"nom": "incrément",
-		"x": 13,
-		"y": 2,
+		"id": 26,
+		"nom": "Clone[582][37]",
+		"x": 16,
+		"y": 2
+	},
+	{
+		"id": 4,
+		"nom": "Clone[582][101]",
+		"x": 17,
+		"y": 4
+	},
+	{
+		"id": 32,
+		"nom": "blocage",
+		"x": 6,
+		"y": 9,
 		"pages": [
 		{
 			"conditions": [
 			],
 			"commandes": [
 			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
+				"nom": "ConditionVariable",
+				"numeroVariable": 339,
+				"inegalite": "==",
+				"valeurQuIlEstCenseAvoir": 4,
+				"comparerAUneAutreVariable": false,
+				"numero": 0
 			},
 			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 130,
-				"operationAFaire": "ajouter",
-				"valeurADonner": 1,
-				"operationAFaire2": "valeur brute"
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RendreTraversable",
+					"traversable": true
+				}
+				]
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 340,
+				"inegalite": "==",
+				"valeurQuIlEstCenseAvoir": 4,
+				"comparerAUneAutreVariable": false,
+				"numero": 1
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RendreTraversable",
+					"traversable": true
+				}
+				]
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 1
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RendreTraversable",
+					"traversable": false
+				}
+				]
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
 			}
 			],
+			"image": "algues character",
+			"opacite": 0,
 			"vitesse": "moderee",
 			"frequence": "basse",
-			"animeEnMouvement": true,
+			"animeEnMouvement": false,
 			"animeALArret": false,
-			"directionFixe": false,
+			"directionFixe": true,
 			"traversable": false,
 			"auDessusDeTout": false
 		}
@@ -3219,87 +3261,50 @@
 		]
 	},
 	{
-		"id": 32,
-		"nom": "blocage",
-		"x": 6,
-		"y": 9,
+		"id": 10,
+		"nom": "incrément",
+		"x": 13,
+		"y": 2,
 		"pages": [
 		{
 			"conditions": [
 			],
 			"commandes": [
 			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 339,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 4,
-				"comparerAUneAutreVariable": false,
-				"numero": 0
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "RendreTraversable",
-					"traversable": true
-				}
-				]
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 340,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 4,
-				"comparerAUneAutreVariable": false,
-				"numero": 1
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "RendreTraversable",
-					"traversable": true
-				}
-				]
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "RendreTraversable",
-					"traversable": false
-				}
-				]
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
 				"nom": "Attendre",
 				"nombreDeFrames": 1
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 130,
+				"operationAFaire": "ajouter",
+				"valeurADonner": 1,
+				"operationAFaire2": "valeur brute"
 			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 21,
+		"nom": "blocage",
+		"x": 4,
+		"y": 6,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
 			],
 			"image": "algues character",
 			"opacite": 0,

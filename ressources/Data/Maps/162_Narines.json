@@ -884,6 +884,48 @@
 		]
 	},
 	{
+		"id": 28,
+		"nom": "reinitialiser pomme",
+		"x": 14,
+		"y": 1,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "Commentaire",
+				"texte": "pour éviter le softlock \\nréinitialiser la grosse pomme qui roule"
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 339,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 4,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 340,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 3,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 23,
 		"nom": "Clone[341][004]",
 		"x": 11,

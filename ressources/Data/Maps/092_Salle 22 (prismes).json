@@ -81,6 +81,38 @@
 		]
 	},
 	{
+		"id": 16,
+		"nom": "deplacer serrure",
+		"x": 20,
+		"y": 5,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "TeleporterEvent",
+				"idEvent": 15,
+				"variable": false,
+				"nouveauX": 19,
+				"nouveauY": 3,
+				"direction": 0
+			},
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 11,
 		"nom": "sable qui tombe (-12)",
 		"x": 17,
@@ -119,7 +151,7 @@
 	},
 	{
 		"id": 12,
-		"nom": "Clone[341][078]",
+		"nom": "Clone[341][187]",
 		"x": 18,
 		"y": 4
 	},
@@ -128,31 +160,6 @@
 		"nom": "Clone[582][91]",
 		"x": 6,
 		"y": 8
-	},
-	{
-		"id": 13,
-		"nom": "sable qui tombe (-12)",
-		"x": 18,
-		"y": 2,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "sable qui tombe character",
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
 	},
 	{
 		"id": 2,
@@ -181,6 +188,31 @@
 			"animeALArret": false,
 			"directionFixe": false,
 			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 13,
+		"nom": "sable qui tombe (-12)",
+		"x": 18,
+		"y": 2,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "sable qui tombe character",
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": true,
+			"directionFixe": true,
+			"traversable": true,
 			"auDessusDeTout": false
 		}
 		]
@@ -217,16 +249,16 @@
 		]
 	},
 	{
-		"id": 3,
-		"nom": "Clone[582][91]",
-		"x": 2,
-		"y": 2
-	},
-	{
 		"id": 14,
 		"nom": "Clone[341][078]",
 		"x": 16,
 		"y": 3
+	},
+	{
+		"id": 3,
+		"nom": "Clone[582][91]",
+		"x": 2,
+		"y": 2
 	},
 	{
 		"id": 9,
@@ -264,6 +296,12 @@
 		"nom": "Clone[582][91]",
 		"x": 18,
 		"y": 10
+	},
+	{
+		"id": 15,
+		"nom": "Clone[341][0057]",
+		"x": 19,
+		"y": 4
 	},
 	{
 		"id": 10,

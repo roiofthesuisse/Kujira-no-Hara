@@ -141,18 +141,6 @@
 	],
 	"events": [
 	{
-		"id": 5,
-		"nom": "Clone[341][004]",
-		"x": 29,
-		"y": 21
-	},
-	{
-		"id": 16,
-		"nom": "Clone[341][165]",
-		"x": 11,
-		"y": 20
-	},
-	{
 		"id": 27,
 		"nom": "cache",
 		"x": 19,
@@ -176,6 +164,24 @@
 			"auDessusDeTout": true
 		}
 		]
+	},
+	{
+		"id": 16,
+		"nom": "Clone[341][165]",
+		"x": 11,
+		"y": 20
+	},
+	{
+		"id": 5,
+		"nom": "Clone[341][004]",
+		"x": 29,
+		"y": 21
+	},
+	{
+		"id": 11,
+		"nom": "Clone[341][147]",
+		"x": 29,
+		"y": 14
 	},
 	{
 		"id": 22,
@@ -215,16 +221,64 @@
 		]
 	},
 	{
-		"id": 11,
-		"nom": "Clone[341][147]",
-		"x": 29,
-		"y": 14
-	},
-	{
-		"id": 28,
-		"nom": "Clone[582][120]",
-		"x": 22,
-		"y": 31
+		"id": 6,
+		"nom": "Rebeca SHADOW[20,4]",
+		"x": 17,
+		"y": 17,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"rebeca\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) All the western learned music\\nis based on the \"fact\" that  2^19=3^12."
+			},
+			{
+				"nom": "Message",
+				"texte": "Toute la musique savante occidentale est basée \\nsur le \"fait\" que 2^19=3^12."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Which, between us, makes anyone\\nwho has heard of the fundamental\\ntheorem of arithmetic\\nchuckle..."
+			},
+			{
+				"nom": "Message",
+				"texte": "Ce qui, entre nous, fait glousser quiconque \\nayant entendu parler du théorème fondamental \\nde l'arithmétique..."
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"image": "rebeca character",
+			"directionInitiale": 2,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 17,
@@ -287,55 +341,42 @@
 		]
 	},
 	{
-		"id": 6,
-		"nom": "Rebeca SHADOW[20,4]",
+		"id": 28,
+		"nom": "Clone[582][120]",
+		"x": 22,
+		"y": 31
+	},
+	{
+		"id": 1,
+		"nom": "Clone[341][039]",
 		"x": 17,
-		"y": 17,
+		"y": 26
+	},
+	{
+		"id": 12,
+		"nom": "EV012",
+		"x": 19,
+		"y": 30,
 		"pages": [
 		{
 			"conditions": [
 			{
-				"nom": "Parler"
+				"nom": "ArriveeAuContact"
 			}
 			],
 			"commandes": [
 			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 152,
+				"xDebutHeros": 23,
+				"yDebutHeros": 14
 			},
 			{
-				"nom": "AppelerUnScript",
-				"script": "$game_temp.faceset = \"rebeca\""
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) All the western learned music\\nis based on the \"fact\" that  2^19=3^12."
-			},
-			{
-				"nom": "Message",
-				"texte": "Toute la musique savante occidentale est basée \\nsur le \"fait\" que 2^19=3^12."
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) Which, between us, makes anyone\\nwho has heard of the fundamental\\ntheorem of arithmetic\\nchuckle..."
-			},
-			{
-				"nom": "Message",
-				"texte": "Ce qui, entre nous, fait glousser quiconque \\nayant entendu parler du théorème fondamental \\nde l'arithmétique..."
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
+				"nom": "EffacerImage",
+				"numero": 3
 			}
 			],
-			"image": "rebeca character",
-			"directionInitiale": 2,
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": true,
@@ -423,45 +464,10 @@
 		]
 	},
 	{
-		"id": 12,
-		"nom": "EV012",
-		"x": 19,
-		"y": 30,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 152,
-				"xDebutHeros": 23,
-				"yDebutHeros": 14
-			},
-			{
-				"nom": "EffacerImage",
-				"numero": 3
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 1,
-		"nom": "Clone[341][039]",
-		"x": 17,
-		"y": 26
+		"id": 7,
+		"nom": "Clone[582][32]",
+		"x": 28,
+		"y": 20
 	},
 	{
 		"id": 18,
@@ -686,10 +692,81 @@
 		]
 	},
 	{
-		"id": 7,
-		"nom": "Clone[582][32]",
-		"x": 28,
-		"y": 20
+		"id": 29,
+		"nom": "trompette",
+		"x": 18,
+		"y": 17,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 0,
+				"direction": 1,
+				"numero": 0
+			},
+			{
+				"nom": "ConditionArmeEquipee",
+				"idArme": 5,
+				"numero": 1
+			},
+			{
+				"nom": "ConditionScript",
+				"script": "$game_player.target_in_da_zone?(@event_id, 3)",
+				"numero": 2
+			},
+			{
+				"nom": "ConditionInterrupteur",
+				"numeroInterrupteur": 16,
+				"valeurQuIlEstCenseAvoir": false,
+				"numero": 3
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "trompette pouet.mp3",
+				"volume": 1.00,
+				"tempo": 0.50
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 3
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 2
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 13,
+		"nom": "Clone[341][030]",
+		"x": 21,
+		"y": 14
+	},
+	{
+		"id": 2,
+		"nom": "Clone[341][039]",
+		"x": 21,
+		"y": 26
 	},
 	{
 		"id": 24,
@@ -739,16 +816,10 @@
 		]
 	},
 	{
-		"id": 2,
-		"nom": "Clone[341][039]",
-		"x": 21,
-		"y": 26
-	},
-	{
-		"id": 13,
-		"nom": "Clone[341][030]",
-		"x": 21,
-		"y": 14
+		"id": 8,
+		"nom": "Clone[582][40]",
+		"x": 28,
+		"y": 13
 	},
 	{
 		"id": 19,
@@ -837,57 +908,10 @@
 		]
 	},
 	{
-		"id": 8,
-		"nom": "Clone[582][40]",
-		"x": 28,
-		"y": 13
-	},
-	{
-		"id": 25,
-		"nom": "livre",
-		"x": 27,
-		"y": 14,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) Music scores..."
-			},
-			{
-				"nom": "Message",
-				"texte": "Des partitions..."
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
-			],
-			"directionInitiale": 3,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
+		"id": 3,
+		"nom": "Clone[341][004]",
+		"x": 9,
+		"y": 21
 	},
 	{
 		"id": 14,
@@ -1115,10 +1139,76 @@
 		]
 	},
 	{
-		"id": 3,
-		"nom": "Clone[341][004]",
-		"x": 9,
-		"y": 21
+		"id": 25,
+		"nom": "livre",
+		"x": 27,
+		"y": 14,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Music scores..."
+			},
+			{
+				"nom": "Message",
+				"texte": "Des partitions..."
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"directionInitiale": 3,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 9,
+		"nom": "cache",
+		"x": 20,
+		"y": 11,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": 17,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": true
+		}
+		]
 	},
 	{
 		"id": 20,
@@ -1202,27 +1292,43 @@
 		]
 	},
 	{
-		"id": 9,
-		"nom": "cache",
+		"id": 4,
+		"nom": "Clone[582][115]",
+		"x": 11,
+		"y": 13
+	},
+	{
+		"id": 15,
+		"nom": "EV015",
 		"x": 20,
-		"y": 11,
+		"y": 13,
 		"pages": [
 		{
 			"conditions": [
 			{
-				"nom": "Parler"
+				"nom": "ArriveeAuContact"
 			}
 			],
 			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 413,
+				"xDebutHeros": 12,
+				"yDebutHeros": 11
+			},
+			{
+				"nom": "EffacerImage",
+				"numero": 3
+			}
 			],
-			"image": 17,
 			"vitesse": "moderee",
 			"frequence": "basse",
-			"animeEnMouvement": false,
+			"animeEnMouvement": true,
 			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": true
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
 		}
 		]
 	},
@@ -1274,45 +1380,29 @@
 		]
 	},
 	{
-		"id": 15,
-		"nom": "EV015",
-		"x": 20,
-		"y": 13,
+		"id": 10,
+		"nom": "cache",
+		"x": 21,
+		"y": 11,
 		"pages": [
 		{
 			"conditions": [
 			{
-				"nom": "ArriveeAuContact"
+				"nom": "Parler"
 			}
 			],
 			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 413,
-				"xDebutHeros": 12,
-				"yDebutHeros": 11
-			},
-			{
-				"nom": "EffacerImage",
-				"numero": 3
-			}
 			],
+			"image": 17,
 			"vitesse": "moderee",
 			"frequence": "basse",
-			"animeEnMouvement": true,
+			"animeEnMouvement": false,
 			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": true
 		}
 		]
-	},
-	{
-		"id": 4,
-		"nom": "Clone[582][115]",
-		"x": 11,
-		"y": 13
 	},
 	{
 		"id": 21,
@@ -1353,31 +1443,6 @@
 			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 10,
-		"nom": "cache",
-		"x": 21,
-		"y": 11,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": 17,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": true
 		}
 		]
 	}

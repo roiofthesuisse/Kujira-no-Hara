@@ -384,7 +384,7 @@
 	},
 	{
 		"id": 12,
-		"nom": "EV012",
+		"nom": "changement de phase",
 		"x": 20,
 		"y": 4,
 		"pages": [
@@ -412,10 +412,6 @@
 			{
 				"nom": "Attendre",
 				"nombreDeFrames": 333
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
 			},
 			{
 				"nom": "ConditionFin",
@@ -600,9 +596,7 @@
 					"tempo": 1.50
 				},
 				{
-					"nom": "AvancerEnFonctionDUnEvent",
-					"idEventObserve": 0,
-					"sens": "suivre"
+					"nom": "AvancerAleatoirement"
 				},
 				{
 					"nom": "ModifierVitesse",
@@ -700,7 +694,7 @@
 			"animeALArret": true,
 			"directionFixe": true,
 			"traversable": false,
-			"auDessusDeTout": true
+			"auDessusDeTout": false
 		},
 		{
 			"conditions": [
@@ -723,7 +717,7 @@
 			"animeALArret": true,
 			"directionFixe": true,
 			"traversable": false,
-			"auDessusDeTout": true
+			"auDessusDeTout": false
 		},
 		{
 			"conditions": [
@@ -875,26 +869,6 @@
 			{
 				"nom": "Attendre",
 				"nombreDeFrames": 16
-			},
-			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 55
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "PasEnArriere"
-				}
-				]
-			},
-			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 55
 			},
 			{
 				"nom": "Commentaire",
@@ -1142,7 +1116,7 @@
 			"animeALArret": true,
 			"directionFixe": true,
 			"traversable": true,
-			"auDessusDeTout": true
+			"auDessusDeTout": false
 		},
 		{
 			"conditions": [
@@ -1254,7 +1228,7 @@
 	},
 	{
 		"id": 7,
-		"nom": "EV007",
+		"nom": "gestion boss",
 		"x": 20,
 		"y": 3,
 		"pages": [
@@ -1268,10 +1242,18 @@
 			],
 			"commandes": [
 			{
+				"nom": "Commentaire",
+				"texte": "Déplacement des gouttes"
+			},
+			{
 				"nom": "ConditionInterrupteur",
 				"numeroInterrupteur": 3,
 				"valeurQuIlEstCenseAvoir": false,
 				"numero": 0
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "placer les gouttes sur le boss"
 			},
 			{
 				"nom": "ModifierVariable",
@@ -1317,19 +1299,16 @@
 				"valeur": false
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "rendre visibles les gouttes"
+			},
+			{
 				"nom": "Deplacement",
 				"idEventADeplacer": 8,
 				"ignorerLesMouvementsImpossibles": false,
 				"repeterLeDeplacement": false,
 				"attendreLaFinDuDeplacement": false,
 				"mouvements": [
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "JouerEffetSonore",
-					"nomFichierSonore": "bulle.mp3",
-					"volume": 1.00,
-					"tempo": 1.00
-				},
 				{
 					"nom": "ModifierApparence",
 					"image": "goutte d'eau character",
@@ -1340,110 +1319,6 @@
 				{
 					"nom": "ModifierOpacite",
 					"opacite": 255
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 1
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "JouerEffetSonore",
-					"nomFichierSonore": "017-Jump03.ogg",
-					"volume": 0.50,
-					"tempo": 0.80
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "goutte d'eau character",
-					"direction": 1,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "PasEnDiagonale",
-					"directionVerticale": 0,
-					"directionHorizontale": 1,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "goutte d'eau character",
-					"direction": 2,
-					"animation": 1,
-					"teinte": 0
-				},
-				{
-					"nom": "PasEnDiagonale",
-					"directionVerticale": 0,
-					"directionHorizontale": 1,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "goutte d'eau character",
-					"direction": 2,
-					"animation": 3,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 1
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "goutte d'eau character",
-					"direction": 3,
-					"animation": 1,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 1
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "JouerEffetSonore",
-					"nomFichierSonore": "021-Dive01.ogg",
-					"volume": 1.00,
-					"tempo": 1.00
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "goutte d'eau character",
-					"direction": 3,
-					"animation": 2,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 3
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "goutte d'eau character",
-					"direction": 3,
-					"animation": 3,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 3
-				},
-				{
-					"nom": "ModifierOpacite",
-					"opacite": 0
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "goutte d'eau character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
 				}
 				]
 			},
@@ -1464,117 +1339,6 @@
 				{
 					"nom": "ModifierOpacite",
 					"opacite": 255
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 1
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "JouerEffetSonore",
-					"nomFichierSonore": "bulle.mp3",
-					"volume": 1.00,
-					"tempo": 1.50
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "goutte d'eau character",
-					"direction": 1,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "PasEnDiagonale",
-					"directionVerticale": 0,
-					"directionHorizontale": 2,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "JouerEffetSonore",
-					"nomFichierSonore": "017-Jump03.ogg",
-					"volume": 0.50,
-					"tempo": 0.80
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "goutte d'eau character",
-					"direction": 2,
-					"animation": 1,
-					"teinte": 0
-				},
-				{
-					"nom": "PasEnDiagonale",
-					"directionVerticale": 0,
-					"directionHorizontale": 2,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "goutte d'eau character",
-					"direction": 2,
-					"animation": 3,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 1
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "goutte d'eau character",
-					"direction": 3,
-					"animation": 1,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 1
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "JouerEffetSonore",
-					"nomFichierSonore": "021-Dive01.ogg",
-					"volume": 1.00,
-					"tempo": 1.00
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "goutte d'eau character",
-					"direction": 3,
-					"animation": 2,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 3
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "goutte d'eau character",
-					"direction": 3,
-					"animation": 3,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 3
-				},
-				{
-					"nom": "ModifierOpacite",
-					"opacite": 0
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "goutte d'eau character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
 				}
 				]
 			},
@@ -1586,13 +1350,6 @@
 				"attendreLaFinDuDeplacement": false,
 				"mouvements": [
 				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "JouerEffetSonore",
-					"nomFichierSonore": "bulle.mp3",
-					"volume": 1.00,
-					"tempo": 1.30
-				},
-				{
 					"nom": "ModifierApparence",
 					"image": "goutte d'eau character",
 					"direction": 0,
@@ -1602,49 +1359,114 @@
 				{
 					"nom": "ModifierOpacite",
 					"opacite": 255
+				}
+				]
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(8)"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(9)"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(10)"
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 8,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "goutte d'eau character",
+					"direction": 0,
+					"animation": 1,
+					"teinte": 0
+				},
+				{
+					"nom": "Sauter",
+					"x": 0,
+					"y": -2
+				}
+				]
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 9,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "goutte d'eau character",
+					"direction": 0,
+					"animation": 1,
+					"teinte": 0
+				},
+				{
+					"nom": "Sauter",
+					"x": 2,
+					"y": 2
+				}
+				]
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 10,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "goutte d'eau character",
+					"direction": 0,
+					"animation": 1,
+					"teinte": 0
+				},
+				{
+					"nom": "Sauter",
+					"x": -2,
+					"y": 2
+				}
+				]
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(8)"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(9)"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(10)"
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 8,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "goutte d'eau character",
+					"direction": 2,
+					"animation": 2,
+					"teinte": 0
 				},
 				{
 					"nom": "AppelerUneCommande",
 					"nomCommande": "Attendre",
 					"nombreDeFrames": 1
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "goutte d'eau character",
-					"direction": 1,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "Avancer",
-					"direction": 3,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "JouerEffetSonore",
-					"nomFichierSonore": "bulle.mp3",
-					"volume": 1.00,
-					"tempo": 1.30
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "goutte d'eau character",
-					"direction": 2,
-					"animation": 1,
-					"teinte": 0
-				},
-				{
-					"nom": "Avancer",
-					"direction": 3,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "JouerEffetSonore",
-					"nomFichierSonore": "017-Jump03.ogg",
-					"volume": 0.50,
-					"tempo": 0.80
 				},
 				{
 					"nom": "ModifierApparence",
@@ -1659,23 +1481,11 @@
 					"nombreDeFrames": 1
 				},
 				{
-					"nom": "ModifierApparence",
-					"image": "goutte d'eau character",
-					"direction": 3,
-					"animation": 1,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 1
-				},
-				{
 					"nom": "AppelerUneCommande",
 					"nomCommande": "JouerEffetSonore",
 					"nomFichierSonore": "021-Dive01.ogg",
-					"volume": 1.00,
-					"tempo": 1.00
+					"volume": 0.80,
+					"tempo": 1.50
 				},
 				{
 					"nom": "ModifierApparence",
@@ -1699,24 +1509,161 @@
 				{
 					"nom": "AppelerUneCommande",
 					"nomCommande": "Attendre",
-					"nombreDeFrames": 3
+					"nombreDeFrames": 1
 				},
 				{
 					"nom": "ModifierOpacite",
 					"opacite": 0
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "goutte d'eau character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
 				}
 				]
 			},
 			{
-				"nom": "AttendreLaFinDesDeplacements",
-				"idEvent": -1
+				"nom": "Deplacement",
+				"idEventADeplacer": 9,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "goutte d'eau character",
+					"direction": 2,
+					"animation": 2,
+					"teinte": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 1
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "goutte d'eau character",
+					"direction": 2,
+					"animation": 3,
+					"teinte": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 1
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "JouerEffetSonore",
+					"nomFichierSonore": "021-Dive01.ogg",
+					"volume": 0.80,
+					"tempo": 1.50
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "goutte d'eau character",
+					"direction": 3,
+					"animation": 2,
+					"teinte": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 3
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "goutte d'eau character",
+					"direction": 3,
+					"animation": 3,
+					"teinte": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 1
+				},
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 0
+				}
+				]
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 10,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "goutte d'eau character",
+					"direction": 2,
+					"animation": 2,
+					"teinte": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 1
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "goutte d'eau character",
+					"direction": 2,
+					"animation": 3,
+					"teinte": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 1
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "JouerEffetSonore",
+					"nomFichierSonore": "021-Dive01.ogg",
+					"volume": 0.80,
+					"tempo": 1.50
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "goutte d'eau character",
+					"direction": 3,
+					"animation": 2,
+					"teinte": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 3
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "goutte d'eau character",
+					"direction": 3,
+					"animation": 3,
+					"teinte": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 1
+				},
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 0
+				}
+				]
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(8)"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(9)"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(10)"
 			},
 			{
 				"nom": "Commentaire",
@@ -1941,9 +1888,6 @@
 		{
 			"conditions": [
 			{
-				"nom": "Contact"
-			},
-			{
 				"nom": "Interrupteur",
 				"numeroInterrupteur": 2,
 				"valeurQuIlEstCenseAvoir": true
@@ -1952,27 +1896,19 @@
 			"commandes": [
 			{
 				"nom": "ConditionScript",
-				"script": "$game_map.events[8].lolilol(nil, 8, 3) || $game_map.events[4].lolilol(nil, 8, 2)",
+				"script": "$game_map.events[@event_id].x==$game_player.x && $game_map.events[@event_id].y==$game_player.y",
 				"numero": 0
 			},
 			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 16
-				}
-				]
+				"nom": "ConditionScript",
+				"script": "$game_map.events[@event_id].lolilol(nil, 8, 3) || $game_map.events[@event_id].lolilol(nil, 8, 2)",
+				"numero": 1
 			},
 			{
 				"nom": "ConditionInterrupteur",
 				"numeroInterrupteur": 15,
 				"valeurQuIlEstCenseAvoir": false,
-				"numero": 1
+				"numero": 2
 			},
 			{
 				"nom": "ModifierInterrupteur",
@@ -1980,39 +1916,8 @@
 				"valeur": true
 			},
 			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "OOT_YoungLink_Hurt3.wav",
-				"volume": 1.00,
-				"tempo": 0.80
-			},
-			{
-				"nom": "JouerAnimation",
-				"idEvent": 0,
-				"idAnimation": 1
-			},
-			{
 				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 55
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "PasEnArriere"
-				}
-				]
-			},
-			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 55
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
+				"numeroPageCommune": 56
 			},
 			{
 				"nom": "ModifierVariable",
@@ -2027,7 +1932,7 @@
 			},
 			{
 				"nom": "ConditionFin",
-				"numero": 1
+				"numero": 2
 			},
 			{
 				"nom": "TeleporterEvent",
@@ -2037,8 +1942,8 @@
 				"direction": 0
 			},
 			{
-				"nom": "ConditionSinon",
-				"numero": 0
+				"nom": "ConditionFin",
+				"numero": 1
 			},
 			{
 				"nom": "ConditionFin",
@@ -2149,9 +2054,6 @@
 		{
 			"conditions": [
 			{
-				"nom": "Contact"
-			},
-			{
 				"nom": "Interrupteur",
 				"numeroInterrupteur": 2,
 				"valeurQuIlEstCenseAvoir": true
@@ -2160,27 +2062,19 @@
 			"commandes": [
 			{
 				"nom": "ConditionScript",
-				"script": "$game_map.events[9].lolilol(nil, 8, 3) || $game_map.events[4].lolilol(nil, 8, 2)",
+				"script": "$game_map.events[@event_id].x==$game_player.x && $game_map.events[@event_id].y==$game_player.y",
 				"numero": 0
 			},
 			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 16
-				}
-				]
+				"nom": "ConditionScript",
+				"script": "$game_map.events[@event_id].lolilol(nil, 8, 3) || $game_map.events[@event_id].lolilol(nil, 8, 2)",
+				"numero": 1
 			},
 			{
 				"nom": "ConditionInterrupteur",
 				"numeroInterrupteur": 15,
 				"valeurQuIlEstCenseAvoir": false,
-				"numero": 1
+				"numero": 2
 			},
 			{
 				"nom": "ModifierInterrupteur",
@@ -2188,39 +2082,8 @@
 				"valeur": true
 			},
 			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "OOT_YoungLink_Hurt3.wav",
-				"volume": 1.00,
-				"tempo": 0.80
-			},
-			{
-				"nom": "JouerAnimation",
-				"idEvent": 0,
-				"idAnimation": 1
-			},
-			{
 				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 55
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "PasEnArriere"
-				}
-				]
-			},
-			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 55
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
+				"numeroPageCommune": 56
 			},
 			{
 				"nom": "ModifierVariable",
@@ -2235,7 +2098,7 @@
 			},
 			{
 				"nom": "ConditionFin",
-				"numero": 1
+				"numero": 2
 			},
 			{
 				"nom": "TeleporterEvent",
@@ -2245,8 +2108,8 @@
 				"direction": 0
 			},
 			{
-				"nom": "ConditionSinon",
-				"numero": 0
+				"nom": "ConditionFin",
+				"numero": 1
 			},
 			{
 				"nom": "ConditionFin",
@@ -2362,9 +2225,6 @@
 		{
 			"conditions": [
 			{
-				"nom": "Contact"
-			},
-			{
 				"nom": "Interrupteur",
 				"numeroInterrupteur": 2,
 				"valeurQuIlEstCenseAvoir": true
@@ -2373,27 +2233,19 @@
 			"commandes": [
 			{
 				"nom": "ConditionScript",
-				"script": "$game_map.events[10].lolilol(nil, 8, 3) || $game_map.events[4].lolilol(nil, 8, 2)",
+				"script": "$game_map.events[@event_id].x==$game_player.x && $game_map.events[@event_id].y==$game_player.y",
 				"numero": 0
 			},
 			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 16
-				}
-				]
+				"nom": "ConditionScript",
+				"script": "$game_map.events[@event_id].lolilol(nil, 8, 3) || $game_map.events[@event_id].lolilol(nil, 8, 2)",
+				"numero": 1
 			},
 			{
 				"nom": "ConditionInterrupteur",
 				"numeroInterrupteur": 15,
 				"valeurQuIlEstCenseAvoir": false,
-				"numero": 1
+				"numero": 2
 			},
 			{
 				"nom": "ModifierInterrupteur",
@@ -2401,39 +2253,8 @@
 				"valeur": true
 			},
 			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "OOT_YoungLink_Hurt3.wav",
-				"volume": 1.00,
-				"tempo": 0.80
-			},
-			{
-				"nom": "JouerAnimation",
-				"idEvent": 0,
-				"idAnimation": 1
-			},
-			{
 				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 55
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "PasEnArriere"
-				}
-				]
-			},
-			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 55
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
+				"numeroPageCommune": 56
 			},
 			{
 				"nom": "ModifierVariable",
@@ -2448,7 +2269,7 @@
 			},
 			{
 				"nom": "ConditionFin",
-				"numero": 1
+				"numero": 2
 			},
 			{
 				"nom": "TeleporterEvent",
@@ -2458,8 +2279,8 @@
 				"direction": 0
 			},
 			{
-				"nom": "ConditionSinon",
-				"numero": 0
+				"nom": "ConditionFin",
+				"numero": 1
 			},
 			{
 				"nom": "ConditionFin",

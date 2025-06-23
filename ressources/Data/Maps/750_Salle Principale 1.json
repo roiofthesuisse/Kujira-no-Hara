@@ -61,10 +61,35 @@
 	],
 	"events": [
 	{
-		"id": 5,
-		"nom": "Clone[341][004]",
-		"x": 17,
-		"y": 4
+		"id": 27,
+		"nom": "EV027",
+		"x": 20,
+		"y": 12,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 762,
+				"xDebutHeros": 1,
+				"yDebutHeros": 12
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 16,
@@ -98,10 +123,16 @@
 		]
 	},
 	{
-		"id": 27,
-		"nom": "EV027",
+		"id": 5,
+		"nom": "Clone[341][004]",
+		"x": 17,
+		"y": 4
+	},
+	{
+		"id": 11,
+		"nom": "EV011",
 		"x": 20,
-		"y": 12,
+		"y": 9,
 		"pages": [
 		{
 			"conditions": [
@@ -115,7 +146,7 @@
 				"variable": false,
 				"numeroNouvelleMap": 762,
 				"xDebutHeros": 1,
-				"yDebutHeros": 12
+				"yDebutHeros": 9
 			}
 			],
 			"vitesse": "moderee",
@@ -123,79 +154,6 @@
 			"animeEnMouvement": true,
 			"animeALArret": false,
 			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 22,
-		"nom": "statue viking 1",
-		"x": 7,
-		"y": 5,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 0,
-				"direction": 3,
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) \\c[2]Shor\\c[0], the Viking god"
-			},
-			{
-				"nom": "Message",
-				"texte": "\\c[2]Shor\\c[1], le dieu viking"
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) During battles he brandished\\nhis sword in the left hand\\nand his shield in the right hand."
-			},
-			{
-				"nom": "Message",
-				"texte": "Lors des batailles, il brandissait son glaive \\ndans la main gauche, et son bouclier dans \\nla main droite."
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) \"This is how you fight\", he said."
-			},
-			{
-				"nom": "Message",
-				"texte": "\"C'est comme ça que l'on combat\", disait-il."
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
-			],
-			"image": "statues viking shor grover",
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
 			"traversable": false,
 			"auDessusDeTout": false
 		}
@@ -569,10 +527,89 @@
 		]
 	},
 	{
-		"id": 11,
-		"nom": "EV011",
+		"id": 22,
+		"nom": "statue viking 1",
+		"x": 7,
+		"y": 5,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 0,
+				"direction": 3,
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \\c[2]Shor\\c[0], the Viking god"
+			},
+			{
+				"nom": "Message",
+				"texte": "\\c[2]Shor\\c[1], le dieu viking"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) During battles he brandished\\nhis sword in the left hand\\nand his shield in the right hand."
+			},
+			{
+				"nom": "Message",
+				"texte": "Lors des batailles, il brandissait son glaive \\ndans la main gauche, et son bouclier dans \\nla main droite."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \"This is how you fight\", he said."
+			},
+			{
+				"nom": "Message",
+				"texte": "\"C'est comme ça que l'on combat\", disait-il."
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"image": "statues viking shor grover",
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 6,
+		"nom": "Clone[341][063]",
+		"x": 4,
+		"y": 12
+	},
+	{
+		"id": 28,
+		"nom": "EV028",
 		"x": 20,
-		"y": 9,
+		"y": 8,
 		"pages": [
 		{
 			"conditions": [
@@ -586,7 +623,7 @@
 				"variable": false,
 				"numeroNouvelleMap": 762,
 				"xDebutHeros": 1,
-				"yDebutHeros": 9
+				"yDebutHeros": 8
 			}
 			],
 			"vitesse": "moderee",
@@ -681,10 +718,10 @@
 		]
 	},
 	{
-		"id": 28,
-		"nom": "EV028",
+		"id": 12,
+		"nom": "EV012",
 		"x": 20,
-		"y": 8,
+		"y": 7,
 		"pages": [
 		{
 			"conditions": [
@@ -698,7 +735,7 @@
 				"variable": false,
 				"numeroNouvelleMap": 762,
 				"xDebutHeros": 1,
-				"yDebutHeros": 8
+				"yDebutHeros": 7
 			}
 			],
 			"vitesse": "moderee",
@@ -710,18 +747,6 @@
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 6,
-		"nom": "Clone[341][063]",
-		"x": 4,
-		"y": 12
-	},
-	{
-		"id": 1,
-		"nom": "Clone[341][004]",
-		"x": 18,
-		"y": 4
 	},
 	{
 		"id": 23,
@@ -798,61 +823,16 @@
 		]
 	},
 	{
-		"id": 12,
-		"nom": "EV012",
-		"x": 20,
-		"y": 7,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 762,
-				"xDebutHeros": 1,
-				"yDebutHeros": 7
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
+		"id": 1,
+		"nom": "Clone[341][004]",
+		"x": 18,
+		"y": 4
 	},
 	{
-		"id": 18,
-		"nom": "buisson haut",
-		"x": 18,
-		"y": 1,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "buisson fixe",
-			"directionInitiale": 1,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
+		"id": 7,
+		"nom": "Clone[341][063]",
+		"x": 6,
+		"y": 12
 	},
 	{
 		"id": 29,
@@ -915,10 +895,61 @@
 		]
 	},
 	{
-		"id": 7,
-		"nom": "Clone[341][063]",
-		"x": 6,
-		"y": 12
+		"id": 18,
+		"nom": "buisson haut",
+		"x": 18,
+		"y": 1,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "buisson fixe",
+			"directionInitiale": 1,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 2,
+		"nom": "EV002",
+		"x": 0,
+		"y": 12,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 755,
+				"xDebutHeros": 19,
+				"yDebutHeros": 12
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 24,
@@ -996,41 +1027,30 @@
 		]
 	},
 	{
-		"id": 2,
-		"nom": "EV002",
-		"x": 0,
-		"y": 12,
+		"id": 30,
+		"nom": "liane g (32)",
+		"x": 6,
+		"y": 8,
 		"pages": [
 		{
 			"conditions": [
 			{
-				"nom": "ArriveeAuContact"
+				"nom": "Parler"
 			}
 			],
 			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 755,
-				"xDebutHeros": 19,
-				"yDebutHeros": 12
-			}
 			],
+			"image": "liane pomme character",
+			"directionInitiale": 2,
 			"vitesse": "moderee",
 			"frequence": "basse",
-			"animeEnMouvement": true,
+			"animeEnMouvement": false,
 			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": true
 		}
 		]
-	},
-	{
-		"id": 8,
-		"nom": "Clone[341][004]",
-		"x": 16,
-		"y": 4
 	},
 	{
 		"id": 19,
@@ -1059,28 +1079,70 @@
 		]
 	},
 	{
-		"id": 30,
-		"nom": "liane g (32)",
-		"x": 6,
-		"y": 8,
+		"id": 8,
+		"nom": "Clone[341][004]",
+		"x": 16,
+		"y": 4
+	},
+	{
+		"id": 3,
+		"nom": "EV003",
+		"x": 5,
+		"y": 14,
 		"pages": [
 		{
 			"conditions": [
 			{
-				"nom": "Parler"
+				"nom": "ArriveeAuContact"
 			}
 			],
 			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 759,
+				"xDebutHeros": 5,
+				"yDebutHeros": 1
+			}
 			],
-			"image": "liane pomme character",
-			"directionInitiale": 2,
 			"vitesse": "moderee",
 			"frequence": "basse",
-			"animeEnMouvement": false,
+			"animeEnMouvement": true,
 			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": true
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 14,
+		"nom": "EV014",
+		"x": 0,
+		"y": 4,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 755,
+				"xDebutHeros": 19,
+				"yDebutHeros": 4
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
 		}
 		]
 	},
@@ -1159,10 +1221,10 @@
 		]
 	},
 	{
-		"id": 14,
-		"nom": "EV014",
+		"id": 9,
+		"nom": "EV009",
 		"x": 0,
-		"y": 4,
+		"y": 7,
 		"pages": [
 		{
 			"conditions": [
@@ -1176,7 +1238,7 @@
 				"variable": false,
 				"numeroNouvelleMap": 755,
 				"xDebutHeros": 19,
-				"yDebutHeros": 4
+				"yDebutHeros": 7
 			}
 			],
 			"vitesse": "moderee",
@@ -1190,33 +1252,27 @@
 		]
 	},
 	{
-		"id": 3,
-		"nom": "EV003",
-		"x": 5,
-		"y": 14,
+		"id": 31,
+		"nom": "liane d (32)",
+		"x": 14,
+		"y": 8,
 		"pages": [
 		{
 			"conditions": [
 			{
-				"nom": "ArriveeAuContact"
+				"nom": "Parler"
 			}
 			],
 			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 759,
-				"xDebutHeros": 5,
-				"yDebutHeros": 1
-			}
 			],
+			"image": "liane pomme character",
 			"vitesse": "moderee",
 			"frequence": "basse",
-			"animeEnMouvement": true,
+			"animeEnMouvement": false,
 			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": true
 		}
 		]
 	},
@@ -1305,10 +1361,10 @@
 		]
 	},
 	{
-		"id": 31,
-		"nom": "liane d (32)",
-		"x": 14,
-		"y": 8,
+		"id": 26,
+		"nom": "pomme bloc",
+		"x": 10,
+		"y": 9,
 		"pages": [
 		{
 			"conditions": [
@@ -1318,43 +1374,13 @@
 			],
 			"commandes": [
 			],
-			"image": "liane pomme character",
+			"image": "pomme bloc character",
+			"directionInitiale": 1,
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": false,
 			"animeALArret": false,
 			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": true
-		}
-		]
-	},
-	{
-		"id": 9,
-		"nom": "EV009",
-		"x": 0,
-		"y": 7,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 755,
-				"xDebutHeros": 19,
-				"yDebutHeros": 7
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
 		}
@@ -1431,21 +1457,79 @@
 		]
 	},
 	{
-		"id": 26,
-		"nom": "pomme bloc",
-		"x": 10,
+		"id": 10,
+		"nom": "EV010",
+		"x": 0,
 		"y": 9,
 		"pages": [
 		{
 			"conditions": [
 			{
-				"nom": "Parler"
+				"nom": "ArriveeAuContact"
 			}
 			],
 			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 755,
+				"xDebutHeros": 19,
+				"yDebutHeros": 9
+			}
 			],
-			"image": "pomme bloc character",
-			"directionInitiale": 1,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 21,
+		"nom": "teleporteur",
+		"x": 10,
+		"y": 8,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 30,
+				"direction": 3,
+				"numero": 0
+			},
+			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 31,
+				"direction": 3,
+				"numero": 1
+			},
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 766,
+				"xDebutHeros": 10,
+				"yDebutHeros": 1
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			}
+			],
+			"image": 84,
+			"opacite": 0,
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": false,
@@ -1818,90 +1902,6 @@
 			"animeEnMouvement": false,
 			"animeALArret": false,
 			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 21,
-		"nom": "teleporteur",
-		"x": 10,
-		"y": 8,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 30,
-				"direction": 3,
-				"numero": 0
-			},
-			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 31,
-				"direction": 3,
-				"numero": 1
-			},
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 766,
-				"xDebutHeros": 10,
-				"yDebutHeros": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			}
-			],
-			"image": 84,
-			"opacite": 0,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 10,
-		"nom": "EV010",
-		"x": 0,
-		"y": 9,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 755,
-				"xDebutHeros": 19,
-				"yDebutHeros": 9
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
 		}

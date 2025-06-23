@@ -722,8 +722,144 @@
 			],
 			"commandes": [
 			{
+				"nom": "Commentaire",
+				"texte": "on peut dissiper le nuage avec l'éventail"
+			},
+			{
+				"nom": "ConditionArmeEquipee",
+				"idArme": 5,
+				"numero": 0
+			},
+			{
+				"nom": "ConditionScript",
+				"script": "$game_player.target_in_da_zone?(@event_id, 3)",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionInterrupteur",
+				"numeroInterrupteur": 16,
+				"valeurQuIlEstCenseAvoir": false,
+				"numero": 2
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "MC_Bush.wav",
+				"volume": 0.50,
+				"tempo": 1.00
+			},
+			{
 				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": true,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 225
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 1
+				},
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 200
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 1
+				},
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 175
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 1
+				},
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 150
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 1
+				},
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 125
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 1
+				},
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 100
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 1
+				},
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 75
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 1
+				},
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 50
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 1
+				},
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 25
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 1
+				},
+				{
+					"nom": "AppelerUnScript",
+					"script": "erase"
+				}
+				]
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(@event_id)"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 2
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			}
+			],
+			"deplacement": {
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
 				"repeterLeDeplacement": false,
 				"attendreLaFinDuDeplacement": false,
 				"mouvements": [
@@ -796,19 +932,13 @@
 					"nom": "AppelerUneCommande",
 					"nomCommande": "Attendre",
 					"nombreDeFrames": 8
+				},
+				{
+					"nom": "AppelerUnScript",
+					"script": "$game_self_switches[[$game_map.map_id, id, 'A']] = true"
 				}
 				]
 			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "wait_for_event(@event_id)"
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": true
-			}
-			],
 			"image": "nuages",
 			"directionInitiale": 1,
 			"vitesse": "normale",

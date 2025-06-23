@@ -126,37 +126,6 @@
 	],
 	"events": [
 	{
-		"id": 5,
-		"nom": "EV005",
-		"x": 18,
-		"y": 0,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 208,
-				"xDebutHeros": 18,
-				"yDebutHeros": 33
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
 		"id": 16,
 		"nom": "Avancement",
 		"x": 27,
@@ -231,10 +200,47 @@
 		]
 	},
 	{
+		"id": 5,
+		"nom": "EV005",
+		"x": 18,
+		"y": 0,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 208,
+				"xDebutHeros": 18,
+				"yDebutHeros": 33
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 11,
 		"nom": "Clone[341][36]",
 		"x": 16,
 		"y": 14
+	},
+	{
+		"id": 17,
+		"nom": "Clone[582][99]",
+		"x": 12,
+		"y": 21
 	},
 	{
 		"id": 6,
@@ -306,10 +312,38 @@
 		]
 	},
 	{
-		"id": 17,
-		"nom": "Clone[582][99]",
-		"x": 12,
-		"y": 21
+		"id": 1,
+		"nom": "brouillard de forêt",
+		"x": 27,
+		"y": 2,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "ModifierBrouillard",
+				"opacite": 100,
+				"modeDeFusion": "negatif",
+				"defilementX": 25,
+				"defilementY": -5,
+				"zoom": 200,
+				"nuance": 0,
+				"nomImage": "006-Sandstorm02"
+			},
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 12,
@@ -665,38 +699,10 @@
 		]
 	},
 	{
-		"id": 1,
-		"nom": "brouillard de forêt",
-		"x": 27,
-		"y": 2,
-		"pages": [
-		{
-			"conditions": [
-			],
-			"commandes": [
-			{
-				"nom": "ModifierBrouillard",
-				"opacite": 100,
-				"modeDeFusion": "negatif",
-				"defilementX": 25,
-				"defilementY": -5,
-				"zoom": 200,
-				"nuance": 0,
-				"nomImage": "006-Sandstorm02"
-			},
-			{
-				"nom": "SupprimerEvent"
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
+		"id": 18,
+		"nom": "Clone[582][99]",
+		"x": 15,
+		"y": 18
 	},
 	{
 		"id": 7,
@@ -801,10 +807,10 @@
 		]
 	},
 	{
-		"id": 18,
-		"nom": "Clone[582][99]",
-		"x": 15,
-		"y": 18
+		"id": 13,
+		"nom": "Clone[341][035]",
+		"x": 12,
+		"y": 13
 	},
 	{
 		"id": 2,
@@ -813,10 +819,10 @@
 		"y": 21
 	},
 	{
-		"id": 13,
-		"nom": "Clone[341][035]",
-		"x": 12,
-		"y": 13
+		"id": 19,
+		"nom": "Clone[582][99]",
+		"x": 17,
+		"y": 25
 	},
 	{
 		"id": 8,
@@ -1057,10 +1063,10 @@
 		]
 	},
 	{
-		"id": 19,
-		"nom": "Clone[582][99]",
-		"x": 17,
-		"y": 25
+		"id": 3,
+		"nom": "Clone[341][135]",
+		"x": 8,
+		"y": 16
 	},
 	{
 		"id": 14,
@@ -1069,22 +1075,16 @@
 		"y": 31
 	},
 	{
-		"id": 3,
-		"nom": "Clone[341][135]",
-		"x": 8,
-		"y": 16
+		"id": 9,
+		"nom": "Clone[341][189]",
+		"x": 19,
+		"y": 17
 	},
 	{
 		"id": 20,
 		"nom": "Clone[582][99]",
 		"x": 20,
 		"y": 22
-	},
-	{
-		"id": 9,
-		"nom": "Clone[341][189]",
-		"x": 19,
-		"y": 17
 	},
 	{
 		"id": 4,
